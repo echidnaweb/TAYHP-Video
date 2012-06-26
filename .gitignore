@@ -1,0 +1,4 @@
+*.swp
+*~
+dist.DS_Store
+*.bak
