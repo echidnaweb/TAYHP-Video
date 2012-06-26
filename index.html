@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  html,
+  body {
+      width:100%;
+      height:100%;
+  }
+  html {display:table;}
+  body {
+      display:table-cell;
+      vertical-align:middle;
+  }
+  #body {
+      max-width:50em;
+      margin:0 auto;
+      background-color: #eee;
+  }
+  #video { width: 200px}
+</style>
+<title>The Are You Happy Project</title>
+<script src="http://popcornjs.org/code/dist/popcorn-complete.js"></script>
+<script>
+  document.addEventListener( "DOMContentLoaded", function()
+  {
+    var popcorn = Popcorn.vimeo( "#video", "http://vimeo.com/29017015" );
+
+    popcorn.twitter({
+    start:'1.0',
+    end:'15.0',
+    src:'#happy',
+    target:'area1',
+    height:'',
+    width:''}); 
+
+  }, false );
+</script>
+</head>
+
+<body>
+  <div id="body">
+    <div id="video"></div>
+    <!--<div id="area1"></div>-->
+  </div>
+ 
+</body>
+</html>
