@@ -11,7 +11,7 @@ class ExtDataCache {
     private $path;
     private $expiry;
 
-    function __construct($path,$expiry)
+    function __construct($path="/tmp",$expiry=3600)
     {
       $this->path = $path;
       $this->expiry = $expiry; 
