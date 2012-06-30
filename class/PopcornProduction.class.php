@@ -1,3 +1,4 @@
+<?php
 /**
  * A class for generating Popcorn.js javascript event calls from a json-based configuration 
  *
@@ -13,20 +14,25 @@ Class PopcornProduction
      $this->loadConfig($pathtoconfig);
      $this->process(); 
   }
+  
+  public function getJS()
+  {
+    return "alert('JS loaded!');\n";
+  }
 
   /* Load and decode the JSON config from the specified path */
   private function loadConfig($pathtoconfig)
   {
     if($json = file_get_contents($pathtoconfig))
     {
-      if ($decode = json_decode($tljson,true))
+      if ($decode = json_decode($json,true))
       {
         $this->aConfig = $decode;
       }
       else
       {
         $this->addError("Could not decode JSON config");
-        return false
+        return false;
       }
     }
     else
@@ -50,9 +56,9 @@ Class PopcornProduction
   
   private function processEvent(&$event)
   {
-     if (isset($event['popcornOptions']['type']))
+     if (isset($event['type']))
      {
-        $APIClassname = ucfirst($event['popcornOptions']['type'])."API";
+        $APIClassname = ucfirst($event['type'])."API";
         if (class_exists($APIClassname)) 
         {
           $oAPI = new $APIClassname;
@@ -65,5 +71,5 @@ Class PopcornProduction
   {
     $this->aError[] = $errstr; 
   }
-
+  
 }

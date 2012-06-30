@@ -1,3 +1,4 @@
+<?php
 /**
  * External Data Cache 
  * 
@@ -15,7 +16,7 @@ class ExtDataCache {
     {
       $this->path = $path;
       $this->expiry = $expiry; 
-      $this->load();
+      $this->load(false);
     }
     
     /* Load cache from file */    
@@ -28,13 +29,13 @@ class ExtDataCache {
        }
       
        // if cache file is expired delete it 
-       if (!$acceptexpired $this->isExpired())
+       if (!$acceptexpired && $this->isExpired())
        {
          return false;
        }
 
        // attempt to get a file handle 
-       if (!$fp = @fopen($path, 'r'))
+       if (!$fp = @fopen($this->path, 'r'))
        {
          return false;
        }
@@ -43,17 +44,17 @@ class ExtDataCache {
        flock($fp, LOCK_SH);
 
        // decode the data 
-       if (filesize($cache_path) > 0)
+       if (filesize($this->path) > 0)
        {
-          $cache = json_decode(fread($fp, filesize($path)),true);
+          $cache = json_decode(fread($fp, filesize($this->path)),true);
           if (is_null($cache) || !$cache) return false;
           $this->cache = $cache; 
        }
-       lock($fp, LOCK_UN);
+       flock($fp, LOCK_UN);
        fclose($fp);
     }
     
-    private function isExpired())
+    private function isExpired()
     {
       return (filemtime($this->path) < (time() - $this->expiry));
     }    
@@ -61,7 +62,7 @@ class ExtDataCache {
     /* delete the cache file */ 
     private function delete()
     {
-        if (file_exists(this->cache))
+        if (file_exists($this->cache))
         {
             unlink($this->cache);
             return TRUE;
@@ -80,18 +81,21 @@ class ExtDataCache {
       }
      
       // attempt to get a file handle
-      if (!$fp = fopen($cache_path, 'w'))
+      if (!$fp = fopen($this->path, 'w'))
       {
         return FALSE;
       }
-      
+
       if (flock($fp, LOCK_EX))
       {
         fwrite($fp, json_encode($this->cache));
         flock($fp, LOCK_UN);
       }
-      else return FALSE;
-
+      else 
+      {
+        echo 3;
+        return FALSE;
+      }
       fclose($fp);
       @chmod($this->path, 0777);
       return TRUE;
@@ -104,7 +108,7 @@ class ExtDataCache {
     }
 
     /* get a value from the cache */
-    public function getValue($key,$value)
+    public function getValue($key)
     {
       if (isset($this->cache[$key]))
         return $this->cache[$key];
