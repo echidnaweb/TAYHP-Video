@@ -9,7 +9,7 @@ class TwitterAPI
   private static $cache;
 
   /* Process a Popcorn Twitter event */
-  public function processEvent($event)
+  public function processEvent(&$event)
   {
     $results = array();
     if(isset($event['popcornOptions']['src']))
@@ -18,11 +18,9 @@ class TwitterAPI
 
       // if there is an entry in the cache retrieve it
       $results = $this->getCache()->getValue($qry);
-
       // otherwise search the Twitter API 
       if (!$results || count($results) == 0) 
       {
-        echo "searching twitter";
         $results = $this->doSearch($qry);
         $this->getCache()->setValue($qry,$results);
         if ($results && count($results) > 0) $this->getCache()->save();
@@ -36,7 +34,7 @@ class TwitterAPI
       else return false;
     }
     else return false;
-
+    
     return true;
   }
  

@@ -8,12 +8,13 @@ define("CACHE_DIR", getcwd()."/cache");
 // Includes
 include ("class/PopcornProduction.class.php");
 include ("class/TwitterAPI.class.php");
+include ("class/TwitterEvent.class.php");
 include ("class/ExtDataCache.class.php");
 
 if (isset($_GET['video']))
 {
-   $pcpage = new PopCornProduction(CONFIG_PATH."/".$_GET['video'].".json");
-   $output = $pcpage->getJS();
+   $pcp = new PopCornProduction(CONFIG_PATH."/".$_GET['video'].".json");
+   $output = $pcp->getJS();
 }
 else $output = "alert('Error: Missing Video ID!');";
 

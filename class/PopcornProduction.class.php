@@ -8,18 +8,31 @@
 Class PopcornProduction
 {
   private $aConfig;
+  private $aEvent;
   private $aError;
+  private $js;
+
   function __construct($pathtoconfig)
   {
      $this->loadConfig($pathtoconfig);
-     $this->process(); 
+     $this->loadEvents();
+     $this->generateJS();
   }
   
   public function getJS()
   {
-    return "alert('JS loaded!');\n";
-  }
+    return $this->js;
+  } 
 
+  private function generateJS()
+  {
+    $this->js = "";
+    foreach ($this->aEvent as $event)
+    {
+      $this->js .= $event->getJS();
+    }
+  }
+  
   /* Load and decode the JSON config from the specified path */
   private function loadConfig($pathtoconfig)
   {
@@ -43,28 +56,22 @@ Class PopcornProduction
     return true;
   }
 
-  private function process()
+  private function loadEvents()
   {
-     foreach ($this->aConfig['media'][0]['tracks'] as $track)
-     {
+    foreach ($this->aConfig['media'][0]['tracks'] as $track)
+    {
        foreach ($track['trackEvents'] as $event)
        {
-         $this->processEvent($event); 
+         if (isset($event['type']))
+         {
+            $EventClassname = ucfirst($event['type'])."Event";
+            if (class_exists($EventClassname))
+            {
+              $this->aEvent[] = new $EventClassname($event);
+            }
+          }
        }
-     } 
-  }
-  
-  private function processEvent(&$event)
-  {
-     if (isset($event['type']))
-     {
-        $APIClassname = ucfirst($event['type'])."API";
-        if (class_exists($APIClassname)) 
-        {
-          $oAPI = new $APIClassname;
-          $oAPI->processEvent($event);
-        }
-     } 
+    }
   }
 
   private function addError($errstr)
