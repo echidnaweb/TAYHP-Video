@@ -9,12 +9,14 @@ Class PopcornProduction
 {
   private $aConfig;
   private $aEvent;
+  private $aTarget;
   private $aError;
   private $js;
 
   function __construct($pathtoconfig)
   {
      $this->loadConfig($pathtoconfig);
+     $this->loadTargets();
      $this->loadEvents();
      $this->generateJS();
   }
@@ -26,7 +28,11 @@ Class PopcornProduction
 
   private function generateJS()
   {
-    $this->js = "";
+    print_r($this->aConfig);
+    $this->js = <<<EOF
+
+
+EOF;
     foreach ($this->aEvent as $event)
     {
       $this->js .= $event->getJS();
@@ -71,6 +77,14 @@ Class PopcornProduction
             }
           }
        }
+    }
+  }
+
+  private function loadTargets()
+  {
+    foreach ($this->aConfig['targets'] as $target)
+    {
+      $this->aTargetId[] = $target['id'];   
     }
   }
 
