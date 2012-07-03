@@ -17,10 +17,11 @@
             {
               "id": "TrackEvent0",
               "type": "twitter",
+              "template": "foursquare",
               "popcornOptions": {
                 "start": 1.872,
                 "end": 2.872,
-                "target": "Twitter",
+                "target": "%random%",
                 "src": "salt",
                 "height": "200",
                 "width": "250"
@@ -31,10 +32,11 @@
             {
               "id": "TrackEvent2",
               "type": "twitter",
+              "template": "foursquare",
               "popcornOptions": {
                 "start": 3.708,
                 "end": 4.72,
-                "target": "Twitter",
+                "target": "%random%",
                 "src": "mustard",
                 "height": "200",
                 "width": "250"
@@ -51,10 +53,11 @@
             {
               "id": "TrackEvent1",
               "type": "twitter",
+              "template": "foursquare",
               "popcornOptions": {
                 "start": 3.484,
                 "end": 4.484,
-                "target": "Twitter",
+                "target": "%random%",
                 "src": "vinegar",
                 "height": "200",
                 "width": "250"

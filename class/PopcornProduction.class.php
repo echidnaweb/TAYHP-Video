@@ -16,7 +16,6 @@ Class PopcornProduction
   function __construct($pathtoconfig)
   {
      $this->loadConfig($pathtoconfig);
-     $this->loadTargets();
      $this->loadEvents();
      $this->generateJS();
   }
@@ -28,7 +27,6 @@ Class PopcornProduction
 
   private function generateJS()
   {
-    print_r($this->aConfig);
     $this->js = <<<EOF
 
 
@@ -77,14 +75,6 @@ EOF;
             }
           }
        }
-    }
-  }
-
-  private function loadTargets()
-  {
-    foreach ($this->aConfig['targets'] as $target)
-    {
-      $this->aTargetId[] = $target['id'];   
     }
   }
 
