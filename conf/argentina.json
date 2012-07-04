@@ -21,7 +21,7 @@
               "popcornOptions": {
                 "start": 1.872,
                 "end": 2.872,
-                "target": "%random%",
+                "target": "area6",
                 "src": "salt",
                 "height": "200",
                 "width": "250"

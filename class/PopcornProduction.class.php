@@ -28,13 +28,18 @@ Class PopcornProduction
   private function generateJS()
   {
     $this->js = <<<EOF
-
+function init_popcorn()
+{
+    var popcorn = Popcorn.vimeo( "#video", "http://vimeo.com/29017015");
 
 EOF;
+
     foreach ($this->aEvent as $event)
     {
       $this->js .= $event->getJS();
     }
+    $this->js .="}\n";
+
   }
   
   /* Load and decode the JSON config from the specified path */
