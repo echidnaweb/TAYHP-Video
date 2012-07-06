@@ -27,10 +27,11 @@ Class PopcornProduction
 
   private function generateJS()
   {
+    $media_url = $this->aConfig['media'][0]['url'][0];
     $this->js = <<<EOF
 function init_popcorn()
 {
-    var popcorn = Popcorn.vimeo( "#video", "http://vimeo.com/29017015");
+    var popcorn = Popcorn.vimeo( "#video", "$media_url");
 
 EOF;
 

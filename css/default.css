@@ -3,43 +3,47 @@ body {
       background-color: #000;
       width:100%;
       height:100%;
-      display:table-cell;
-      vertical-align:middle;
       color: white;
+      margin: 0;
+      overflow: hidden;
 }
 
-html {display:table;}
+#floater { float: left; height: 50%; margin-bottom: -250px }
 
 #contentlayer {
+    clear: both;
+    position: relative;
     width: 800px;
-    height: 600px;
-    margin:0 auto;
-    z-index: 20;
+    height: 500px;
+    margin: 0 auto;
+    z-index: 10;
 }
 
 #videolayer {
     width:800px;
-    height: 600px;
+    height: 500px;
     margin:0 auto;
     position: relative;
-    top: -600px;
-    z-index: 10;
+    top: -500px;
+    z-index: 20;
 }
 
-#toprow, #bottomrow { width: 100%;}
-#middlerow { width: 100% }
+#toprow, #bottomrow { width: 100%; margin: 0}
+#middlerow { width: 100%; margin: 0}
 #area1, #area2, #area5, #area6 { 
+    margin: 0;
     width: 50%;
-    height: 140px;
+    height: 90px;
     float: left }
-#area3, #area4 { width: 130px; float: left; min-height: 315px }
+#area3, #area4 { margin: 0; width: 130px; float: left; min-height: 315px }
 #video, #novideo {
          width: 540px; 
          height: 315px;
          float: left;
+         margin: 0;
         }
 
-#video { margin: 140px 130px }
+#video { margin: 90px 130px }
 
 #video object { width: 540px;
              /*   height: 315px */}
