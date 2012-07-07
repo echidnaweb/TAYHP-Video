@@ -74,10 +74,10 @@ EOF;
        {
          if (isset($event['type']))
          {
-            $EventClassname = ucfirst($event['type'])."Event";
-            if (class_exists($EventClassname))
+            $eventClassname = ucfirst($event['type'])."Event";
+            if (class_exists($eventClassname))
             {
-              $this->aEvent[] = new $EventClassname($event);
+              $this->aEvent[] = new $eventClassname($event);
             }
           }
        }
