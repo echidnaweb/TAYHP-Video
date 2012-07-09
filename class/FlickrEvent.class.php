@@ -23,15 +23,17 @@ class FlickrEvent
 
   private function process()
   {
-
     if (!$this->photos || count($this->photos) < 1) return false;
- 
+
+    // Pic x number of random photos from the results
+    $randkeys = array_rand($this->photos['photo'],$this->numberofimages);
+    $randkeys = is_array($randkeys)?$randkeys:array($randkeys);
+
     $imgtag = "";
-    $randkeys = array_rand($this->photos,$this->numberofimages);
+    // Build img tags
     foreach ($randkeys as $randkey)
     {
-      $photo =  $this->photos[$randkey];
-      
+      $photo =  $this->photos['photo'][$randkey];
       $imgtag .= "<img border='0' alt='$photo[title]' ".
                  "src=" . $this->flickr_api->buildPhotoURL($photo, "Square") . ">";
     }
@@ -42,12 +44,11 @@ class FlickrEvent
        start: $this->start,
        end: $this->end,
        onStart: function( options ) {
-         var imgtag = '$imgtag';
+         var imgtag = "$imgtag";
          // If no template has been loaded yet or it has changed load template
          if (typeof window.template == 'undefined' && window.template != "$this->template")
          {
            window.template = "$this->template"; 
-           
            
            $('#contentlayer').load('tpl/'+window.template+'.html', function() { $('#$this->target').html(imgtag); }); 
          }
@@ -72,16 +73,14 @@ EOF;
     $this->end = $this->conf['popcornOptions']['end'];
     $this->target = $this->conf['popcornOptions']['target'];
     $this->template = $this->conf['template'];
+    $this->numberofimages = $this->conf['numberofimages'];
     $this->flickr_options = $this->conf['popcornOptions']['flickr_options']; 
-
-    if (!isset($this->conf['popcornOptions']['flickr_options']['apikey']))
-      return false;
 
     $this->flickr_api = new phpFlickr($this->conf['popcornOptions']['flickr_options']['apikey']);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
-    
+
     //flickr.photos.search
-    if ($this->photos = $this->flickr_api->photos_search($this->conf['popcornOptions']['flickr_options']))
+    if (!$this->photos = $this->flickr_api->photos_search($this->conf['popcornOptions']['flickr_options']))
       return false; 
 
     return true;
