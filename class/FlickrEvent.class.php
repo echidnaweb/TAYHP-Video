@@ -34,8 +34,9 @@ class FlickrEvent
     foreach ($randkeys as $randkey)
     {
       $photo =  $this->photos['photo'][$randkey];
-      $imgtag .= "<img border='0' alt='$photo[title]' ".
-                 "src=" . $this->flickr_api->buildPhotoURL($photo, "Square") . ">";
+      $photo_id = $this->id."_".$randkey;
+      $imgtag .= "<span id='$this->id'><img alt='$photo[title]' id='$photo_id' ".
+                 "src=" . $this->flickr_api->buildPhotoURL($photo, "Square") . "></span>";
     }
 
     $this->js .= <<<EOF
@@ -51,12 +52,17 @@ class FlickrEvent
            window.template = "$this->template"; 
            
            $('#contentlayer').load('tpl/'+window.template+'.html', function() { $('#$this->target').html(imgtag); }); 
+           $('#$this->target span#$this->id').fadeIn('slow');
          }
-         else $('#$this->target').html(imgtag);
-         window.eventlog['$this->id'] = '#$this->target';
+         else 
+         {         
+           $('#$this->target').html(imgtag);
+           $('#$this->target span#$this->id').fadeIn('slow');
+         } 
        },
        onEnd: function( options ) {
-        $(window.eventlog['$this->id']).empty(); 
+        //$('#$this->target img').fadeOut('slow', function() { $(window.eventlog['$this->id']).empty(); });
+        $('span#$this->id').fadeOut('slow', function() { $('span#$this->id').remove(); });
        }
      });\n
 

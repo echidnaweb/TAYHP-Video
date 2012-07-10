@@ -20,24 +20,29 @@ class TwitterEvent
 
   private function process()
   {
+    
     $this->js .= <<<EOF
     // Create a popcorn event 
     popcorn.code({
        start: $this->start,
        end: $this->end,
        onStart: function( options ) {
-         var tweet_text = '@'+'$this->from_user<br>$this->text';
+         var tweet_text = '<span id=\'$this->id\'>@'+'$this->from_user<br>$this->text</span>';
          // If no template has been loaded yet or it has changed load template
          if (typeof window.template == 'undefined' && window.template != "$this->template")
          {
            window.template = "$this->template"; 
            $('#contentlayer').load('tpl/'+window.template+'.html', function() { $('#$this->target').html(tweet_text); }); 
+           $('#$this->target span#$this->id').fadeIn('slow');
          }
-         else $('#$this->target').html(tweet_text);
-         window.eventlog['$this->id'] = '#$this->target';
+         else
+         {
+           $('#$this->target').html(tweet_text);
+           $('#$this->target span#$this->id').fadeIn('slow');
+         }
        },
        onEnd: function( options ) {
-        $(window.eventlog['$this->id']).empty(); 
+        $('span#$this->id').fadeOut('slow', function() { $('span#$this->id').remove(); });
        }
      });\n
 

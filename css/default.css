@@ -34,14 +34,18 @@ body {
     margin: 0;
     width: 50%;
     height: 90px;
-    float: left }
+    float: left; }
 #area3, #area4 { margin: 0; width: 130px; float: left; min-height: 315px }
+
+.target > * { display: none }
+
 #video, #novideo {
          width: 540px; 
          height: 315px;
          float: left;
          margin: 0;
         }
+
 
 #video { margin: 90px 130px }
 

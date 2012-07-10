@@ -23,12 +23,3 @@ else $output = "alert('Error: Missing Video ID!');";
 
 echo $output;
 ?>
-
-//document.addEventListener( "DOMContentLoaded",init_popcorn,false); 
-
-jQuery.fn.random = function() {
-    var randomIndex = Math.floor(Math.random() * this.length);  
-    return jQuery(this[randomIndex]);
-};
-
-var eventlog = Array();
