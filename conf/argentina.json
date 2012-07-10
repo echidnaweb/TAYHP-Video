@@ -47,7 +47,7 @@
             {
               "id": "TrackEvent4",
               "type": "flickr",
-              "template": "foursquare",
+              "template": "cwtch",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 5, 
@@ -88,23 +88,7 @@
               },
               "track": "Track1",
               "name": "TrackEvent1"
-            },
-            {
-              "id": "TrackEvent3",
-              "type": "twitter",
-              "template": "foursquare",
-              "popcornOptions": {
-                "start": 10.484,
-                "end": 20.484,
-                "target": "area5",
-                "src": "cheese",
-                "height": "200",
-                "width": "250"
-              },
-              "track": "Track1",
-              "name": "TrackEvent3"
             }
- 
           ]
         }
       ]

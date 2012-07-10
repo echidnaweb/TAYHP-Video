@@ -28,14 +28,26 @@ body {
     z-index: 20;
 }
 
-#toprow, #bottomrow { width: 100%; margin: 0}
-#middlerow { width: 100%; margin: 0}
-#area1, #area2, #area5, #area6 { 
+/* foursquare */
+body.foursquare #toprow, #bottomrow { width: 100%; margin: 0}
+body.foursquare #middlerow { width: 100%; margin: 0}
+body.foursquare #area1, #area2, #area5, #area6 { 
     margin: 0;
     width: 50%;
     height: 90px;
     float: left; }
-#area3, #area4 { margin: 0; width: 130px; float: left; min-height: 315px }
+body.foursquare #area3, #area4 { margin: 0; width: 130px; float: left; min-height: 315px }
+
+/* cwtch */
+body.cwtch #toprow, #bottomrow { width: 100%; margin: 0}
+body.cwtch #middlerow { width: 100%; margin: 0}
+body.cwtch #area1, #area2, #area5, #area6 {
+    margin: 0;
+    width: 50%;
+    height: 90px;
+    float: left; }
+body.cwtch #area3, #area4 { margin: 0; width: 130px; float: left; min-height: 315px }
+
 
 .target > * { display: none }
 

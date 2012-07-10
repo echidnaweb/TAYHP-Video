@@ -64,12 +64,15 @@ class FlickrEvent
        onStart: function( options ) {
          var imgtag = "$imgtag";
          // If no template has been loaded yet or it has changed load template
-         if (typeof window.template == 'undefined' && window.template != "$this->template")
+         if (typeof window.template == 'undefined' || window.template != "$this->template")
          {
            window.template = "$this->template"; 
-           
-           $('#contentlayer').load('tpl/'+window.template+'.html', function() { $('#$this->target').html(imgtag); }); 
-           $('#$this->target span#$this->id').fadeIn('slow');
+           $('#contentlayer').load('tpl/'+window.template+'.html', function() 
+           {
+             $('body').attr('class',window.template);
+             $('#$this->target').html(imgtag);
+             $('#$this->target span#$this->id').fadeIn('slow');
+           }); 
          }
          else 
          {         
