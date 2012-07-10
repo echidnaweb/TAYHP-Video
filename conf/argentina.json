@@ -43,6 +43,30 @@
               },
               "track": "Track0",
               "name": "TrackEvent2"
+            },
+            {
+              "id": "TrackEvent4",
+              "type": "flickr",
+              "template": "foursquare",
+              "numberofimages": 1,
+              "popcornOptions": {
+                "start": 5, 
+                "end": 10,
+                "target": "area1",
+                "userid": "",
+                "tags": "t-bone steak",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "height": "50px",
+                "width": "50px",
+                "size": "small",
+                "padding": "5px",
+                "border": "0px",
+                "orientation": "landscape",
+                "iscommons": "true"
+              },
+              "track": "Track0",
+              "name": "TrackEvent4"
             }
           ]
         },
@@ -78,7 +102,7 @@
                 "width": "250"
               },
               "track": "Track1",
-              "name": "TrackEvent1"
+              "name": "TrackEvent3"
             }
  
           ]

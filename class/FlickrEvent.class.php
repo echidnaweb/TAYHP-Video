@@ -10,7 +10,7 @@ class FlickrEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$target,$template,$numberofimages;
+  private $id,$start,$end,$target,$template,$orientation;
   private $flickr_api;
   private $flickr_options = array(); 
   private $photos = array();
@@ -21,23 +21,40 @@ class FlickrEvent
     if ($this->preprocess()) $this->process();
   }
 
+  private function get_random_photo($orientation=false)
+  {
+    $photos = $this->photos['photo'];
+    shuffle($photos);
+ 
+    foreach ($photos as $photo)
+    {
+      if (!isset($photo['width_s']) || !isset($photo['width_s']))
+       continue; 
+
+      switch ($orientation) 
+      {
+        case "landscape":
+          if ($photo['width_s'] > $photo['height_s']) return $photo;
+          break;
+        case "portrait":
+          if ($photo['height_s'] > $photo['width_s']) return $photo;
+          break;
+        default:
+          return $photo;
+      }
+    }
+
+    // if a photo of the requested orientation isn't available just return the first one 
+    return $photos[0];
+  }
+
   private function process()
   {
     if (!$this->photos || count($this->photos) < 1) return false;
 
-    // Pic x number of random photos from the results
-    $randkeys = array_rand($this->photos['photo'],$this->numberofimages);
-    $randkeys = is_array($randkeys)?$randkeys:array($randkeys);
-
-    $imgtag = "";
-    // Build img tags
-    foreach ($randkeys as $randkey)
-    {
-      $photo =  $this->photos['photo'][$randkey];
-      $photo_id = $this->id."_".$randkey;
-      $imgtag .= "<span id='$this->id'><img alt='$photo[title]' id='$photo_id' ".
-                 "src=" . $this->flickr_api->buildPhotoURL($photo, "Square") . "></span>";
-    }
+    $photo =  $this->get_random_photo($this->orientation);
+    $imgtag = "<span id='$this->id'><img alt='$photo[title]'".
+              "src=" . $this->flickr_api->buildPhotoURL($photo, $this->size) . "></span>";
 
     $this->js .= <<<EOF
     // Create a popcorn event 
@@ -72,26 +89,27 @@ EOF;
   
   private function preprocess()
   {
-    if (!isset($this->conf['popcornOptions']['flickr_options']['apikey'])) return false; 
+    if (!isset($this->conf['popcornOptions']['apikey'])) return false; 
 
-    $this->id = $this->conf['id'];
-    $this->start = $this->conf['popcornOptions']['start'];
-    $this->end = $this->conf['popcornOptions']['end'];
-    $this->target = $this->conf['popcornOptions']['target'];
-    $this->template = $this->conf['template'];
-    $this->numberofimages = $this->conf['numberofimages'];
-    $this->flickr_options = $this->conf['popcornOptions']['flickr_options']; 
+    $this->id = isset($this->conf['id'])?$this->conf['id']:"0";
+    $this->start = isset($this->conf['popcornOptions']['start'])?$this->conf['popcornOptions']['start']:"0";
+    $this->end = isset($this->conf['popcornOptions']['end'])?$this->conf['popcornOptions']['end']:"0";
+    $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:"unknown";
+    $this->template = isset($this->conf['template'])?$this->conf['template']:"0"; 
+    $this->orientation = isset($this->conf['popcornOptions']['orientation'])?$this->conf['popcornOptions']['orientation']:false; 
+    $this->size = isset($this->conf['small'])?$this->conf['size']:"small";
 
-    $this->flickr_api = new phpFlickr($this->conf['popcornOptions']['flickr_options']['apikey']);
+    $this->flickr_api = new phpFlickr($this->conf['popcornOptions']['apikey']);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
-    //flickr.photos.search
-    if (!$this->photos = $this->flickr_api->photos_search($this->conf['popcornOptions']['flickr_options']))
+    $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o";
+    
+    if (!$this->photos = $this->flickr_api->photos_search($this->conf['popcornOptions']))
       return false; 
 
     return true;
   }
-
+  
   public function getJS()
   {
     return $this->js;
