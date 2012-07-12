@@ -27,6 +27,7 @@ class TwitterEvent
        start: $this->start,
        end: $this->end,
        onStart: function( options ) {
+       
          var tweet_text = '<span id=\'$this->id\'>@'+'$this->from_user<br>$this->text</span>';
 
          // If no template has been loaded yet or it has changed load template
@@ -45,6 +46,7 @@ class TwitterEvent
            $('#$this->target').html(tweet_text);
            $('#$this->target span#$this->id').fadeIn('slow');
          }
+        
        },
        onEnd: function( options ) {
         $('span#$this->id').fadeOut('slow', function() { $('span#$this->id').remove(); });

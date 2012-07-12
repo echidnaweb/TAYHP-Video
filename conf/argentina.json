@@ -4,7 +4,7 @@
       "id": "Media0",
       "name": "Media0",
       "url": [
-        "http://vimeo.com/29017015"
+        "http://vimeo.com/8121722"
       ],
       "target": "main",
       "duration": 169,
@@ -43,30 +43,6 @@
               },
               "track": "Track0",
               "name": "TrackEvent2"
-            },
-            {
-              "id": "TrackEvent4",
-              "type": "flickr",
-              "template": "cwtch",
-              "numberofimages": 1,
-              "popcornOptions": {
-                "start": 5, 
-                "end": 10,
-                "target": "area1",
-                "userid": "",
-                "tags": "t-bone steak",
-                "username": "",
-                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
-                "height": "50px",
-                "width": "50px",
-                "size": "small",
-                "padding": "5px",
-                "border": "0px",
-                "orientation": "landscape",
-                "iscommons": "true"
-              },
-              "track": "Track0",
-              "name": "TrackEvent4"
             }
           ]
         },

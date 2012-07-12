@@ -5,62 +5,106 @@ body {
       height:100%;
       color: white;
       margin: 0;
-      overflow: hidden;
+      /* overflow: hidden; */
 }
 
-#floater { float: left; height: 50%; margin-bottom: -250px }
+#floater { float: left; height: 50%; margin-bottom: -300px }
 
 #contentlayer {
     clear: both;
     position: relative;
-    width: 800px;
-    height: 500px;
+    width: 1000px;
+    height: 600px;
     margin: 0 auto;
     z-index: 10;
+    /* background: grey; */
 }
 
 #videolayer {
-    width:800px;
-    height: 500px;
+    width: 1000px;
+    height: 600px;
     margin:0 auto;
     position: relative;
-    top: -500px;
+    top: -600px; 
     z-index: 20;
+    /* background: blue; */
 }
 
-/* foursquare */
-body.foursquare #toprow, #bottomrow { width: 100%; margin: 0}
-body.foursquare #middlerow { width: 100%; margin: 0}
-body.foursquare #area1, #area2, #area5, #area6 { 
-    margin: 0;
-    width: 50%;
-    height: 90px;
-    float: left; }
-body.foursquare #area3, #area4 { margin: 0; width: 130px; float: left; min-height: 315px }
+#video, #novideo {
+         
+         width: 100%;
+         height: 100%;
+         /* float: left; */
+         padding: 0;
+         margin: 0;
+         min-width: 545px;
+         min-height: 315px
+        }
 
-/* cwtch */
-body.cwtch #toprow, #bottomrow { width: 100%; margin: 0}
-body.cwtch #middlerow { width: 100%; margin: 0}
-body.cwtch #area1, #area2, #area5, #area6 {
-    margin: 0;
-    width: 50%;
-    height: 90px;
-    float: left; }
-body.cwtch #area3, #area4 { margin: 0; width: 130px; float: left; min-height: 315px }
+#video {  /* margin: 142px 220px */ }
 
+#video object { margin: 142px 220px; padding: 0; width: 545px}
 
 .target > * { display: none }
 
-#video, #novideo {
-         width: 540px; 
-         height: 315px;
-         float: left;
-         margin: 0;
-        }
+/* foursquare */
+body.foursquare #toprow, #bottomrow { width: 100%;}
+body.foursquare #middlerow { width: 100% }
+body.foursquare #area1, #area2, #area5, #area6 { 
+    width: 485px;
+    height: 140px;
+    float: left }
+body.foursquare #area3, #area4 { width: 220px; float: left; min-height: 315px }
+body.foursquare #area3 { margin-right: 530px }
+/* cwtch */
 
+body.cwtch #toprow, #bottomrow { width: 100%;}
+body.cwtch #middlerow { width: 100%;}
 
-#video { margin: 90px 130px }
+body.cwtch #area1, body.cwtch #area4, body.cwtch #area5, body.cwtch #area8 {
+    width: 220px;
+    height: 284px;
+    float: left;
+     }
 
-#video object { width: 540px;
-             /*   height: 315px */}
+body.cwtch #area2, body.cwtch #area3, body.cwtch #area6, body.cwtch #area7 {
+    width: 273px;
+    height: 142px;
+    float: left; }
 
+/*
+body.cwtch #area5, body.cwtch #area8 {
+    width: 220px;
+    height: 142px;
+    float: left; }
+*/
+
+body.cwtch #area1 { text-align: right; vertical-align: top }
+body.cwtch #area2 { text-align: left; vertical-align: bottom }
+body.cwtch #area3 { text-align: right; vertical-align: bottom }
+body.cwtch #area4 { text-align: left; vertical-align: top }
+body.cwtch #area5 { text-align: right; vertical-align: bottom; }
+body.cwtch #area6 { text-align: left; vertical-align: top; margin-top: 142px}
+body.cwtch #area7 { text-align: right; vertical-align: top; margin-top: 142px }
+body.cwtch #area8 { text-align: left; vertical-align: bottom }
+
+body.cwtch #area2 img,
+body.cwtch #area3 img,
+body.cwtch #area6 img,
+body.cwtch #area7 img { height: 142px }
+
+body.cwtch #area1 img,
+body.cwtch #area4 img,
+body.cwtch #area5 img,
+body.cwtch #area8 img { height: 284px; max-width: 220px }
+
+/*
+#area1 { background: yellow }
+#area2 { background: green }
+#area3 { background: red }
+#area4 { background: blue }
+#area5 { background: blue }
+#area6 { background: green }
+#area7 { background: red }
+#area8 { background: yellow }
+*/

@@ -53,8 +53,8 @@ class FlickrEvent
     if (!$this->photos || count($this->photos) < 1) return false;
 
     $photo =  $this->get_random_photo($this->orientation);
-    $imgtag = "<span id='$this->id'><img alt='$photo[title]'".
-              "src=" . $this->flickr_api->buildPhotoURL($photo, $this->size) . "></span>";
+    $imgtag = "<img id='$this->id' alt='$photo[title]'".
+              "src=" . $this->flickr_api->buildPhotoURL($photo, $this->size) . "></img>";
 
     $this->js .= <<<EOF
     // Create a popcorn event 
@@ -71,18 +71,18 @@ class FlickrEvent
            {
              $('body').attr('class',window.template);
              $('#$this->target').html(imgtag);
-             $('#$this->target span#$this->id').fadeIn('slow');
+             $('#$this->target #$this->id').fadeIn('slow');
            }); 
          }
          else 
          {         
            $('#$this->target').html(imgtag);
-           $('#$this->target span#$this->id').fadeIn('slow');
+           $('#$this->target #$this->id').fadeIn('slow');
          } 
        },
        onEnd: function( options ) {
         //$('#$this->target img').fadeOut('slow', function() { $(window.eventlog['$this->id']).empty(); });
-        $('span#$this->id').fadeOut('slow', function() { $('span#$this->id').remove(); });
+        $('#$this->id').fadeOut('slow', function() { $('#$this->id').remove(); });
        }
      });\n
 

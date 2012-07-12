@@ -8,7 +8,7 @@
 Class PopcornProduction
 {
   private $aConfig;
-  private $aEvent;
+  private $aEvent = array();
   private $aTarget;
   private $aError;
   private $js;
