@@ -53,10 +53,15 @@ class FlickrEvent
     if (!$this->photos || count($this->photos) < 1) return false;
 
     $photo =  $this->get_random_photo($this->orientation);
+    $url = $this->flickr_api->buildPhotoURL($photo, $this->size);
     $imgtag = "<img id='$this->id' alt='$photo[title]'".
-              "src=" . $this->flickr_api->buildPhotoURL($photo, $this->size) . "></img>";
+              "src=" . $url . "></img>";
 
     $this->js .= <<<EOF
+
+    //preload image
+    $('<img/>')[0].src = '$url';;
+
     // Create a popcorn event 
     popcorn.code({
        start: $this->start,

@@ -47,7 +47,41 @@ body {
 
 .target > * { display: none }
 
+/* carousel / slider */
+/*
+#drawercontainer {
+    position: absolute;
+    z-index: 30;
+    bottom: 0;
+    height: 125px;
+    width: 100%;
+}
+*/
+#thumbdrawer {
+    position: absolute; 
+    z-index: 30;
+    bottom: -100px; 
+    width: 100%;
+    height: 100px;
+    min-height: 100px;
+    background: #333; }
+
+#thumbtab {
+    position: relative;
+    top: -25px; 
+    margin: 0 auto;
+    padding: 4px 0;
+    background: #333;
+    width: 200px;
+    height: 25px;
+    text-align: center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; /* future proofing */
+    -khtml-border-radius: 5px; /* for old Konqueror browsers */}
+
 /* foursquare */
+
 body.foursquare #toprow, #bottomrow { width: 100%;}
 body.foursquare #middlerow { width: 100% }
 body.foursquare #area1, #area2, #area5, #area6 { 
@@ -56,6 +90,7 @@ body.foursquare #area1, #area2, #area5, #area6 {
     float: left }
 body.foursquare #area3, #area4 { width: 220px; float: left; min-height: 315px }
 body.foursquare #area3 { margin-right: 530px }
+
 /* cwtch */
 
 body.cwtch #toprow, #bottomrow { width: 100%;}
@@ -71,13 +106,6 @@ body.cwtch #area2, body.cwtch #area3, body.cwtch #area6, body.cwtch #area7 {
     width: 273px;
     height: 142px;
     float: left; }
-
-/*
-body.cwtch #area5, body.cwtch #area8 {
-    width: 220px;
-    height: 142px;
-    float: left; }
-*/
 
 body.cwtch #area1 { text-align: right; vertical-align: top }
 body.cwtch #area2 { text-align: left; vertical-align: bottom }

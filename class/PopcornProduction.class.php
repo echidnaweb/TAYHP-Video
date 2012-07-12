@@ -31,6 +31,15 @@ Class PopcornProduction
     $this->js = <<<EOF
 function init_popcorn()
 {
+    var opened = false;
+    $("#thumbtab").click(function(){
+        if(opened){
+            $("#thumbdrawer").animate({"bottom": "-=100px"}, "slow");
+        }else{
+            $("#thumbdrawer").animate({"bottom": "+=100px"}, "slow");
+        }
+        opened = opened ? false : true;
+    });
     var popcorn = Popcorn.vimeo( "#video", "$media_url");
 
 EOF;

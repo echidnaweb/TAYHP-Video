@@ -1,4 +1,5 @@
 document.addEventListener( "DOMContentLoaded", function()
+     $this->
 {
   var popcorn = Popcorn.vimeo( "#video", "http://vimeo.com/29017015");
   
