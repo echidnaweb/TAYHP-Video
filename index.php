@@ -3,8 +3,10 @@
 <head>
 <title>The Are You Happy Project</title>
 <style type="text/css">@import url("css/default.css");</style>
+<style type="text/css">@import url("js/jcarousel/skins/tango/skin.css");</style>
 <script src="js/popcorn-complete.js"></script>
 <script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jcarousel/jquery.jcarousel.min.js"></script>
 <script src="processtimeline.js.php?video=flickr"></script>
 <script>document.addEventListener( "DOMContentLoaded",init_popcorn,false);</script>
 </head>
@@ -17,7 +19,9 @@
   </div> 
   <div id="thumbdrawer">
     <div id="thumbtab">Choose another video</div>
-    <div id="thumbs"></div>
+    <div id="thumbs">
+      <?php include('thumbs.php');?>
+    </div>
   </div>
 </body>
 </html>

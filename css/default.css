@@ -80,6 +80,13 @@ body {
     border-radius: 5px; /* future proofing */
     -khtml-border-radius: 5px; /* for old Konqueror browsers */}
 
+#thumbs {
+    position: relative;
+    top: -40px;
+    width: 1000px;
+    height: 50px;
+    margin: 0 auto;
+}
 /* foursquare */
 
 body.foursquare #toprow, #bottomrow { width: 100%;}

@@ -31,6 +31,10 @@ Class PopcornProduction
     $this->js = <<<EOF
 function init_popcorn()
 {
+    jQuery('#video-carousel').jcarousel({
+      wrap: 'circular'
+    });
+
     var opened = false;
     $("#thumbtab").click(function(){
         if(opened){

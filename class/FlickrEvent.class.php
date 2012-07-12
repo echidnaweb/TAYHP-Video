@@ -54,7 +54,8 @@ class FlickrEvent
 
     $photo =  $this->get_random_photo($this->orientation);
     $url = $this->flickr_api->buildPhotoURL($photo, $this->size);
-    $imgtag = "<img id='$this->id' alt='$photo[title]'".
+    $alt = addslashes($photo['title']);
+    $imgtag = "<img id='$this->id' alt='$alt'".
               "src=" . $url . "></img>";
 
     $this->js .= <<<EOF
