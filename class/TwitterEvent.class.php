@@ -10,7 +10,7 @@ class TwitterEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$target,$src,$height,$width,$text,$from_user,$template;
+  private $id,$start,$end,$target,$src,$height,$width,$text,$from_user,$template,$class;
 
   function __construct($conf)
   {
@@ -28,7 +28,7 @@ class TwitterEvent
        end: $this->end,
        onStart: function( options ) {
        
-         var tweet_text = '<span id=\'$this->id\'>@'+'$this->from_user<br>$this->text</span>';
+         var tweet_text = '<span id=\'$this->id\' class=\'$this->class\'>@'+'$this->from_user<br>$this->text</span>';
 
          // If no template has been loaded yet or it has changed load template
          if (typeof window.template == 'undefined' || window.template != "$this->template")
@@ -74,6 +74,7 @@ EOF;
     $this->height = $this->conf['popcornOptions']['height'];
     $this->width = $this->conf['popcornOptions']['width'];
     $this->template = $this->conf['template'];
+    $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     return true;
   }
 

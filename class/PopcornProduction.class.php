@@ -34,7 +34,10 @@ Class PopcornProduction
 function init_popcorn()
 {
     $('#video').empty();
-    var popcorn = Popcorn.vimeo( "#video", "$media_url");
+    $('#videolayer').css('top', '-600px');
+    $('.target').empty();
+    popcorn = Popcorn.vimeo( "#video", "$media_url");
+    popcorn.on( "loadedmetadata", function() { this.play(); });
 
 EOF;
 
@@ -42,8 +45,9 @@ EOF;
     {
       $this->js .= $event->getJS();
     }
+    $this->js .="window.popcorn.play();";
     $this->js .="}\n";
-
+    
   }
   
   /* Load and decode the JSON config from the specified path */

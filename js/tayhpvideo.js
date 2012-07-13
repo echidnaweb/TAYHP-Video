@@ -28,6 +28,6 @@ function load_video(id)
   init_popcorn();
 })
 .fail(function(jqxhr, settings, exception) {
-  alert(exception);
+  //alert(exception);
 });
 }
