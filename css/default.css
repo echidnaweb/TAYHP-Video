@@ -5,7 +5,7 @@ body {
       height:100%;
       color: white;
       margin: 0;
-      /* overflow: hidden; */
+      overflow: hidden;
 }
 
 #floater { float: left; height: 50%; margin-bottom: -300px }
@@ -48,15 +48,7 @@ body {
 .target > * { display: none }
 
 /* carousel / slider */
-/*
-#drawercontainer {
-    position: absolute;
-    z-index: 30;
-    bottom: 0;
-    height: 125px;
-    width: 100%;
-}
-*/
+
 #thumbdrawer {
     position: absolute; 
     z-index: 30;

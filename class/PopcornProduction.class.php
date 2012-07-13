@@ -34,19 +34,6 @@ Class PopcornProduction
 function init_popcorn()
 {
     $('#video').empty();
-    jQuery('#video-carousel').jcarousel({
-      wrap: 'circular'
-    });
-
-    var opened = false;
-    $("#thumbtab").click(function(){
-        if(opened){
-            $("#thumbdrawer").animate({"bottom": "-=100px"}, "slow");
-        }else{
-            $("#thumbdrawer").animate({"bottom": "+=100px"}, "slow");
-        }
-        opened = opened ? false : true;
-    });
     var popcorn = Popcorn.vimeo( "#video", "$media_url");
 
 EOF;
