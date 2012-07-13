@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/javascript; charset=UTF-8');
 // Define Constants
 define("TWITTER_MAX_RESULTS",100);
 define("TWITTER_URL", "http://search.twitter.com/search.json?rpp=".TWITTER_MAX_RESULTS);

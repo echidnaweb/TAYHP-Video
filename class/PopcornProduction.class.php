@@ -15,9 +15,11 @@ Class PopcornProduction
 
   function __construct($pathtoconfig)
   {
-     $this->loadConfig($pathtoconfig);
-     $this->loadEvents();
-     $this->generateJS();
+     if ($this->loadConfig($pathtoconfig))
+     {
+       $this->loadEvents();
+       $this->generateJS();
+     }
   }
   
   public function getJS()
@@ -31,6 +33,7 @@ Class PopcornProduction
     $this->js = <<<EOF
 function init_popcorn()
 {
+    $('#video').empty();
     jQuery('#video-carousel').jcarousel({
       wrap: 'circular'
     });
@@ -59,6 +62,12 @@ EOF;
   /* Load and decode the JSON config from the specified path */
   private function loadConfig($pathtoconfig)
   {
+    if (!file_exists($pathtoconfig))
+    {
+       $this->addError("Could not load JSON config");
+       return false;
+    }
+ 
     if($json = file_get_contents($pathtoconfig))
     {
       if ($decode = json_decode($json,true))

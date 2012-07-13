@@ -8,7 +8,23 @@
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/jcarousel/jquery.jcarousel.min.js"></script>
 <script src="processtimeline.js.php?video=flickr"></script>
-<script>document.addEventListener( "DOMContentLoaded",init_popcorn,false);</script>
+<script>
+document.addEventListener( "DOMContentLoaded",init_popcorn,false);
+
+function load_video(id)
+{
+  $.getScript("processtimeline.js.php?video="+id+"&ts=<?php echo time(); ?>")
+.done(function(script, textStatus) {
+  init_popcorn();
+  //console.log( textStatus );
+})
+.fail(function(jqxhr, settings, exception) {
+  alert(exception);
+  //$( "div.log" ).text( "Triggered ajaxError handler." );
+}); 
+}
+
+</script>
 </head>
 
 <body>
