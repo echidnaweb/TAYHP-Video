@@ -25,7 +25,40 @@
                 "start": 1,
                 "end": 10,
                 "target": "area1",
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada sodales eros, ac facilisis felis facilisis sed. Praesent mollis scelerisque nisl quis fringilla. Sed eleifend mollis dui, ut dignissim est ultrices vitae."
+                "text": "Happiness is a mental or emotional state of well-being characterized by positive or pleasant emotions ranging from contentment to intense joy.",
+                "origin": "right"
+              },
+              "track": "Track0",
+              "name": "TrackEvent1"
+            },
+            {
+              "id": "TrackEvent1",
+              "type": "wordRiver",
+              "template": "wordriver",
+              "class": "wordriver1",
+              "style": "font-face: arial; font-size: 1em",
+              "popcornOptions": {
+                "start": 20,
+                "end": 30,
+                "target": "area2",
+                "text": "Happiness is a fuzzy concept and can mean many things to many people. Part of the challenge of a science of happiness is to identify different concepts of happiness, and where applicable, split them into their components.",
+                "origin": "left"
+              },
+              "track": "Track0",
+              "name": "TrackEvent1"
+            },
+            {
+              "id": "TrackEvent1",
+              "type": "wordRiver",
+              "template": "wordriver",
+              "class": "credits",
+              "style": "",
+              "popcornOptions": {
+                "start": 0,
+                "end": 30,
+                "target": "area2",
+                "text": "<h1>Credits</h1><strong>Producer</strong> John Smith",
+                "origin": "top"
               },
               "track": "Track0",
               "name": "TrackEvent1"
