@@ -1,0 +1,38 @@
+{
+  "media": [
+    {
+      "id": "Media0",
+      "name": "Media0",
+      "url": [
+        "http://vimeo.com/28764822"
+      ],
+      "thumbnail_url": "http://b.vimeocdn.com/ts/218/803/218803459_100.jpg",
+      "target": "main",
+      "duration": 169,
+      "controls": false,
+      "tracks": [
+        {
+          "name": "Track0",
+          "id": "Track0",
+          "trackEvents": [
+            {
+              "id": "TrackEvent1",
+              "type": "wordRiver",
+              "template": "wordriver",
+              "class": "wordriver1",
+              "style": "font-face: arial; font-size: 1em",
+              "popcornOptions": {
+                "start": 1,
+                "end": 10,
+                "target": "area1",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada sodales eros, ac facilisis felis facilisis sed. Praesent mollis scelerisque nisl quis fringilla. Sed eleifend mollis dui, ut dignissim est ultrices vitae."
+              },
+              "track": "Track0",
+              "name": "TrackEvent1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

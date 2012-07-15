@@ -5,7 +5,7 @@ body {
       height:100%;
       color: white;
       margin: 0;
-      overflow: hidden;
+      /* overflow: hidden; */
 }
 
 #floater { float: left; height: 50%; margin-bottom: -300px }
@@ -88,6 +88,26 @@ body.foursquare #area1, #area2, #area5, #area6 {
     float: left }
 body.foursquare #area3, #area4 { width: 220px; float: left; min-height: 315px }
 body.foursquare #area3 { margin-right: 530px }
+
+/* wordriver */
+
+body.wordriver #area1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1em;
+  width: 800px;
+  height: 50px;
+  color: white;
+}
+
+body.wordriver #area2 {
+  position: absolute;
+  top: 400px;
+  left: 0;
+  font-size: 1.2em;
+  width: 100%;
+}
 
 /* babble */
 
