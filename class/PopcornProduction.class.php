@@ -37,7 +37,7 @@ function init_popcorn()
     $('#videolayer').css('top', '-600px');
     $('.target').empty();
     popcorn = Popcorn.vimeo( "#video", "$media_url");
-    popcorn.on( "loadedmetadata", function() { $('.target').empty(); $('#attrib').empty(); this.play(); });
+    popcorn.on( "loadedmetadata", function() { $('#attrib').empty(); this.play(); });
 
 EOF;
 
