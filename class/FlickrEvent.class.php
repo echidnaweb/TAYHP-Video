@@ -10,7 +10,7 @@ class FlickrEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$target,$template,$orientation;
+  private $id,$start,$end,$target,$ownername_target,$template,$orientation;
   private $flickr_api;
   private $flickr_options = array(); 
   private $photos = array();
@@ -55,6 +55,7 @@ class FlickrEvent
     $photo =  $this->get_random_photo($this->orientation);
     $url = $this->flickr_api->buildPhotoURL($photo, $this->size);
     $alt = addslashes($photo['title']);
+    $ownername = addslashes($photo['ownername']);
     $imgtag = "<img id='$this->id' alt='$alt'".
               "src=" . $url . "></img>";
 
@@ -77,18 +78,18 @@ class FlickrEvent
            {
              $('body').attr('class',window.template);
              $('#$this->target').html(imgtag);
-             $('#$this->target #$this->id').fadeIn('slow');
+             $('#$this->target #$this->id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
            }); 
          }
          else 
          {         
            $('#$this->target').html(imgtag);
-           $('#$this->target #$this->id').fadeIn('slow');
+           $('#$this->target #$this->id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
          } 
        },
        onEnd: function( options ) {
-        //$('#$this->target img').fadeOut('slow', function() { $(window.eventlog['$this->id']).empty(); });
         $('#$this->id').fadeOut('slow', function() { $('#$this->id').remove(); });
+        $('#$this->ownername_target').empty();
        }
      });\n
 
@@ -104,6 +105,7 @@ EOF;
     $this->start = isset($this->conf['popcornOptions']['start'])?$this->conf['popcornOptions']['start']:"0";
     $this->end = isset($this->conf['popcornOptions']['end'])?$this->conf['popcornOptions']['end']:"0";
     $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:"unknown";
+    $this->ownername_target = isset($this->conf['popcornOptions']['ownername_target'])?$this->conf['popcornOptions']['ownername_target']:"unknown";
     $this->template = isset($this->conf['template'])?$this->conf['template']:"0"; 
     $this->orientation = isset($this->conf['popcornOptions']['orientation'])?$this->conf['popcornOptions']['orientation']:false; 
     $this->size = isset($this->conf['small'])?$this->conf['size']:"small";
@@ -111,7 +113,7 @@ EOF;
     $this->flickr_api = new phpFlickr($this->conf['popcornOptions']['apikey']);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
-    $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o";
+    $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o,owner_name";
     
     if (!$this->photos = $this->flickr_api->photos_search($this->conf['popcornOptions']))
       return false; 
