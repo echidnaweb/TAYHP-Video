@@ -1,5 +1,5 @@
 /*
- * popcorn.js version b1eb19f
+ * popcorn.js version b632245
  * http://popcornjs.org
  *
  * Copyright 2011, Mozilla Foundation
@@ -14,8 +14,7 @@
       isSupported: false
     };
 
-    var methods = ( "removeInstance addInstance getInstanceById removeInstanceById " +
-          "forEach extend effects error guid sizeOf isArray nop position disable enable destroy" +
+    var methods = ( "byId forEach extend effects error guid sizeOf isArray nop position disable enable destroy" +
           "addTrackEvent removeTrackEvent getTrackEvents getTrackEvent getLastTrackEventId " +
           "timeUpdate plugin removePlugin compose effect xhr getJSONP getScript" ).split(/\s+/);
 
@@ -87,7 +86,7 @@
   };
 
   //  Popcorn API version, automatically inserted via build system.
-  Popcorn.version = "b1eb19f";
+  Popcorn.version = "b632245";
 
   //  Boolean flag allowing a client to determine if Popcorn can be supported
   Popcorn.isSupported = true;
@@ -101,7 +100,7 @@
 
     init: function( entity, options ) {
 
-      var matches,
+      var matches, nodeName,
           self = this;
 
       //  Supports Popcorn(function () { /../ })
@@ -160,13 +159,21 @@
       //  Get media element by id or object reference
       this.media = matches || entity;
 
-      //  Create an audio or video element property reference
-      this[ ( this.media.nodeName && this.media.nodeName.toLowerCase() ) || "video" ] = this.media;
+      //  inner reference to this media element's nodeName string value
+      nodeName = ( this.media.nodeName && this.media.nodeName.toLowerCase() ) || "video";
 
-      //  Register new instance
-      Popcorn.instances.push( this );
+      //  Create an audio or video element property reference
+      this[ nodeName ] = this.media;
 
       this.options = options || {};
+
+      //  Resolve custom ID or default prefixed ID
+      this.id = this.options.id || Popcorn.guid( nodeName );
+
+      //  Throw if an attempt is made to use an ID that already exists
+      if ( Popcorn.byId( this.id ) ) {
+        throw new Error( "Popcorn.js Error: Cannot use duplicate ID (" + this.id + ")" );
+      }
 
       this.isDestroyed = false;
 
@@ -217,6 +224,9 @@
           previousUpdateTime: -1
         }
       };
+
+      //  Register new instance
+      Popcorn.instances.push( this );
 
       //  function to fire when video is ready
       var isReady = function() {
@@ -318,6 +328,20 @@
   //  Extend constructor prototype to instance prototype
   //  Allows chaining methods to instances
   Popcorn.p.init.prototype = Popcorn.p;
+
+  Popcorn.byId = function( str ) {
+    var instances = Popcorn.instances,
+        length = instances.length,
+        i = 0;
+
+    for ( ; i < length; i++ ) {
+      if ( instances[ i ].id === str ) {
+        return instances[ i ];
+      }
+    }
+
+    return null;
+  };
 
   Popcorn.forEach = function( obj, fn, context ) {
 
@@ -2007,31 +2031,36 @@
 
     var head = document.head || document.getElementsByTagName( "head" )[ 0 ] || document.documentElement,
       script = document.createElement( "script" ),
-      paramStr = url.split( "?" )[ 1 ],
       isFired = false,
       params = [],
-      callback, parts, callparam;
+      paramStr, callback, callparam;
 
-    if ( paramStr && !isScript ) {
-      params = paramStr.split( "&" );
-    }
+    if ( !isScript ) {
 
-    if ( params.length ) {
-      parts = params[ params.length - 1 ].split( "=" );
-    }
+      // is there a calback already in the url
+      callparam = url.match( /(callback=[^&]*)/ );
 
-    callback = params.length ? ( parts[ 1 ] ? parts[ 1 ] : parts[ 0 ]  ) : "jsonp";
+      if ( callparam ) {
 
-    if ( !paramStr && !isScript ) {
-      url += "?callback=" + callback;
-    }
+        // get the callback name
+        callback = Popcorn.guid( callparam[ 1 ].split( "=" )[ 1 ] );
 
-    if ( callback && !isScript ) {
+        // replace existing callback name with unique callback name
+        url = url.replace( /(callback=[^&]*)/, "callback=" + callback );
+      } else {
 
-      //  If a callback name already exists
-      if ( !!window[ callback ] ) {
-        //  Create a new unique callback name
-        callback = Popcorn.guid( callback );
+        callback = Popcorn.guid( "jsonp" );
+
+        // split on first question mark,
+        // this is to capture the query string
+        params = url.split( /\?(.+)?/ );
+
+        // rebuild url with callback
+        url = params[ 0 ] + "?";
+        if ( params[ 1 ] ) {
+          url += params[ 1 ] + "&";
+        }
+        url += "callback=" + callback;
       }
 
       //  Define the JSONP success callback globally
@@ -2040,9 +2069,6 @@
         success && success( data );
         isFired = true;
       };
-
-      //  Replace callback param and callback name
-      url = url.replace( parts.join( "=" ), parts[ 0 ] + "=" + callback );
     }
 
     script.addEventListener( "load",  function() {
@@ -2862,6 +2888,542 @@
 
   };
 })( Popcorn );
+/*!
+ * Popcorn.sequence
+ *
+ * Copyright 2011, Rick Waldron
+ * Licensed under MIT license.
+ *
+ */
+
+/* jslint forin: true, maxerr: 50, indent: 4, es5: true  */
+/* global Popcorn: true */
+
+// Requires Popcorn.js
+(function( global, Popcorn ) {
+
+  // TODO: as support increases, migrate to element.dataset
+  var doc = global.document,
+      location = global.location,
+      rprotocol = /:\/\//,
+      // TODO: better solution to this sucky stop-gap
+      lochref = location.href.replace( location.href.split("/").slice(-1)[0], "" ),
+      // privately held
+      range = function(start, stop, step) {
+
+        start = start || 0;
+        stop = ( stop || start || 0 ) + 1;
+        step = step || 1;
+
+        var len = Math.ceil((stop - start) / step) || 0,
+            idx = 0,
+            range = [];
+
+        range.length = len;
+
+        while (idx < len) {
+         range[idx++] = start;
+         start += step;
+        }
+        return range;
+      };
+
+  Popcorn.sequence = function( parent, list ) {
+    return new Popcorn.sequence.init( parent, list );
+  };
+
+  Popcorn.sequence.init = function( parent, list ) {
+
+    // Video element
+    this.parent = doc.getElementById( parent );
+
+    // Store ref to a special ID
+    this.seqId = Popcorn.guid( "__sequenced" );
+
+    // List of HTMLVideoElements
+    this.queue = [];
+
+    // List of Popcorn objects
+    this.playlist = [];
+
+    // Lists of in/out points
+    this.inOuts = {
+
+      // Stores the video in/out times for each video in sequence
+      ofVideos: [],
+
+      // Stores the clip in/out times for each clip in sequences
+      ofClips: []
+
+    };
+
+    // Store first video dimensions
+    this.dims = {
+      width: 0, //this.video.videoWidth,
+      height: 0 //this.video.videoHeight
+    };
+
+    this.active = 0;
+    this.cycling = false;
+    this.playing = false;
+
+    this.times = {
+      last: 0
+    };
+
+    // Store event pointers and queues
+    this.events = {
+
+    };
+
+    var self = this,
+        clipOffset = 0;
+
+    // Create `video` elements
+    Popcorn.forEach( list, function( media, idx ) {
+
+      var video = doc.createElement( "video" );
+
+      video.preload = "auto";
+
+      // Setup newly created video element
+      video.controls = true;
+
+      // If the first, show it, if the after, hide it
+      video.style.display = ( idx && "none" ) || "" ;
+
+      // Seta registered sequence id
+      video.id = self.seqId + "-" + idx ;
+
+      // Push this video into the sequence queue
+      self.queue.push( video );
+
+      var //satisfy lint
+       mIn = media["in"],
+       mOut = media["out"];
+
+      // Push the in/out points into sequence ioVideos
+      self.inOuts.ofVideos.push({
+        "in": ( mIn !== undefined && mIn ) || 1,
+        "out": ( mOut !== undefined && mOut ) || 0
+      });
+
+      self.inOuts.ofVideos[ idx ]["out"] = self.inOuts.ofVideos[ idx ]["out"] || self.inOuts.ofVideos[ idx ]["in"] + 2;
+
+      // Set the sources
+      video.src = !rprotocol.test( media.src ) ? lochref + media.src : media.src;
+
+      // Set some squence specific data vars
+      video.setAttribute("data-sequence-owner", parent );
+      video.setAttribute("data-sequence-guid", self.seqId );
+      video.setAttribute("data-sequence-id", idx );
+      video.setAttribute("data-sequence-clip", [ self.inOuts.ofVideos[ idx ]["in"], self.inOuts.ofVideos[ idx ]["out"] ].join(":") );
+
+      // Append the video to the parent element
+      self.parent.appendChild( video );
+
+
+      self.playlist.push( Popcorn("#" + video.id ) );
+
+    });
+
+    self.inOuts.ofVideos.forEach(function( obj ) {
+
+      var clipDuration = obj["out"] - obj["in"],
+          offs = {
+            "in": clipOffset,
+            "out": clipOffset + clipDuration
+          };
+
+      self.inOuts.ofClips.push( offs );
+
+      clipOffset = offs["out"] + 1;
+    });
+
+    Popcorn.forEach( this.queue, function( media, idx ) {
+
+      function canPlayThrough( event ) {
+
+        // If this is idx zero, use it as dimension for all
+        if ( !idx ) {
+          self.dims.width = media.videoWidth;
+          self.dims.height = media.videoHeight;
+        }
+
+        media.currentTime = self.inOuts.ofVideos[ idx ]["in"] - 0.5;
+
+        media.removeEventListener( "canplaythrough", canPlayThrough, false );
+
+        return true;
+      }
+
+      // Hook up event listeners for managing special playback
+      media.addEventListener( "canplaythrough", canPlayThrough, false );
+
+      // TODO: consolidate & DRY
+      media.addEventListener( "play", function( event ) {
+
+        self.playing = true;
+
+      }, false );
+
+      media.addEventListener( "pause", function( event ) {
+
+        self.playing = false;
+
+      }, false );
+
+      media.addEventListener( "timeupdate", function( event ) {
+
+        var target = event.srcElement || event.target,
+            seqIdx = +(  (target.dataset && target.dataset.sequenceId) || target.getAttribute("data-sequence-id") ),
+            floor = Math.floor( media.currentTime );
+
+        if ( self.times.last !== floor &&
+              seqIdx === self.active ) {
+
+          self.times.last = floor;
+
+          if ( floor === self.inOuts.ofVideos[ seqIdx ]["out"] ) {
+
+            Popcorn.sequence.cycle.call( self, seqIdx );
+          }
+        }
+      }, false );
+    });
+
+    return this;
+  };
+
+  Popcorn.sequence.init.prototype = Popcorn.sequence.prototype;
+
+  //
+  Popcorn.sequence.cycle = function( idx ) {
+
+    if ( !this.queue ) {
+      Popcorn.error("Popcorn.sequence.cycle is not a public method");
+    }
+
+    var // Localize references
+    queue = this.queue,
+    ioVideos = this.inOuts.ofVideos,
+    current = queue[ idx ],
+    nextIdx = 0,
+    next, clip;
+
+
+    var // Popcorn instances
+    $popnext,
+    $popprev;
+
+
+    if ( queue[ idx + 1 ] ) {
+      nextIdx = idx + 1;
+    }
+
+    // Reset queue
+    if ( !queue[ idx + 1 ] ) {
+
+      nextIdx = 0;
+      this.playlist[ idx ].pause();
+
+    } else {
+
+      next = queue[ nextIdx ];
+      clip = ioVideos[ nextIdx ];
+
+      // Constrain dimentions
+      Popcorn.extend( next, {
+        width: this.dims.width,
+        height: this.dims.height
+      });
+
+      $popnext = this.playlist[ nextIdx ];
+      $popprev = this.playlist[ idx ];
+
+      // When not resetting to 0
+      current.pause();
+
+      this.active = nextIdx;
+      this.times.last = clip["in"] - 1;
+
+      // Play the next video in the sequence
+      $popnext.currentTime( clip["in"] );
+
+      $popnext[ nextIdx ? "play" : "pause" ]();
+
+      // Trigger custom cycling event hook
+      this.trigger( "cycle", {
+
+        position: {
+          previous: idx,
+          current: nextIdx
+        }
+
+      });
+
+      // Set the previous back to it's beginning time
+      // $popprev.currentTime( ioVideos[ idx ].in );
+
+      if ( nextIdx ) {
+        // Hide the currently ending video
+        current.style.display = "none";
+        // Show the next video in the sequence
+        next.style.display = "";
+      }
+
+      this.cycling = false;
+    }
+
+    return this;
+  };
+
+  var excludes = [ "timeupdate", "play", "pause" ];
+
+  // Sequence object prototype
+  Popcorn.extend( Popcorn.sequence.prototype, {
+
+    // Returns Popcorn object from sequence at index
+    eq: function( idx ) {
+      return this.playlist[ idx ];
+    },
+    // Remove a sequence from it's playback display container
+    remove: function() {
+      this.parent.innerHTML = null;
+    },
+    // Returns Clip object from sequence at index
+    clip: function( idx ) {
+      return this.inOuts.ofVideos[ idx ];
+    },
+    // Returns sum duration for all videos in sequence
+    duration: function() {
+
+      var ret = 0,
+          seq = this.inOuts.ofClips,
+          idx = 0;
+
+      for ( ; idx < seq.length; idx++ ) {
+        ret += seq[ idx ]["out"] - seq[ idx ]["in"] + 1;
+      }
+
+      return ret - 1;
+    },
+
+    play: function() {
+
+      this.playlist[ this.active ].play();
+
+      return this;
+    },
+    // Attach an event to a single point in time
+    exec: function ( time, fn ) {
+
+      var index = this.active;
+
+      this.inOuts.ofClips.forEach(function( off, idx ) {
+        if ( time >= off["in"] && time <= off["out"] ) {
+          index = idx;
+        }
+      });
+
+      //offsetBy = time - self.inOuts.ofVideos[ index ].in;
+
+      time += this.inOuts.ofVideos[ index ]["in"] - this.inOuts.ofClips[ index ]["in"];
+
+      // Creating a one second track event with an empty end
+      Popcorn.addTrackEvent( this.playlist[ index ], {
+        start: time - 1,
+        end: time,
+        _running: false,
+        _natives: {
+          start: fn || Popcorn.nop,
+          end: Popcorn.nop,
+          type: "exec"
+        }
+      });
+
+      return this;
+    },
+    // Binds event handlers that fire only when all
+    // videos in sequence have heard the event
+    listen: function( type, callback ) {
+
+      var self = this,
+          seq = this.playlist,
+          total = seq.length,
+          count = 0,
+          fnName;
+
+      if ( !callback ) {
+        callback = Popcorn.nop;
+      }
+
+      // Handling for DOM and Media events
+      if ( Popcorn.Events.Natives.indexOf( type ) > -1 ) {
+        Popcorn.forEach( seq, function( video ) {
+
+          video.listen( type, function( event ) {
+
+            event.active = self;
+
+            if ( excludes.indexOf( type ) > -1 ) {
+
+              callback.call( video, event );
+
+            } else {
+              if ( ++count === total ) {
+                callback.call( video, event );
+              }
+            }
+          });
+        });
+
+      } else {
+
+        // If no events registered with this name, create a cache
+        if ( !this.events[ type ] ) {
+          this.events[ type ] = {};
+        }
+
+        // Normalize a callback name key
+        fnName = callback.name || Popcorn.guid( "__" + type );
+
+        // Store in event cache
+        this.events[ type ][ fnName ] = callback;
+      }
+
+      // Return the sequence object
+      return this;
+    },
+    unlisten: function( type, name ) {
+      // TODO: finish implementation
+    },
+    trigger: function( type, data ) {
+      var self = this;
+
+      // Handling for DOM and Media events
+      if ( Popcorn.Events.Natives.indexOf( type ) > -1 ) {
+
+        //  find the active video and trigger api events on that video.
+        return;
+
+      } else {
+
+        // Only proceed if there are events of this type
+        // currently registered on the sequence
+        if ( this.events[ type ] ) {
+
+          Popcorn.forEach( this.events[ type ], function( callback, name ) {
+            callback.call( self, { type: type }, data );
+          });
+
+        }
+      }
+
+      return this;
+    }
+  });
+
+
+  Popcorn.forEach( Popcorn.manifest, function( obj, plugin ) {
+
+    // Implement passthrough methods to plugins
+    Popcorn.sequence.prototype[ plugin ] = function( options ) {
+
+      // console.log( this, options );
+      var videos = {}, assignTo = [],
+      idx, off, inOuts, inIdx, outIdx, keys, clip, clipInOut, clipRange;
+
+      for ( idx = 0; idx < this.inOuts.ofClips.length; idx++  ) {
+        // store reference
+        off = this.inOuts.ofClips[ idx ];
+        // array to test against
+        inOuts = range( off["in"], off["out"] );
+
+        inIdx = inOuts.indexOf( options.start );
+        outIdx = inOuts.indexOf( options.end );
+
+        if ( inIdx > -1 ) {
+          videos[ idx ] = Popcorn.extend( {}, off, {
+            start: inOuts[ inIdx ],
+            clipIdx: inIdx
+          });
+        }
+
+        if ( outIdx > -1 ) {
+          videos[ idx ] = Popcorn.extend( {}, off, {
+            end: inOuts[ outIdx ],
+            clipIdx: outIdx
+          });
+        }
+      }
+
+      keys = Object.keys( videos ).map(function( val ) {
+                return +val;
+              });
+
+      assignTo = range( keys[ 0 ], keys[ 1 ] );
+
+      //console.log( "PLUGIN CALL MAPS: ", videos, keys, assignTo );
+      for ( idx = 0; idx < assignTo.length; idx++ ) {
+
+        var compile = {},
+        play = assignTo[ idx ],
+        vClip = videos[ play ];
+
+        if ( vClip ) {
+
+          // has instructions
+          clip = this.inOuts.ofVideos[ play ];
+          clipInOut = vClip.clipIdx;
+          clipRange = range( clip["in"], clip["out"] );
+
+          if ( vClip.start ) {
+            compile.start = clipRange[ clipInOut ];
+            compile.end = clipRange[ clipRange.length - 1 ];
+          }
+
+          if ( vClip.end ) {
+            compile.start = clipRange[ 0 ];
+            compile.end = clipRange[ clipInOut ];
+          }
+
+          //compile.start += 0.1;
+          //compile.end += 0.9;
+
+        } else {
+
+          compile.start = this.inOuts.ofVideos[ play ]["in"];
+          compile.end = this.inOuts.ofVideos[ play ]["out"];
+
+          //compile.start += 0.1;
+          //compile.end += 0.9;
+
+        }
+
+        // Handling full clip persistance
+        //if ( compile.start === compile.end ) {
+          //compile.start -= 0.1;
+          //compile.end += 0.9;
+        //}
+
+        // Call the plugin on the appropriate Popcorn object in the playlist
+        // Merge original options object & compiled (start/end) object into
+        // a new fresh object
+        this.playlist[ play ][ plugin ](
+
+          Popcorn.extend( {}, options, compile )
+
+        );
+
+      }
+
+      // Return the sequence object
+      return this;
+    };
+
+  });
+})( this, Popcorn );
 // PLUGIN: tagthisperson
 
 (function ( Popcorn ) {
@@ -2970,31 +3532,31 @@
     options:{
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       target : "tagthisperson-container",
       person: {
         elem: "input",
         type: "text",
-        label: "Name",
+        label: "Person's Name",
         "default": "Popcorn.js"
       },
       image: {
         elem: "input",
         type: "url",
-        label: "Image Src",
+        label: "Image URL",
         optional: true
       },
       href: {
         elem: "input",
         type: "url",
-        label: "URL",
+        label: "Link",
         optional: true
       }
     }
@@ -3147,13 +3709,13 @@
     options:{
       start: {
        elem: "input",
-       type: "text",
-       label: "In"
+       type: "number",
+       label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       nameofwork: {
         elem: "input",
@@ -3163,7 +3725,7 @@
       nameofworkurl: {
         elem: "input",
         type: "url",
-        label: "Url of Work",
+        label: "URL of Work",
         optional: true
       },
       copyrightholder: {
@@ -3174,17 +3736,17 @@
       copyrightholderurl: {
         elem: "input",
         type: "url",
-        label: "Copyright Holder Url",
+        label: "Copyright Holder URL",
         optional: true
       },
       license: {
         elem: "input",
         type: "text",
-        label: "License type"
+        label: "License Type"
        },
       licenseurl: {
         elem: "input",
-        type: "url",
+        type: "text",
         label: "License URL",
         optional: true
       },
@@ -3248,7 +3810,7 @@
         },
         url: {
           elem: "input",
-          type: "text",
+          type: "url",
           label: "URL"
         },
         apikey: {
@@ -3288,24 +3850,24 @@
         productid: {
           elem: "input",
           type: "text",
-          label: "productid",
+          label: "Product Id",
           optional: true
         },
         related: {
           elem: "input",
           type: "text",
-          label: "related",
+          label: "Related",
           optional: true
         },
         start: {
           elem: "input",
-          type: "text",
-          label: "In"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "Out"
+          type: "number",
+          label: "End"
         },
 
         target: "linkedin-container"
@@ -3565,13 +4127,13 @@
       options: {
         start: {
           elem: "input",
-          type: "text",
-          label: "In"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "Out"
+          type: "number",
+          label: "End"
         },
         text: {
           elem: "input",
@@ -3783,13 +4345,13 @@
     options: {
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       target: "lastfm-container",
       artist: {
@@ -3980,18 +4542,18 @@
     options: {
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       userid: {
         elem: "input",
         type: "text",
-        label: "UserID",
+        label: "User ID",
         optional: true
       },
       tags: {
@@ -4008,7 +4570,7 @@
       apikey: {
         elem: "input",
         type: "text",
-        label: "Api_key",
+        label: "API Key",
         optional: true
       },
       target: "flickr-container",
@@ -4184,19 +4746,15 @@
     options: {
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "Number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "Number",
+        label: "End"
       },
-      target: {
-        elem: "input",
-        type: "text",
-        label: "Target"
-      },
+      target: "processing-container",
       sketch: {
         elem: "input",
         type: "url",
@@ -4256,18 +4814,18 @@
         },
         start: {
           elem: "input",
-          type: "text",
-          label: "In"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "Out"
+          type: "number",
+          label: "End"
         },
         src: {
           elem: "input",
           type: "url",
-          label: "Src",
+          label: "Webpage URL",
           "default": "http://mozillapopcorn.org"
         },
         target: "iframe-container"
@@ -4396,13 +4954,13 @@
         options: {
           start: {
             elem: "input",
-            type: "text",
-            label: "In"
+            type: "number",
+            label: "Start"
           },
           end: {
             elem: "input",
-            type: "text",
-            label: "Out"
+            type: "number",
+            label: "End"
           },
           target: "wordriver-container",
           text: {
@@ -4556,12 +5114,12 @@
         target: "mediaspawner-container",
         start: {
           elem: "input",
-          type: "text",
+          type: "number",
           label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
+          type: "number",
           label: "End"
         },
         autoplay: {
@@ -4795,18 +5353,18 @@
         options:{
           start: {
             elem: "input",
-            type: "text",
-            label: "In"
+            type: "number",
+            label: "Start"
           },
           end: {
             elem: "input",
-            type: "text",
-            label: "Out"
+            type: "number",
+            label: "End"
           },
           src: {
             elem: "input",
             type: "text",
-            label: "Source",
+            label: "Tweet Source (# or @)",
             "default": "@popcornjs"
           },
           target: "twitter-container",
@@ -5072,15 +5630,15 @@
     options: {
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
-      target: "rdio",
+      target: "rdio-container",
       artist: {
         elem: "input",
         type: "text",
@@ -5209,31 +5767,32 @@
           start: {
             elem: "input",
             type: "number",
-            label: "In"
+            label: "Start"
           },
           end: {
             elem: "input",
             type: "number",
-            label: "Out"
+            label: "End"
+          },
+          src: {
+            elem: "input",
+            type: "url",
+            label: "Image URL",
+            "default": "http://mozillapopcorn.org/wp-content/themes/popcorn/images/for_developers.png"
           },
           href: {
             elem: "input",
             type: "url",
-            label: "anchor URL",
+            label: "Link",
             "default": "http://mozillapopcorn.org/wp-content/themes/popcorn/images/for_developers.png",
             optional: true
           },
           target: "image-container",
-          src: {
-            elem: "input",
-            type: "url",
-            label: "Source URL",
-            "default": "http://mozillapopcorn.org/wp-content/themes/popcorn/images/for_developers.png"
-          },
           text: {
             elem: "input",
             type: "text",
-            label: "Text",
+            label: "Caption",
+            "default": "Popcorn.js",
             optional: true
           }
         }
@@ -5379,13 +5938,13 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
       options: {
         start: {
           elem: "input",
-          type: "text",
-          label: "In"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "Out"
+          type: "number",
+          label: "End"
         },
         target: "documentcloud-container",
         width: {
@@ -5402,7 +5961,7 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         },
         src: {
           elem: "input",
-          type: "text",
+          type: "url",
           label: "PDF URL",
           "default": "http://www.documentcloud.org/documents/70050-urbina-day-1-in-progress.html"
         },
@@ -5660,24 +6219,24 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         type: {
           elem: "select",
           options: [ "LIKE", "LIKE-BOX", "ACTIVITY", "FACEPILE", "LIVE-STREAM", "SEND", "COMMENTS" ],
-          label: "Type"
+          label: "Plugin Type"
         },
         target: "facebook-container",
         start: {
           elem: "input",
-          type: "text",
-          label: "In"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "Out"
+          type: "number",
+          label: "End"
         },
         // optional parameters:
         font: {
           elem: "input",
           type: "text",
-          label: "font",
+          label: "Font",
           optional: true
         },
         xid: {
@@ -5689,13 +6248,13 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         href: {
           elem: "input",
           type: "url",
-          label: "Href",
+          label: "href",
           optional: true
         },
         site: {
           elem: "input",
           type: "url",
-          label:"Site",
+          label: "Site",
           optional: true
         },
         height: {
@@ -5741,32 +6300,32 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         max_rows: {
           elem: "input",
           type: "number",
-          label: "Max_rows",
+          label: "Max Rows",
           "default": 1,
           optional: true
         },
         border_color: {
           elem: "input",
           type: "text",
-          label: "Border_color",
+          label: "Border Color",
           optional: true
         },
         event_app_id: {
           elem: "input",
           type: "text",
-          label: "Event_app_id",
+          label: "Event App Id",
           optional: true
         },
         colorscheme: {
           elem: "select",
           options: [ "light", "dark" ],
-          label: "Colorscheme",
+          label: "Color Scheme",
           optional: true
         },
         show_faces: {
           elem: "input",
           type: "checkbox",
-          label: "Showfaces",
+          label: "Show Faces",
           "default": false,
           optional: true
         },
@@ -5780,14 +6339,14 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         always_post_to_friends: {
           elem: "input",
           type: "checkbox",
-          label: "Always_post_to_friends",
+          label: "Always post to Friends",
           "default": false,
           optional: true
         },
         num_posts: {
           elem: "input",
           type: "number",
-          label: "Number_of_Comments",
+          label: "Number of Comments",
           "default": 1,
           optional: true
         }
@@ -5970,7 +6529,7 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         }
 
         // Current means of handling if alt_sizes doesn't have our default image size
-        defaultSizeIndex === -1 && Popcorn.error( "Clearly your blog has a picture that is so tiny it isn't even 250px wide. Consider " + 
+        defaultSizeIndex === -1 && Popcorn.error( "Clearly your blog has a picture that is so tiny it isn't even 250px wide. Consider " +
           " using a bigger picture or try a smaller size." );
 
         // If a matching photo is never found, use the default size.
@@ -6141,42 +6700,42 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         requestType: {
           elem: "select",
           options:[ "INFO", "AVATAR", "BLOGPOST" ],
-          label: "Type_Of_Plugin"
+          label: "Request Type"
         },
         target: "tumblr-container",
         start: {
           elem: "input",
-          type: "text",
-          label: "Start_Time"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "End_Time"
+          type: "number",
+          label: "End"
         },
         base_hostname: {
           elem: "input",
           type: "text",
-          label: "User_Name",
+          label: "User Name",
           "default": "https://citriccomics.tumblr.com"
         },
         // optional parameters:
         api_key: { // Required for Blog Info and Blog Post retrievals
           elem: "input",
           type: "text",
-          label: "Application_Key",
+          label: "API key",
           optional: true
         },
         size: {
           elem: "select",
           options: [ 16, 24, 30, 40, 48, 64, 96, 128, 512 ],
-          label: "avatarSize",
+          label: "Avatar Size",
           optional: true
         },
         blogId: { // Required for BLOGPOST requests
           elem: "input",
           type: "number",
-          label: "Blog_ID",
+          label: "Blog Id",
           optional: true
         },
         /* Optional for Photo and Video BlogPosts, defaulted to 250 pixels for photos and 400 for videos if not provided or provided width
@@ -6185,8 +6744,8 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         */
         width: {
           elem: "input",
-          type: "number",
-          label: "Photo_Width",
+          type: "text",
+          label: "Photo Width",
           optional: true
         }
       }
@@ -6244,9 +6803,9 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
         } else {
           type = "info";
         }
-        requestString = "http://api.tumblr.com/v2/blog/" + options.base_hostname + "/" + type + "?api_key=" + options.api_key + "&id=" + options.blogId + 
+        requestString = "http://api.tumblr.com/v2/blog/" + options.base_hostname + "/" + type + "?api_key=" + options.api_key + "&id=" + options.blogId +
           "&jsonp=tumblrCallBack";
-        
+
         this.listen( "tumblrError", function( e ){
           Popcorn.error( e );
         });
@@ -6467,18 +7026,18 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
       options: {
         start: {
           elem: "input",
-          type: "text",
-          label: "In"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "Out"
+          type: "number",
+          label: "End"
         },
         gmltag: {
           elem: "input",
           type: "text",
-          label: "GMLTag"
+          label: "GML Tag"
         },
         target: "gml-container"
       }
@@ -6730,13 +7289,13 @@ api - https://github.com/documentcloud/document-viewer/blob/master/public/javasc
     options: {
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       target: "mustache-container",
       template: {
@@ -6860,12 +7419,12 @@ document.addEventListener( "click", function( event ) {
           start: {
             elem: "input",
             type: "text",
-            label: "In"
+            label: "Start"
           },
           end: {
             elem: "input",
             type: "text",
-            label: "Out"
+            label: "End"
           },
           target: "subtitle-container",
           text: {
@@ -6968,13 +7527,13 @@ document.addEventListener( "click", function( event ) {
       options: {
         start: {
           elem: "input",
-          type: "text",
-          label: "In"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "Out"
+          type: "number",
+          label: "End"
         },
         text: {
           elem: "input",
@@ -7073,13 +7632,13 @@ var wikiCallback;
       options:{
         start: {
           elem: "input",
-          type: "text",
-          label: "In"
+          type: "number",
+          label: "Start"
         },
         end: {
           elem: "input",
-          type: "text",
-          label: "Out"
+          type: "number",
+          label: "End"
         },
         lang: {
           elem: "input",
@@ -7091,7 +7650,7 @@ var wikiCallback;
         src: {
           elem: "input", 
           type: "url", 
-          label: "Src",
+          label: "Wikipedia URL",
           "default": "http://en.wikipedia.org/wiki/Cat"
         },
         title: {
@@ -7103,8 +7662,8 @@ var wikiCallback;
         },
         numberofwords: {
           elem: "input",
-          type: "text",
-          label: "Num Of Words",
+          type: "number",
+          label: "Number of Words",
           "default": "200",
           optional: true
         },
@@ -7562,19 +8121,19 @@ var wikiCallback;
     options:{
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       target: "map-container",
       type: {
         elem: "select",
         options: [ "ROADMAP", "SATELLITE", "TERRAIN" ],
-        label: "Type",
+        label: "Map Type",
         optional: true
       },
       zoom: {
@@ -7767,13 +8326,13 @@ var wikiCallback;
     options: {
       start: {
        elem: "input",
-       type: "text",
-       label: "In"
+       type: "number",
+       label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       onStart: {
         elem: "input",
@@ -7837,32 +8396,32 @@ var wikiCallback;
         options:{
           start: {
             elem: "input",
-            type: "text",
-            label: "In"
+            type: "number",
+            label: "Start"
           },
           end: {
             elem: "input",
-            type: "text",
-            label: "Out"
+            type: "number",
+            label: "End"
           },
           target: "lowerthird-container",
           salutation : {
             elem: "input",
             type: "text",
-            label: "Text",
+            label: "Salutation",
             "default": "hello",
             optional: true
           },
           name: {
             elem: "input",
             type: "text",
-            label: "Text",
+            label: "Name",
             "default": "Popcorn.js"
           },
           role: {
             elem: "input",
             type: "text",
-            label: "Text",
+            label: "Role",
             "default": "JavaScript library",
             optional: true
           }
@@ -8326,19 +8885,19 @@ var googleCallback;
     options: {
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "start",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "start",
+        label: "End"
       },
       target: "map-container",
       type: {
         elem: "select",
         options: [ "ROADMAP", "SATELLITE", "STREETVIEW", "HYBRID", "TERRAIN", "STAMEN-WATERCOLOR", "STAMEN-TERRAIN", "STAMEN-TONER" ],
-        label: "Type",
+        label: "Map Type",
         optional: true
       },
       zoom: {
@@ -8495,35 +9054,35 @@ var googleCallback;
     options: {
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       target: "feed-container",
       title: {
         elem: "input",
         type: "text",
-        label: "title"
+        label: "Title"
       },
       text: {
         elem: "input",
         type: "text",
-        label: "text"
+        label: "Text"
       },
       innerHTML: {
         elem: "input",
         type: "text",
-        label: "innerHTML",
+        label: "HTML Code",
         optional: true
       },
       direction: {
         elem: "select",
         options: [ "DOWN", "UP" ],
-        label: "direction",
+        label: "Direction",
         optional: true
       }
     }
@@ -8687,32 +9246,32 @@ var googleCallback;
     options: {
       start: {
         elem: "input",
-        type: "text",
-        label: "In"
+        type: "number",
+        label: "Start"
       },
       end: {
         elem: "input",
-        type: "text",
-        label: "Out"
+        type: "number",
+        label: "End"
       },
       target: "feed-container",
       url: {
         elem: "input",
         type: "url",
-        label: "url",
+        label: "Feed URL",
         "default": "http://planet.mozilla.org/rss20.xml"
       },
       title: {
         elem: "input",
         type: "text",
-        label: "title",
+        label: "Title",
         "default": "Planet Mozilla",
         optional: true
       },
       orientation: {
         elem: "select",
         options: [ "Vertical", "Horizontal" ],
-        label: "orientation",
+        label: "Orientation",
         "default": "Vertical",
         optional: true
       }
@@ -10330,7 +10889,7 @@ Popcorn.player( "youtube", {
 
     var youtubeInit = function() {
 
-      var src, width, height, originalStyle, query, styleWidth, styleHeight;
+      var src, query;
 
       var timeUpdate = function() {
 
@@ -10381,24 +10940,9 @@ Popcorn.player( "youtube", {
 
       autoPlay = ( /autoplay=1/.test( query ) );
 
-      // cache original display property so it can be reapplied
-      originalStyle = media.style.display;
-      media.style.display = "inline";
-
-      // setting youtube player's height and width, min 640 x 390,
-      // anything smaller, and the player reports incorrect states.
-      styleHeight = parseFloat( media.style.height );
-      styleWidth = parseFloat( media.style.width );
-      height = styleHeight > media.clientHeight ? styleHeight : media.clientHeight;
-      width = styleWidth > media.clientWidth ? styleWidth : media.clientWidth;
-      height = height >= 390 ? height : "390";
-      width = width >= 640 ? width: "640";
-      
-      media.style.display = originalStyle;
-
       options.youtubeObject = new YT.Player( container.id, {
-        height: height,
-        width: width,
+        height: "100%",
+        width: "100%",
         wmode: "transparent",
         playerVars: { wmode: "transparent" },
         videoId: src,

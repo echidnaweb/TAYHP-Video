@@ -27,26 +27,10 @@ class TwitterEvent
        start: $this->start,
        end: $this->end,
        onStart: function( options ) {
-       
          var tweet_text = '<span id=\'$this->id\' class=\'$this->class\'>@'+'$this->from_user<br>$this->text</span>';
-
-         // If no template has been loaded yet or it has changed load template
-         if (typeof window.template == 'undefined' || window.template != "$this->template")
-         {
-           window.template = "$this->template"; 
-           $('#contentlayer').load('tpl/'+window.template+'.html', function() 
-           { 
-             $('body').attr('class',window.template); 
-             $('#$this->target').html(tweet_text);
-             $('#$this->target span#$this->id').fadeIn('slow');
-           });
-         }
-         else
-         {
-           $('#$this->target').html(tweet_text);
-           $('#$this->target span#$this->id').fadeIn('slow');
-         }
-        
+         $('body').attr('class','$this->template'); 
+         $('#$this->target').html(tweet_text);
+         $('#$this->target span#$this->id').fadeIn('slow');
        },
        onEnd: function( options ) {
         $('span#$this->id').fadeOut('slow', function() { $('span#$this->id').remove(); });

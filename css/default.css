@@ -208,6 +208,27 @@ body.cwtch #area4 img,
 body.cwtch #area5 img,
 body.cwtch #area8 img { height: 284px; max-width: 220px }
 
+
+/* flickrsolo */
+
+body.flickrsolo #area1 { 
+    display: absolute;
+    top: 142px;
+    left: 0;
+    height: 315px; }
+
+body.flickrsolo #area2 { 
+    display: absolute;
+    top: 0;
+    left: 0;
+    width: 475px; }
+
+body.flickrsolo #area3 { 
+    display: absolute;
+    top: 0;
+    right: 0; 
+    width: 475px; }
+
 /*
 #area1 { background: yellow }
 #area2 { background: green }

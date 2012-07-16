@@ -70,22 +70,9 @@ class FlickrEvent
        end: $this->end,
        onStart: function( options ) {
          var imgtag = '$imgtag';
-         // If no template has been loaded yet or it has changed load template
-         if (typeof window.template == 'undefined' || window.template != "$this->template")
-         {
-           window.template = "$this->template"; 
-           $('#contentlayer').load('tpl/'+window.template+'.html', function() 
-           {
-             $('body').attr('class',window.template);
-             $('#$this->target').html(imgtag);
-             $('#$this->target #$this->id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
-           }); 
-         }
-         else 
-         {         
-           $('#$this->target').html(imgtag);
-           $('#$this->target #$this->id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
-         } 
+         $('body').attr('class','$this->template');
+         $('#$this->target').html(imgtag);
+         $('#$this->target #$this->id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
        },
        onEnd: function( options ) {
         $('#$this->id').fadeOut('slow', function() { $('#$this->id').remove(); });

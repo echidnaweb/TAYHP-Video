@@ -15,7 +15,6 @@ class WordRiverEvent
   function __construct($conf)
   {
     $this->conf = $conf; 
-//    print_r($conf);
     if ($this->preprocess()) $this->process();
   }
 
@@ -44,53 +43,24 @@ class WordRiverEvent
 
          var text = '<span id=\'$this->id\' style=\'$this->style\' class=\'$this->class\'>$this->text</span>';
          
-         // If no template has been loaded yet or it has changed load template
-         if (typeof window.template == 'undefined' || window.template != "$this->template")
-         {
-           window.template = "$this->template";
-           $('#contentlayer').load('tpl/'+window.template+'.html', function()
-           {
-             // set the class of the body tag to the template name
-             $('body').attr('class',window.template);
+         // set the class of the body tag to the template name
+         $('body').attr('class',window.template);
 
-             $ststmt
-             $dtstmt
+         $ststmt
+         $dtstmt
 
-             // move the target tag offscreen 
-             $('#$this->target').css('$this->origin',start_point);
+         // move the target tag offscreen 
+         $('#$this->target').css('$this->origin',start_point);
 
-             // write the text to the target tag
-             $('#$this->target').html(text);
+         // write the text to the target tag
+         $('#$this->target').html(text);
              
-             // un-hide the dynamic content
-             $('#$this->target #$this->id').show();
+         // un-hide the dynamic content
+         $('#$this->target #$this->id').show();
              
-             //animate the target tag 
-             $('#$this->target').animate({"$this->origin": "+="+distance}, 19200,'linear',function() { 
-               $('#$this->target').css('$this->origin',start_point); $('#$this->id').remove();
-             });
-           });
-         }
-         else
-         {
-           $ststmt
-           $dtstmt
-
-           // move the target tag offscreen
-           $('#$this->target').css('$this->origin',start_point);
-
-           // write the text to the target tag
-           $('#$this->target').html(text);
-
-           // un-hide the dynamic content
-           $('#$this->target #$this->id').show();
-
-           //animate the target tag
-           $('#$this->target').animate({"$this->origin": "+="+distance}, 19200,'linear',function() {
-             $('#$this->target').css('$this->origin',start_point); $('#$this->id').remove()
-           ;});
-         }
-
+         //animate the target tag 
+         $('#$this->target').animate({"$this->origin": "+="+distance}, 19200,'linear',function() { 
+         $('#$this->target').css('$this->origin',start_point); $('#$this->id').remove();
        },
        onEnd: function( options ) {
         //$ststmt

@@ -22,6 +22,7 @@ function toggle_drawer()
 
 function load_video(id)
 {
+  $('.target').empty();
   toggle_drawer();
   $.getScript("processtimeline.js.php?video="+id+"&ts=<?php echo time(); ?>")
 .done(function(script, textStatus) {

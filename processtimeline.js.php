@@ -12,8 +12,10 @@ include ("class/PopcornProduction.class.php");
 include ("class/TwitterAPI.class.php");
 include ("class/TwitterEvent.class.php");
 include ("class/FlickrEvent.class.php");
+include ("class/GooglemapEvent.class.php");
 include ("class/WordRiverEvent.class.php");
 include ("class/HideMediaEvent.class.php");
+include ("class/ChangeTemplateEvent.class.php");
 include ("class/ExtDataCache.class.php");
 include ("lib/phpFlickr-3.1/phpFlickr.php");
 

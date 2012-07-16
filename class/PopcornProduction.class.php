@@ -45,7 +45,7 @@ EOF;
     {
       $this->js .= $event->getJS();
     }
-    $this->js .="window.popcorn.play();";
+
     $this->js .="}\n";
     
   }
