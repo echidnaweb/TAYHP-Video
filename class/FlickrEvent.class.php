@@ -56,8 +56,8 @@ class FlickrEvent
     $url = $this->flickr_api->buildPhotoURL($photo, $this->size);
     $alt = addslashes($photo['title']);
     $ownername = addslashes($photo['ownername']);
-    $imgtag = "<img id='$this->id' alt='$alt'".
-              "src=" . $url . "></img>";
+    $imgtag = "<img id=\"$this->id\" alt=\"$alt\" ".
+              "src=\"" . $url . "\"></img>";
 
     $this->js .= <<<EOF
 
@@ -69,7 +69,7 @@ class FlickrEvent
        start: $this->start,
        end: $this->end,
        onStart: function( options ) {
-         var imgtag = "$imgtag";
+         var imgtag = '$imgtag';
          // If no template has been loaded yet or it has changed load template
          if (typeof window.template == 'undefined' || window.template != "$this->template")
          {
