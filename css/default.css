@@ -233,7 +233,7 @@ body.flickrsolo #area2 {
     display: inline-block;
     }
 
-body.flickrsolo #area2 img { width: 350px; vertical-align: middle; }
+body.flickrsolo #area2 img { width: 350px; height: 500px; vertical-align: middle; }
 
 body.flickrsolo #area3 { 
     position: absolute;
@@ -244,7 +244,7 @@ body.flickrsolo #area3 {
     display: inline-block;
     }
 
-body.flickrsolo #area3 img{ width: 350px; vertical-align: middle;}
+body.flickrsolo #area3 img{ width: 350px; height: 500px; vertical-align: middle;}
 
 body.flickrsolo #area4,
 body.flickrsolo #area5,
