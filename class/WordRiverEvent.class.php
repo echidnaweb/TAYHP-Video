@@ -42,7 +42,13 @@ class WordRiverEvent
        onStart: function( options ) {
 
          var text = '<span id=\'$this->id\' style=\'$this->style\' class=\'$this->class\'>$this->text</span>';
-         
+ 
+         //set position of target back to default
+         $('#$this->target').css('left', '');
+         $('#$this->target').css('right', '');
+         $('#$this->target').css('top', '');
+         $('#$this->target').css('bottom', '');
+    
          // set the class of the body tag to the template name
          $('body').attr('class','$this->template');
 
@@ -82,7 +88,6 @@ EOF;
     $this->start = $this->conf['popcornOptions']['start'];
     $this->end = $this->conf['popcornOptions']['end'];
     $this->target = $this->conf['popcornOptions']['target'];
-    //$this->text = addslashes(preg_replace("/[^a-zA-Z0-9 !@#\$%\^\*\?\.;&:\-\+=\/]/","",nl2br($this->conf['popcornOptions']['text'])));
     $this->text = $this->conf['popcornOptions']['text'];
     $this->template = $this->conf['template'];
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";

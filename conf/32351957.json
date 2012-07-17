@@ -548,11 +548,22 @@
               "class": "credits",
               "style": "",
               "popcornOptions": {
-                "start": 160,
-                "end": 170,
+                "start": 169,
+                "end": 171,
                 "target": "area2",
                 "text": "<h1>Credits</h1><strong>Producer</strong> John Smith",
                 "origin": "top"
+              },
+              "track": "Track0",
+              "name": "TrackEvent25"
+            },
+            {
+              "id": "TrackEvent26",
+              "type": "hideMedia",
+              "template": "wordriver",
+              "popcornOptions": {
+                "start": 169,
+                "end": 190 
               },
               "track": "Track0",
               "name": "TrackEvent25"
