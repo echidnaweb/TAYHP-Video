@@ -15,9 +15,20 @@
           "id": "Track0",
           "trackEvents": [
             {
+              "id": "TrackEvent0",
+              "type": "hideMedia",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 0,
+                "end": 180
+              },
+              "track": "Track0",
+              "name": "TrackEvent0_1"
+            }, 
+            {
               "id": "TrackEvent1",
               "type": "flickr",
-              "template": "cwtch",
+              "template": "flickrsolo",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 5, 
@@ -30,7 +41,7 @@
                 "size": "small",
                 "padding": "5px",
                 "border": "0px",
-                "orientation": "portrait",
+                "orientation": "landscape",
                 "iscommons": "true"
               },
               "track": "Track0",
@@ -39,7 +50,7 @@
             {
               "id": "TrackEvent2",
               "type": "flickr",
-              "template": "cwtch",
+              "template": "flickrsolo",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 7, 
@@ -52,7 +63,7 @@
                 "size": "small",
                 "padding": "5px",
                 "border": "0px",
-                "orientation": "landscape",
+                "orientation": "portrait",
                 "iscommons": "true"
               },
               "track": "Track0",
@@ -61,7 +72,7 @@
             {
               "id": "TrackEvent3",
               "type": "flickr",
-              "template": "cwtch",
+              "template": "flickrsolo",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 10, 
@@ -76,7 +87,7 @@
                 "size": "small",
                 "padding": "5px",
                 "border": "0px",
-                "orientation": "landscape",
+                "orientation": "portrait",
                 "iscommons": "true"
               },
               "track": "Track0",
@@ -85,12 +96,12 @@
             {
               "id": "TrackEvent4",
               "type": "flickr",
-              "template": "cwtch",
+              "template": "flickrsolo",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 13,
                 "end": 18,
-                "target": "area4",
+                "target": "area1",
                 "userid": "",
                 "tags": "banana",
                 "username": "",
@@ -100,7 +111,7 @@
                 "size": "small",
                 "padding": "5px",
                 "border": "0px",
-                "orientation": "portrait",
+                "orientation": "landscape",
                 "iscommons": "true"
               },
               "track": "Track0",
@@ -109,12 +120,12 @@
             {
               "id": "TrackEvent5",
               "type": "flickr",
-              "template": "cwtch",
+              "template": "flickrsolo",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 16,
                 "end": 21,
-                "target": "area5",
+                "target": "area2",
                 "userid": "",
                 "tags": "kiwi fruit",
                 "username": "",
@@ -133,12 +144,12 @@
             {
               "id": "TrackEvent6",
               "type": "flickr",
-              "template": "cwtch",
+              "template": "flickrsolo",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 19,
                 "end": 24,
-                "target": "area6",
+                "target": "area3",
                 "userid": "",
                 "tags": "lime",
                 "username": "",
@@ -148,7 +159,7 @@
                 "size": "small",
                 "padding": "5px",
                 "border": "0px",
-                "orientation": "landscape",
+                "orientation": "portrait",
                 "iscommons": "true"
               },
               "track": "Track0",
@@ -157,12 +168,12 @@
             {
               "id": "TrackEvent7",
               "type": "flickr",
-              "template": "cwtch",
+              "template": "flickrsolo",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 22,
                 "end": 27,
-                "target": "area7",
+                "target": "area1",
                 "userid": "",
                 "tags": "plum",
                 "username": "",
@@ -181,12 +192,12 @@
             {
               "id": "TrackEvent8",
               "type": "flickr",
-              "template": "cwtch",
+              "template": "flickrsolo",
               "numberofimages": 1,
               "popcornOptions": {
                 "start": 25,
                 "end": 30,
-                "target": "area8",
+                "target": "area2",
                 "userid": "",
                 "tags": "peach",
                 "username": "",

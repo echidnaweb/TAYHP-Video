@@ -71,6 +71,7 @@ class FlickrEvent
        onStart: function( options ) {
          var imgtag = '$imgtag';
          $('body').attr('class','$this->template');
+         $('#$this->target').css('z-index',parseInt($('#$this->target').css('z-index'))+1);
          $('#$this->target').html(imgtag);
          $('#$this->target #$this->id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
        },

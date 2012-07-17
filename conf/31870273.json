@@ -21,10 +21,40 @@
               "template": "cwtch"
             },
             {
-              "id": "TrackEvent3",
+              "id": "TrackEvent1",
               "type": "googlemap",
               "popcornOptions": {
                 "start": 5,
+                "end": 15,
+                "type": "ROADMAP",
+                "target": "area1",
+                "lat": 42.665429,
+                "lng": -69.403323,
+                "zoom": 9
+              },
+              "track": "Track0",
+              "name": "TrackEvent3"
+            },
+            {
+              "id": "TrackEvent2",
+              "type": "googlemap",
+              "popcornOptions": {
+                "start": 10,
+                "end": 20,
+                "type": "ROADMAP",
+                "target": "area2",
+                "lat": 44.665429,
+                "lng": -81.403323,
+                "zoom": 9
+              },
+              "track": "Track0",
+              "name": "TrackEvent3"
+            },
+            {
+              "id": "TrackEvent3",
+              "type": "googlemap",
+              "popcornOptions": {
+                "start": 15,
                 "end": 25,
                 "type": "ROADMAP",
                 "target": "area3",
@@ -45,7 +75,8 @@
                 "type": "ROADMAP",
                 "target": "area4",
                 "lat": 43.665429,
-                "lng": -79.403323
+                "lng": -79.403323,
+                "zoom": 9
               },
               "track": "Track0",
               "name": "TrackEvent4"
@@ -60,7 +91,8 @@
                 "type": "ROADMAP",
                 "target": "area5",
                 "lat": 43.665429,
-                "lng": -79.403323
+                "lng": -79.403323,
+                "zoom": 9
               },
               "track": "Track0",
               "name": "TrackEvent5"
@@ -75,7 +107,8 @@
                 "type": "ROADMAP",
                 "target": "area6",
                 "lat": 43.665429,
-                "lng": -79.403323
+                "lng": -79.403323,
+                "zoom": 9
               },
               "track": "Track0",
               "name": "TrackEvent6"
@@ -90,7 +123,8 @@
                 "type": "ROADMAP",
                 "target": "area7",
                 "lat": 43.665429,
-                "lng": -79.403323
+                "lng": -79.403323,
+                "zoom": 9
               },
               "track": "Track0",
               "name": "TrackEvent7"
@@ -105,7 +139,8 @@
                 "type": "ROADMAP",
                 "target": "area8",
                 "lat": 43.665429,
-                "lng": -79.403323
+                "lng": -79.403323,
+                "zoom": 9
               },
               "track": "Track0",
               "name": "TrackEvent8"
