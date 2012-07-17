@@ -44,7 +44,7 @@ class WordRiverEvent
          var text = '<span id=\'$this->id\' style=\'$this->style\' class=\'$this->class\'>$this->text</span>';
          
          // set the class of the body tag to the template name
-         $('body').attr('class',window.template);
+         $('body').attr('class','$this->template');
 
          $ststmt
          $dtstmt
@@ -60,12 +60,10 @@ class WordRiverEvent
              
          //animate the target tag 
          $('#$this->target').animate({"$this->origin": "+="+distance}, 19200,'linear',function() { 
-         $('#$this->target').css('$this->origin',start_point); $('#$this->id').remove();
+           $('#$this->target').css('$this->origin',start_point); $('#$this->id').remove();
+         });
        },
        onEnd: function( options ) {
-        //$ststmt
-        //$('#$this->target').css('$this->origin',start_point);
-        //$('#$this->id').remove();
        }
      });\n
 
