@@ -96,8 +96,7 @@ EOF;
     $this->ownername_target = isset($this->conf['popcornOptions']['ownername_target'])?$this->conf['popcornOptions']['ownername_target']:"unknown";
     $this->template = isset($this->conf['template'])?$this->conf['template']:"0"; 
     $this->orientation = isset($this->conf['popcornOptions']['orientation'])?$this->conf['popcornOptions']['orientation']:false; 
-    $this->size = isset($this->conf['small'])?$this->conf['size']:"small";
-
+    $this->size = isset($this->conf['popcornOptions']['size'])?$this->conf['popcornOptions']['size']:"small";
     $this->flickr_api = new phpFlickr($this->conf['popcornOptions']['apikey']);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
