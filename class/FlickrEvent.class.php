@@ -87,7 +87,7 @@ EOF;
   
   private function preprocess()
   {
-    if (!isset($this->conf['popcornOptions']['apikey'])) return false; 
+    $api_key = isset($this->conf['popcornOptions']['apikey'])?$this->conf['popcornOptions']['apikey']:FLICKR_API_KEY; 
 
     $this->id = isset($this->conf['id'])?$this->conf['id']:"0";
     $this->start = isset($this->conf['popcornOptions']['start'])?$this->conf['popcornOptions']['start']:"0";
@@ -97,7 +97,7 @@ EOF;
     $this->template = isset($this->conf['template'])?$this->conf['template']:"0"; 
     $this->orientation = isset($this->conf['popcornOptions']['orientation'])?$this->conf['popcornOptions']['orientation']:false; 
     $this->size = isset($this->conf['popcornOptions']['size'])?$this->conf['popcornOptions']['size']:"small";
-    $this->flickr_api = new phpFlickr($this->conf['popcornOptions']['apikey']);
+    $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
     $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o,owner_name";

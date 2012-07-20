@@ -5,6 +5,7 @@ define("TWITTER_MAX_RESULTS",100);
 define("TWITTER_URL", "http://search.twitter.com/search.json?rpp=".TWITTER_MAX_RESULTS);
 define("TWITTER_CACHE_EXPIRY", 3600);
 define("FLICKR_CACHE_EXPIRY", 3600);
+define("FLICKR_API_KEY", "b9f54a73e2502555f2f88cae4461e70f");
 define("CONFIG_PATH", getcwd()."/conf");
 define("CACHE_DIR", getcwd()."/cache");
 // Includes
