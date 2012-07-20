@@ -6,7 +6,7 @@
  *
  **/
 
-class WordRiverEvent
+class WordriverEvent
 {
   private $conf;
   private $js = "";

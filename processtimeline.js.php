@@ -13,7 +13,7 @@ include ("class/TwitterAPI.class.php");
 include ("class/TwitterEvent.class.php");
 include ("class/FlickrEvent.class.php");
 include ("class/GooglemapEvent.class.php");
-include ("class/WordRiverEvent.class.php");
+include ("class/WordriverEvent.class.php");
 include ("class/HideMediaEvent.class.php");
 include ("class/PauseMediaEvent.class.php");
 include ("class/ChangeTemplateEvent.class.php");
