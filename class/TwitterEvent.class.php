@@ -55,9 +55,7 @@ EOF;
     $this->src = $this->conf['popcornOptions']['src'];
     $this->from_user = $this->conf['popcornOptions']['tweet']['from_user'];
     $this->text = addslashes(preg_replace("/[^a-zA-Z0-9 !@#\$%\^\*\?\.;&:\-\+=\/]/","",nl2br($this->conf['popcornOptions']['tweet']['text'])));
-    $this->height = $this->conf['popcornOptions']['height'];
-    $this->width = $this->conf['popcornOptions']['width'];
-    $this->template = $this->conf['template'];
+    $this->template = isset($this->conf['template'])?$this->conf['template']:"";
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     return true;
   }
