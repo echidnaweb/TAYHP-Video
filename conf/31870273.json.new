@@ -1,0 +1,112 @@
+{
+  "media": [
+    {
+      "id": "Media0",
+      "name": "Media0",
+      "url": [
+        "http://vimeo.com/31870273"
+      ],
+      "target": "main",
+      "duration": 169,
+      "controls": false,
+      "tracks": [
+        {
+          "name": "Track0",
+          "id": "Track0",
+          "trackEvents": [
+            {
+              "id": "TrackEvent3",
+              "type": "googlemap",
+              "popcornOptions": {
+                "start": 2,
+                "end": 25,
+                "type": "ROADMAP",
+                "target": "area3",
+                "lat": 43.665429,
+                "lng": -79.403323,
+                "zoom": 9
+              },
+              "track": "Track0",
+              "name": "TrackEvent3"
+            },
+            {
+              "id": "TrackEvent4",
+              "type": "googlemap",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 20,
+                "end": 30,
+                "type": "ROADMAP",
+                "target": "area4",
+                "lat": 43.665429,
+                "lng": -79.403323
+              },
+              "track": "Track0",
+              "name": "TrackEvent4"
+            },
+            {
+              "id": "TrackEvent5",
+              "type": "googlemap",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 25,
+                "end": 35,
+                "type": "ROADMAP",
+                "target": "area5",
+                "lat": 43.665429,
+                "lng": -79.403323
+              },
+              "track": "Track0",
+              "name": "TrackEvent5"
+            },
+            {
+              "id": "TrackEvent6",
+              "type": "googlemap",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 30,
+                "end": 40,
+                "type": "ROADMAP",
+                "target": "area6",
+                "lat": 43.665429,
+                "lng": -79.403323
+              },
+              "track": "Track0",
+              "name": "TrackEvent6"
+            },
+            {
+              "id": "TrackEvent7",
+              "type": "googlemap",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 35,
+                "end": 45,
+                "type": "ROADMAP",
+                "target": "area7",
+                "lat": 43.665429,
+                "lng": -79.403323
+              },
+              "track": "Track0",
+              "name": "TrackEvent7"
+            },
+            {
+              "id": "TrackEvent8",
+              "type": "googlemap",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 40,
+                "end": 50,
+                "type": "ROADMAP",
+                "target": "area8",
+                "lat": 43.665429,
+                "lng": -79.403323
+              },
+              "track": "Track0",
+              "name": "TrackEvent8"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
