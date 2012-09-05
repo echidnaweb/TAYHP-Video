@@ -36,6 +36,21 @@ class TwitterAPI
     else return false;
     return true;
   }
+
+  public function doCachedSearch($qry)
+  {
+    $results = array();
+    // if there is an entry in the cache retrieve it
+    $results = $this->getCache()->getValue($qry);
+    // otherwise search the Twitter API
+    if (!$results || count($results) == 0)
+    {
+      $results = $this->doSearch($qry);
+      $this->getCache()->setValue($qry,$results);
+      if ($results && count($results) > 0) $this->getCache()->save();
+    }
+    return $results;
+  }
  
   /* Search the Twitter API for a query string */
   private function doSearch($qry)
