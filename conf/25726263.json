@@ -84,6 +84,8 @@
                 "border": "0px",
                 "orientation": "portrait",
                 "iscommons": "true",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "numberofimages":"6"
               },
               "track":"Track0",
@@ -105,6 +107,8 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "iscommons": "true",
                 "numberofimages":"6"
               },
@@ -127,6 +131,8 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "iscommons": "true",
                 "numberofimages":"6"
               },
@@ -149,6 +155,8 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "iscommons": "true",
                 "numberofimages":"6"
               },
@@ -171,6 +179,8 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "iscommons": "true",
                 "numberofimages":"6"
               },
@@ -193,6 +203,8 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "iscommons": "true",
                 "numberofimages":"6"
               },
@@ -351,7 +363,7 @@
               "template" : "cwtch",
               "popcornOptions":{
                 "start":183.385,
-                "end":203.088,
+                "end":186,
                 "target":"area1",
                 "userid":"",
                 "tags":"Kampala, traffic",
@@ -360,11 +372,11 @@
                 "orientation" : "portrait",
                 "iscommons" : "true",
                 "username":"",
-                "apikey":"",
-                "height":"100px",
-                "width":"auto",
+                "apikey":"b9f54a73e2502555f2f88cae4461e70f",
                 "padding":"",
                 "border":"5px",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "numberofimages":"4"
               },
               "track":"Track0",
@@ -375,21 +387,21 @@
               "type":"flickr",
               "template" : "cwtch",
               "popcornOptions":{
-                "start":183.385,
-                "end":203.088,
+                "start":185,
+                "end":188,
                 "target":"area2",
                 "userid":"",
                 "tags":"Kampala, traffic",
                 "ownername_target" : "attrib",
                 "size" : "small",
-                "orientation" : "portrait",
+                "orientation" : "landscape",
                 "iscommons" : "true",
                 "username":"",
-                "apikey":"",
-                "height":"100px",
-                "width":"auto",
+                "apikey":"b9f54a73e2502555f2f88cae4461e70f",
                 "padding":"",
                 "border":"5px",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "numberofimages":"4"
               },
               "track":"Track0",
@@ -400,21 +412,21 @@
               "type":"flickr",
               "template" : "cwtch",
               "popcornOptions":{
-                "start":183.385,
-                "end":203.088,
+                "start":184,
+                "end":189,
                 "target":"area3",
                 "userid":"",
                 "tags":"Kampala, traffic",
                 "ownername_target" : "attrib",
                 "size" : "small",
-                "orientation" : "portrait",
+                "orientation" : "landscape",
                 "iscommons" : "true",
                 "username":"",
-                "apikey":"",
-                "height":"100px",
-                "width":"auto",
+                "apikey":"b9f54a73e2502555f2f88cae4461e70f",
                 "padding":"",
                 "border":"5px",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "numberofimages":"4"
               },
               "track":"Track0",
@@ -425,7 +437,7 @@
               "type":"flickr",
               "template" : "cwtch",
               "popcornOptions":{
-                "start":183.385,
+                "start":188,
                 "end":203.088,
                 "target":"area4",
                 "userid":"",
@@ -435,23 +447,69 @@
                 "orientation" : "portrait",
                 "iscommons" : "true",
                 "username":"",
-                "apikey":"",
-                "height":"100px",
-                "width":"auto",
+                "apikey":"b9f54a73e2502555f2f88cae4461e70f",
                 "padding":"",
                 "border":"5px",
+                "safe_search" : "1",
+                "tag_mode" : "all",
                 "numberofimages":"4"
               },
               "track":"Track0",
               "name":"TrackEvent8"
             },
             {
-              "id":"TrackEvent9",
+              "id":"TrackEvent9_1",
               "type":"twitter",
+              "template" : "foursquare",
               "popcornOptions":{
                 "start":249.996,
+                "end":257,
+                "target":"area1",
+                "src":"uganda",
+                "height":"200",
+                "width":"250"
+              },
+              "track":"Track0",
+              "name":"TrackEvent9"
+            },
+            {
+              "id":"TrackEvent9_2",
+              "type":"twitter",
+              "template" : "foursquare",
+              "popcornOptions":{
+                "start":256,
+                "end":264,
+                "target":"area3",
+                "src":"uganda",
+                "height":"200",
+                "width":"250"
+              },
+              "track":"Track0",
+              "name":"TrackEvent9"
+            },
+            {
+              "id":"TrackEvent9_3",
+              "type":"twitter",
+              "template" : "foursquare",
+              "popcornOptions":{
+                "start":263,
+                "end":271,
+                "target":"area5",
+                "src":"uganda",
+                "height":"200",
+                "width":"250"
+              },
+              "track":"Track0",
+              "name":"TrackEvent9"
+            },
+            {
+              "id":"TrackEvent9_4",
+              "type":"twitter",
+              "template" : "foursquare",
+              "popcornOptions":{
+                "start":270,
                 "end":279.047,
-                "target":"Twitter",
+                "target":"area7",
                 "src":"uganda",
                 "height":"200",
                 "width":"250"
@@ -462,10 +520,12 @@
             {
               "id":"TrackEvent10",
               "type":"wordriver",
+              "template" : "wordriver",
+              "class" : "credits",
               "popcornOptions":{
                 "start":280.464,
                 "end":284.059,
-                "target":"Wordriver",
+                "target":"area2",
                 "text":"Producer / Director - Irene Nduta ",
                 "color":"Green"
               },
@@ -475,10 +535,11 @@
             {
               "id":"TrackEvent11",
               "type":"wordriver",
+              "template" : "wordriver",
               "popcornOptions":{
-                "start":284.059,
+                "start":284.062,
                 "end":287.023,
-                "target":"Wordriver",
+                "target":"area2",
                 "text":"Additional Camera - James Mbiri",
                 "color":"Green"
               },

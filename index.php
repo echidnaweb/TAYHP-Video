@@ -4,10 +4,11 @@
 <title>The Are You Happy Project</title>
 <style type="text/css">@import url("css/default.css");</style>
 <style type="text/css">@import url("js/jcarousel/skins/tango/skin.css");</style>
+<link href='http://fonts.googleapis.com/css?family=Nixie+One|PT+Sans|Abril+Fatface|Special+Elite' rel='stylesheet' type='text/css'>
 <script src="js/popcorn-complete.js"></script>
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/jcarousel/jquery.jcarousel.min.js"></script>
-<script src="processtimeline.js.php?video=<?php echo isset($_GET['video'])?$_GET['video']:"32351957"; ?>"></script>
+<script src="processtimeline.js.php?video=<?php echo isset($_GET['video'])?$_GET['video']:"32351957"; ?>"></script> <!-- Starting Video -->
 <script src="js/tayhpvideo.js"></script>
 <script>document.addEventListener( "DOMContentLoaded",init_popcorn,false);</script>
 </head>

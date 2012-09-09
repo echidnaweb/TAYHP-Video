@@ -6,7 +6,7 @@ body {
       color: #ccc;
       margin: 0;
       overflow: hidden;
-      font-family: Helvetica, Arial, Tahoma
+      font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
 #floater { float: left; height: 50%; margin-bottom: -300px }
@@ -90,7 +90,7 @@ body {
     height: 50px;
     margin: 0 auto;
 }
-/* foursquare */
+/* Twitter foursquare */
 
 body.foursquare #area1, #area2, #area5, #area6 { 
     width: 485px;
@@ -98,6 +98,31 @@ body.foursquare #area1, #area2, #area5, #area6 {
     float: left }
 body.foursquare #area3, #area4 { width: 220px; float: left; min-height: 315px }
 body.foursquare #area3 { margin-right: 530px }
+
+body.foursquare #area1 {
+	font-family: 'Nixie One', cursive;
+}
+
+body.foursquare #area2 {
+	font-family: 'PT Sans', sans-serif;
+}
+
+body.foursquare #area3 {
+	font-family: 'Abril Fatface', cursive;
+}
+
+body.foursquare #area4 {
+	font-family: 'Special Elite', cursive;
+}
+
+body.foursquare #area5 {
+	font-family: 'Nixie One', cursive;
+}
+
+body.foursquare #area6 {
+	font-family: 'PT Sans', sans-serif;
+}
+
 
 /* wordriver */
 
@@ -120,13 +145,14 @@ body.wordriver #area2 {
   width: 100%;
 }
 
-/* babble */
+/* Twitter babble */
 
 body.babble #area1 {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 2em;
+  font-size: 1em;
+  font-family: 'Nixie One', cursive;
   width: 600px;
 }
 
@@ -134,7 +160,8 @@ body.babble #area2 {
   position: absolute;
   top: 200px;
   left: 250px;
-  font-size: 1.2em;
+  font-size: 1em;
+  font-family: 'PT Sans', sans-serif;
   width: 400px;
 }
 
@@ -142,7 +169,8 @@ body.babble #area3 {
   position: absolute;
   top: 300px;
   left: 50px;
-  font-size: 0.85em;
+  font-size: 1em;
+  font-family: 'Abril Fatface', cursive;
   width: 200px;
 }
 
@@ -151,6 +179,7 @@ body.babble #area4 {
   top: 0;
   left: 0;
   font-size: 1em;
+  font-family: 'Special Elite', cursive;
   width: 600px;
 
 }
@@ -159,7 +188,8 @@ body.babble #area5 {
   position: absolute;
   top: 200px;
   left: 600px;
-  font-size: 0.85em;
+  font-size: 1em;
+  font-family: 'Nixie One', cursive;
   width: 100px;
 }
 
@@ -167,7 +197,8 @@ body.babble #area6 {
   position: absolute;
   top: 300px;
   left: 200px;
-  font-size: 1.5em;
+  font-size: 1em;
+  font-family: 'PT Sans', sans-serif;
   width: 350px;
 }
 
