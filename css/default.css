@@ -27,7 +27,7 @@ body {
     margin:0 auto;
     position: relative;
     top: -600px; 
-    z-index: 20;
+    z-index: 20; /* changing this to '1' solves problem of flickr solo images being obscured by the vid, but it also makes the vid controls inaccessible :( */
     /* background: blue; */
 }
 
@@ -139,10 +139,17 @@ body.wordriver .credits { margin: 0 auto; display: block;  text-align: center;  
 
 body.wordriver #area2 {
   position: absolute;
-  top: 525px;
+  top: 515px;
   left: 0;
   font-size: 1.2em;
   width: 100%;
+}
+
+/* Shep custom (for credits/attribution) */
+body.wordriver #area3 {
+  position: absolute;
+  width: 100%;
+  text-align: center;
 }
 
 /* Twitter babble */
@@ -241,7 +248,7 @@ body.cwtch #area8 img { height: 284px; max-width: 220px }
 
 /* flickrsolo */
 
-body.flickrsolo .target { z-index: 10 }
+body.flickrsolo .target { z-index: 100 }
 
 body.flickrsolo #area1 { 
     position: absolute;
@@ -263,7 +270,7 @@ body.flickrsolo #area2 {
     display: inline-block;
     }
 
-body.flickrsolo #area2 img { width: 350px; height: 500px; vertical-align: middle; }
+body.flickrsolo #area2 img { width: 350px; height: auto; vertical-align: middle; } /* adusted height to auto from 600px to avoid distorting - revert if this doesn't work */
 
 body.flickrsolo #area3 { 
     position: absolute;
@@ -274,7 +281,7 @@ body.flickrsolo #area3 {
     display: inline-block;
     }
 
-body.flickrsolo #area3 img{ width: 350px; height: 500px; vertical-align: middle;}
+body.flickrsolo #area3 img{ width: 350px; height: auto; vertical-align: middle;}
 
 body.flickrsolo #area4,
 body.flickrsolo #area5,
