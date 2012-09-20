@@ -1,0 +1,510 @@
+{
+  "targets": [
+    {
+      "id": "Target0",
+      "name": "Target0",
+      "element": "Maps"
+    },
+    {
+      "id": "Target1",
+      "name": "Target1",
+      "element": "Twitter"
+    },
+    {
+      "id": "Target2",
+      "name": "Target2",
+      "element": "Wordriver"
+    },
+    {
+      "id": "Target3",
+      "name": "Target3",
+      "element": "Flickr"
+    }
+  ],
+  "media": [
+    {
+      "id": "Media0",
+      "name": "Media0",
+      "url": [
+        "http://vimeo.com/48180896"
+      ],
+      "target": "main",
+      "duration": 403,
+      "controls": true,
+      "tracks": [
+        {
+          "name": "Track0",
+          "id": "Track0",
+          "trackEvents": [
+            {
+              "id": "TrackEvent1",
+              "type": "wordriver",
+              "template": "wordriver",
+              "popcornOptions": {
+                "start": 0.546,
+                "end": 4.172,
+                "target": "area1",
+                "text": "Searching for happiness",
+                "origin" : "right"
+              },
+              "track": "Track0",
+              "name": "TrackEvent8"
+            },
+            {
+              "id": "TrackEvent2",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "start": 4,
+                "end": 10,
+                "target": "area1",
+                "tags": "happy",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "size": "small",
+                "iscommons": true
+              },
+              "track": "Track1",
+              "name": "TrackEvent1"
+            },
+            {
+              "id": "TrackEvent2_1",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "start": 7,
+                "end": 13,
+                "target": "area1",
+                "tags": "happy",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "size": "small",
+                "iscommons": true
+              },
+              "track": "Track1",
+              "name": "TrackEvent1"
+            },
+            {
+              "id": "TrackEvent2_2",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "start": 10,
+                "end": 16,
+                "target": "area1",
+                "tags": "happy",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "size": "small",
+                "iscommons": true
+              },
+              "track": "Track1",
+              "name": "TrackEvent1"
+            },
+            {
+              "id": "TrackEvent2_3",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "start": 13,
+                "end": 19,
+                "target": "area1",
+                "tags": "happy",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "size": "small",
+                "iscommons": true
+              },
+              "track": "Track1",
+              "name": "TrackEvent1"
+            },
+            {
+              "id": "TrackEvent2_4",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "start": 16,
+                "end": 21,
+                "target": "area1",
+                "tags": "happy",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "size": "small",
+                "iscommons": true
+              },
+              "track": "Track1",
+              "name": "TrackEvent1"
+            },
+            {
+              "id": "TrackEvent3",
+              "type": "wordriver",
+			  "template": "wordriver",
+              "popcornOptions": {
+                "start": 24.681,
+                "end": 28.521,
+                "target": "area1",
+                "text": "UlaanBataar, Mongolia's Capital City ",
+                "origin" : "right"
+              },
+              "track": "Track1",
+              "name": "TrackEvent2"
+            },
+            {
+              "id": "TrackEvent4",
+              "type": "wordriver",
+			  "template": "wordriver",
+              "popcornOptions": {
+                "start": 42.188,
+                "end": 46.717,
+                "target": "area1",
+                "text": " Mongolia is the 19th largest country in the world",
+                "origin" : "right"
+              },
+              "track": "Track1",
+              "name": "TrackEvent9"
+            },
+            {
+              "id": "TrackEvent5",
+              "type": "wordriver",
+			  "template": "wordriver",
+              "popcornOptions": {
+                "start": 73.341,
+                "end": 81.379,
+                "target": "area1",
+                "text": "Democracy and privatisation were introduced in 1990 after 70 years of a Soviet style system ",
+                "origin" : "right"
+              },
+              "track": "Track1",
+              "name": "TrackEvent10"
+            },
+            {
+              "id": "TrackEvent6",
+              "type": "wordriver",
+			  "template": "wordriver",
+              "popcornOptions": {
+                "start": 96.352,
+                "end": 103.695,
+                "target": "area1",
+                "text": "Traditionally an agricultural and herding economy the main exports today are copper and cashmere ",
+                "origin" : "right"
+              },
+              "track": "Track0",
+              "name": "TrackEvent11"
+            },
+            {
+              "id": "TrackEvent7",
+              "type": "wordriver",
+			  "template": "wordriver",
+              "popcornOptions": {
+                "start": 124.633,
+                "end": 130,
+                "target": "area1",
+                "text": "Mongolia is one of the world's fastest growing economies ",
+                "origin" : "right"
+              },
+              "track": "Track0",
+              "name": "TrackEvent12"
+            },
+            {
+              "id": "TrackEvent8",
+              "type": "wordriver",
+			  "template": "wordriver",
+              "popcornOptions": {
+                "start": 159.061,
+                "end": 163.714,
+                "target": "area1",
+                "text": "53% of the population are Buddhists, 39% Atheists",
+                "origin" : "right"
+              },
+              "track": "Track0",
+              "name": "TrackEvent13"
+            },
+            {
+              "id": "TrackEvent9",
+              "type": "wordriver",
+			  "template": "wordriver",
+              "popcornOptions": {
+                "start": 192.521,
+                "end": 194.926,
+                "target": "area1",
+                "text": "Searching for Mongolia ",
+                "origin" : "right"
+              },
+              "track": "Track0",
+              "name": "TrackEvent3"
+            },
+            {
+              "id": "TrackEvent10",
+              "type": "twitter",
+              "popcornOptions": {
+              	"template": "foursquare",
+              	"class": "optional",
+                "start": 194,
+                "end": 200,
+                "target": "area1",
+                "src": "Mongolia"
+              },
+              "track": "Track1",
+              "name": "TrackEvent4"
+            },
+            {
+              "id": "TrackEvent10_1",
+              "type": "twitter",
+              "popcornOptions": {
+              	"template": "foursquare",
+              	"class": "optional",
+                "start": 197,
+                "end": 203,
+                "target": "area2",
+                "src": "Mongolia"
+              },
+              "track": "Track1",
+              "name": "TrackEvent4"
+            },
+            {
+              "id": "TrackEvent10_2",
+              "type": "twitter",
+              "popcornOptions": {
+              	"template": "foursquare",
+              	"class": "optional",
+                "start": 200,
+                "end": 206,
+                "target": "area3",
+                "src": "Mongolia"
+              },
+              "track": "Track1",
+              "name": "TrackEvent4"
+            },
+            {
+              "id": "TrackEvent10_3",
+              "type": "twitter",
+              "popcornOptions": {
+              	"template": "foursquare",
+              	"class": "optional",
+                "start": 203,
+                "end": 209,
+                "target": "area4",
+                "src": "Mongolia"
+              },
+              "track": "Track1",
+              "name": "TrackEvent4"
+            },
+            {
+              "id": "TrackEvent10_4",
+              "type": "twitter",
+              "popcornOptions": {
+              	"template": "foursquare",
+              	"class": "optional",
+                "start": 206,
+                "end": 212,
+                "target": "area5",
+                "src": "Mongolia"
+              },
+              "track": "Track1",
+              "name": "TrackEvent4"
+            },
+          ]
+        },
+        {
+          "name": "Track1",
+          "id": "Track1",
+          "trackEvents": [
+            {
+              "id": "TrackEvent11",
+              "type": "wordriver",
+              "template": "wordriver",
+              "popcornOptions": {
+                "start": 276.351,
+                "end": 278.872,
+                "target": "area1",
+                "text": "Searching for Mongolia ",
+                "origin" : "right",
+                "class" : "optional"
+              },
+              "track": "Track1",
+              "name": "TrackEvent5"
+            },
+            {
+              "id": "TrackEvent12",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "template": "cwtch",
+                "start": 278,
+                "end": 284,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "Mongolia",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              },
+              "track": "Track0",
+              "name": "TrackEvent6"
+            },
+            {
+              "id": "TrackEvent12_1",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "template": "cwtch",
+                "start": 281,
+                "end": 287,
+                "target": "area1",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "Mongolia",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              },
+              "track": "Track0",
+              "name": "TrackEvent6"
+            },
+            {
+              "id": "TrackEvent12_2",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "template": "cwtch",
+                "start": 284,
+                "end": 290,
+                "target": "area1",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "Mongolia",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              },
+              "track": "Track0",
+              "name": "TrackEvent6"
+            },
+            {
+              "id": "TrackEvent12_3",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "template": "cwtch",
+                "start": 287,
+                "end": 293,
+                "target": "area1",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "Mongolia",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              },
+              "track": "Track0",
+              "name": "TrackEvent6"
+            },
+            {
+              "id": "TrackEvent12_4",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "template": "cwtch",
+                "start": 290,
+                "end": 296,
+                "target": "area1",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "Mongolia",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              },
+              "track": "Track0",
+              "name": "TrackEvent6"
+            },
+            {
+              "id": "TrackEvent12_5",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "template": "cwtch",
+                "start": 293,
+                "end": 299,
+                "target": "area1",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "Mongolia",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              },
+              "track": "Track0",
+              "name": "TrackEvent6"
+            },
+            {
+              "id": "TrackEvent12_6",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "orientation": "portrait",
+                "template": "cwtch",
+                "start": 296,
+                "end": 302,
+                "target": "area1",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "Mongolia",
+                "userid": "",
+                "username": "",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              },
+              "track": "Track0",
+              "name": "TrackEvent6"
+            },
+            {
+              "id": "TrackEvent13",
+              "type": "wordriver",
+              "template": "wordriver",
+              "popcornOptions": {
+                "start": 398.007,
+                "end": 402.043,
+                "target": "area1",
+                "origin": "right",
+                "text": "Producer / Directors Jose de Leon & Henry Brown"
+              },
+              "track": "Track1",
+              "name": "TrackEvent7"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
