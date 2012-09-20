@@ -2,12 +2,12 @@
 
 // shows the list of videos and paths to their thumbnails
 $thumbs  = array(
-25726263 => "http://b.vimeocdn.com/ts/334/657/334657093_150.jpg", // UGANDA (wrong thumbnail for now, but can't locate the Uganda one)
+25726263 => "http://b.vimeocdn.com/ts/334/657/334657093_100.jpg", // UGANDA (wrong thumbnail for now, but can't locate the Uganda one)
 45636689 => "http://b.vimeocdn.com/ts/317/451/317451255_100.jpg", // PERU
 44798169 => "http://b.vimeocdn.com/ts/311/289/311289758_100.jpg", // TASMANIA
 33500169 => "http://b.vimeocdn.com/ts/227/414/227414986_100.jpg", // TRINIDAD
 47748959 => "http://b.vimeocdn.com/ts/218/803/218803459_100.jpg", // ARGENTINA - this needs editing before it will work
-31870273 => "http://b.vimeocdn.com/ts/215/148/215148023_100.jpg", // MONGOLIA
+26646996 => "http://b.vimeocdn.com/ts/215/148/215148023_100.jpg", // MONGOLIA
 31595710 => "http://b.vimeocdn.com/ts/213/089/213089500_100.jpg", // BRISTOL
 31597454 => "http://b.vimeocdn.com/ts/213/102/213102268_100.jpg", // MAHARASHTRA
 29045451 => "http://b.vimeocdn.com/ts/194/235/194235512_100.jpg", // ARGENTINA 2
