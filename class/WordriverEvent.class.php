@@ -89,7 +89,7 @@ EOF;
     $this->end = $this->conf['popcornOptions']['end'];
     $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:"unknown";
     $this->text = addslashes($this->conf['popcornOptions']['text']);
-    $this->template = isset($this->conf['template'])?$this->conf['template']:"";
+    $this->template = isset($this->conf['template'])?$this->conf['template']:"wordriver";
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     $this->style = isset($this->conf['style'])?$this->conf['style']:"";
     $this->origin = isset($this->conf['popcornOptions']['origin'])?$this->conf['popcornOptions']['origin']:"right";

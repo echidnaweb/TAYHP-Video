@@ -15,6 +15,14 @@ class FlickrEvent
   private $flickr_options = array(); 
   private $photos = array();
 
+  private static $size_defaults = array(
+          'cwtch' => 'small',
+          'flickrsolo' => 'medium');
+
+  private static $orientation_defaults = array(
+           'area1' => 'portrait',
+           'area3' => 'landscape');
+
   function __construct($conf)
   {
     $this->conf = $conf; 
@@ -96,12 +104,23 @@ EOF;
     $this->ownername_target = isset($this->conf['popcornOptions']['ownername_target'])?$this->conf['popcornOptions']['ownername_target']:"unknown";
     $this->template = isset($this->conf['template'])?$this->conf['template']:"0"; 
     $this->orientation = isset($this->conf['popcornOptions']['orientation'])?$this->conf['popcornOptions']['orientation']:false; 
-    $this->size = isset($this->conf['popcornOptions']['size'])?$this->conf['popcornOptions']['size']:"small";
+    $this->size = isset($this->conf['popcornOptions']['size'])?$this->conf['popcornOptions']['size']:false;
     $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
     $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o,owner_name";
-    
+    $this->conf['popcornOptions']['iscommons'] = isset($this->conf['popcornOptions']['iscommons'])?$this->conf['popcornOptions']['iscommons']:"true";
+   
+    // set any orientation defaults for specific tag ids 
+    if (!$this->orientation && isset($this->orientation_defaults[$this->target]))
+      $this->orientation = $this->orientation_defaults[$this->target];
+
+    // set any size defaults for specific tag ids
+    if (!$this->size && isset($this->size_defaults[$this->target]))
+      $this->size = $this->size_defaults[$this->target];
+    elseif (!$this->size)
+      $this->size = "small";
+     
     if (!$this->photos = $this->flickr_api->photos_search($this->conf['popcornOptions']))
       return false; 
 
