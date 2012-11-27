@@ -30,7 +30,7 @@ class TextEvent
          var text = '<span id=\'$this->id\' class=\'$this->class\'>$this->text</span>';
          $('body').attr('class','$this->template'); 
          $('#$this->target').html(text);
-         $('#$this->target span#$this->id').fadeIn('slow');
+         $('#$this->target span#$this->id').fadeTo(1000, 0.999);
        },
        onEnd: function( options ) {
         $('span#$this->id').fadeOut('slow', function() { $('span#$this->id').remove(); });

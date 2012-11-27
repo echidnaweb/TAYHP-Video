@@ -33,7 +33,6 @@ class FlickrEvent
   {
     $photos = $this->photos['photo'];
     shuffle($photos);
- 
     foreach ($photos as $photo)
     {
       if (!isset($photo['width_s']) || !isset($photo['width_s']))
@@ -58,12 +57,13 @@ class FlickrEvent
 
   private function process()
   {
-    if (!$this->photos || count($this->photos) < 1) return false;
+    if (!$this->photos || $this->photos['total'] == 0) return false;
 
     $photo =  $this->get_random_photo($this->orientation);
     $url = $this->flickr_api->buildPhotoURL($photo, $this->size);
     $alt = addslashes($photo['title']);
     $ownername = addslashes($photo['ownername']);
+
     $imgtag = "<img id=\"$this->id\" alt=\"$alt\" ".
               "src=\"" . $url . "\"></img>";
 
@@ -109,18 +109,19 @@ EOF;
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
     $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o,owner_name";
-    $this->conf['popcornOptions']['iscommons'] = isset($this->conf['popcornOptions']['iscommons'])?$this->conf['popcornOptions']['iscommons']:"true";
+    //$this->conf['popcornOptions']['page'] = rand(1,10);
+    $this->conf['popcornOptions']['per_page'] = "200";
+    $this->conf['popcornOptions']['license'] = isset($this->conf['popcornOptions']['license'])?$this->conf['popcornOptions']['license']:"2,4";
    
     // set any orientation defaults for specific tag ids 
-    if (!$this->orientation && isset($this->orientation_defaults[$this->target]))
-      $this->orientation = $this->orientation_defaults[$this->target];
+    if (!$this->orientation && isset(self::$orientation_defaults[$this->target]))
+      $this->orientation = self::$orientation_defaults[$this->target];
 
     // set any size defaults for specific tag ids
     if (!$this->size && isset($this->size_defaults[$this->target]))
       $this->size = $this->size_defaults[$this->target];
     elseif (!$this->size)
       $this->size = "small";
-     
     if (!$this->photos = $this->flickr_api->photos_search($this->conf['popcornOptions']))
       return false; 
 

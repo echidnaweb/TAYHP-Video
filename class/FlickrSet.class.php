@@ -62,7 +62,8 @@ class FlickrSet
   {
     if (!$this->photos = $this->flickr_api->photos_search($this->options))
       return false; 
-
+    //print_r($this->options);
+    //print_r($this->photos);
     return true;
   }
   

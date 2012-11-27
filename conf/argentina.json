@@ -4,68 +4,539 @@
       "id": "Media0",
       "name": "Media0",
       "url": [
-        "http://vimeo.com/32351957"
+        "http://vimeo.com/47748959"
       ],
-      "thumbnail_url": "http://b.vimeocdn.com/ts/218/803/218803459_100.jpg",
       "target": "main",
-      "duration": 169,
-      "controls": false,
+      "duration": 629,
+      "controls": true,
       "tracks": [
         {
           "name": "Track0",
           "id": "Track0",
           "trackEvents": [
-            {
-              "id": "TrackEvent0",
-              "type": "twitter",
-              "template": "foursquare",
+          	{
+              "id": "TrackEvent1_10",
+              "type": "hideMedia",
+              "template": "babble",
               "popcornOptions": {
-                "start": 1.872,
-                "end": 2.872,
-                "target": "area2",
-                "src": "salt",
-                "height": "200",
-                "width": "250"
-              },
-              "track": "Track0",
-              "name": "TrackEvent0"
+                "start": 0,
+                "end": 20
+              }
             },
             {
-              "id": "TrackEvent2",
-              "type": "twitter",
+              "id": "TrackEvent1_11",
+              "type": "text",
               "template": "foursquare",
               "popcornOptions": {
-                "start": 3.708,
-                "end": 4.72,
-                "target": "area6",
-                "src": "mustard",
-                "height": "200",
-                "width": "250"
-              },
-              "track": "Track0",
-              "name": "TrackEvent2"
-            }
-          ]
-        },
-        {
-          "name": "Track1",
-          "id": "Track1",
-          "trackEvents": [
+                "start": 0.01,
+                "end": 4,
+                "target": "area7",
+                "text": "Searching for happiness"
+              }
+            },
             {
-              "id": "TrackEvent1",
-              "type": "twitter",
+              "id": "TrackEvent2_11",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 5,
+                "end": 11,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "happy, happiness",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent2_12",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 8,
+                "end": 14,
+                "target": "area2",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "happy, happiness",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent2_13",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 11,
+                "end": 17,
+                "target": "area3",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "happy, happiness",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent2_14",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 14,
+                "end": 19,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "happy, happiness",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent3_11",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 20,
+                "end": 26,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "happy, happiness",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent3_12",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 23,
+                "end": 29,
+                "target": "area2",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "happy, happiness",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent3_13",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 26,
+                "end": 32,
+                "target": "area3",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "happy, happiness",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent3_14",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 29,
+                "end": 35,
+                "target": "area4",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "happy, happiness",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent4_10",
+              "type": "hideMedia",
+              "template": "babble",
+              "popcornOptions": {
+                "start": 189,
+                "end": 209
+              }
+            },            
+            {
+              "id": "TrackEvent5_11",
+              "type": "text",
               "template": "foursquare",
               "popcornOptions": {
-                "start": 3.484,
-                "end": 4.484,
+                "start": 189,
+                "end": 193,
+                "target": "area7",
+                "text": "Searching for happiness in Buenos Aires"
+              }
+            },
+            {
+              "id": "TrackEvent6_11",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 194,
+                "end": 200,
                 "target": "area1",
-                "src": "vinegar",
-                "height": "200",
-                "width": "250"
-              },
-              "track": "Track1",
-              "name": "TrackEvent1"
-            }
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent6_12",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 197,
+                "end": 203,
+                "target": "area2",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent6_13",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 200,
+                "end": 206.5,
+                "target": "area3",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent7_11",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 208,
+                "end": 214,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent7_12",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 211,
+                "end": 217,
+                "target": "area2",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent7_13",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 214,
+                "end": 220,
+                "target": "area3",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent7_14",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 217,
+                "end": 223,
+                "target": "area4",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent8_10",
+              "type": "hideMedia",
+              "template": "babble",
+              "popcornOptions": {
+                "start": 298,
+                "end": 320
+              }
+            },            
+            {
+              "id": "TrackEvent9_10",
+              "type": "text",
+              "template": "foursquare",
+              "popcornOptions": {
+                "start": 298,
+                "end": 304,
+                "target": "area7",
+                "text": "Searching for happiness in Argentina"
+              }
+            },
+            {
+              "id": "TrackEvent10_10",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 305,
+                "end": 311,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent10_11",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 308,
+                "end": 314,
+                "target": "area2",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent10_12",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 311,
+                "end": 317,
+                "target": "area3",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent10_13",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 314,
+                "end": 320,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent11_10",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 321,
+                "end": 327,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent11_11",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 324,
+                "end": 330,
+                "target": "area2",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "felicidad, Buenos Aires",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent12_10",
+              "type": "hideMedia",
+              "template": "babble",
+              "popcornOptions": {
+                "start": 442,
+                "end": 459
+              }
+            },            
+            {
+              "id": "TrackEvent13_10",
+              "type": "text",
+              "template": "foursquare",
+              "popcornOptions": {
+                "start": 442,
+                "end": 446,
+                "target": "area7",
+                "text": "Searching for happiness in Argentina"
+              }
+            },
+            {
+              "id": "TrackEvent14_10",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 447,
+                "end": 453,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "feliz, Argentina",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent14_11",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 450,
+                "end": 456,
+                "target": "area2",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "feliz, Argentina",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent14_12",
+              "type": "flickr",
+              "template": "flickrsolo",
+              "popcornOptions": {
+                "start": 453,
+                "end": 459,
+                "target": "area3",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "medium",
+                "tags": "feliz, Argentina",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent15_10",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 460,
+                "end": 466,
+                "target": "area1",
+                "orientation": "portrait",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "feliz, Argentina",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent15_11",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 463,
+                "end": 469,
+                "target": "area2",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "feliz, Argentina",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent15_12",
+              "type": "flickr",
+              "template": "cwtch",
+              "popcornOptions": {
+                "start": 466,
+                "end": 471,
+                "target": "area3",
+                "orientation": "landscape",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "feliz, Argentina",
+                "apikey": "b9f54a73e2502555f2f88cae4461e70f",
+                "iscommons": true
+              }
+            },
+            {
+              "id": "TrackEvent16_10",
+              "type": "text",
+              "template": "foursquare",
+              "popcornOptions": {
+                "start": 620,
+                "end": 628,
+                "target": "area7",
+                "text": "Producer / Director Maria Rosa Andreotti "
+              }
+            }         
           ]
         }
       ]

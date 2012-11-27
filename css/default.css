@@ -95,9 +95,28 @@ body {
 body.foursquare #area1, #area2, #area5, #area6 { 
     width: 485px;
     height: 140px;
-    float: left }
-body.foursquare #area3, #area4 { width: 220px; float: left; min-height: 315px }
-body.foursquare #area3 { margin-right: 530px }
+    float: left 
+}
+
+body.foursquare #area3, #area4 { 
+	width: 220px;
+	float: left;
+	min-height: 315px 
+}
+
+body.foursquare #area3 { 
+	margin-right: 530px 
+}
+
+/* Fade in Text */
+body.foursquare #area7 { 
+	width: 100%;
+	position: absolute;
+	text-align: center;
+	top: 460px;
+	font-size: 140%;
+}
+
 
 body.foursquare #area1 {
 	font-family: 'Nixie One', cursive;
@@ -123,6 +142,12 @@ body.foursquare #area6 {
 	font-family: 'PT Sans', sans-serif;
 }
 
+/* Fade-in text */
+body.foursquare #area6 {
+	font-family: 'Nixie One', sans-serif;
+	font-size: 1.4em;
+}
+
 
 /* wordriver */
 
@@ -131,7 +156,7 @@ body.wordriver #contentlayer { /* z-index: 25 */ }
 body.wordriver #area1 {
   position: absolute;
   font-size: 1.4em;
-  width: 800px;
+  width: 1200px;
   height: 50px;
 }
 
@@ -212,6 +237,16 @@ body.babble #area6 {
 
 /* cwtch */
 
+body.cwtch #area1 h2,
+body.cwtch #area3 h2,
+body.cwtch #area7 h2 { float: right }
+
+body.cwtch #area2 h2,
+body.cwtch #area4 h2,
+body.cwtch #area5 h2,
+body.cwtch #area6 h2,
+body.cwtch #area8 h2 { float: left }
+
 body.cwtch #toprow, #bottomrow { width: 100%;}
 body.cwtch #middlerow { width: 100%;}
 
@@ -235,11 +270,19 @@ body.cwtch #area6 { text-align: left; vertical-align: top; margin-top: 142px}
 body.cwtch #area7 { text-align: right; vertical-align: top; margin-top: 142px }
 body.cwtch #area8 { text-align: left; vertical-align: bottom }
 
+body.cwtch #area2 div,
+body.cwtch #area3 div,
+body.cwtch #area6 div,
+body.cwtch #area7 div, 
 body.cwtch #area2 img,
 body.cwtch #area3 img,
 body.cwtch #area6 img,
 body.cwtch #area7 img { height: 142px }
 
+body.cwtch #area1 div,
+body.cwtch #area4 div,
+body.cwtch #area5 div,
+body.cwtch #area8 div,
 body.cwtch #area1 img,
 body.cwtch #area4 img,
 body.cwtch #area5 img,
@@ -249,6 +292,17 @@ body.cwtch #area8 img { height: 284px; max-width: 220px }
 /* flickrsolo */
 
 body.flickrsolo .target { z-index: 100 }
+
+body .target h2 { display: block;
+                  position: relative;
+                  float: left;
+                  bottom: 40px;
+                  text-align: left;
+                  font-size: 0.6em;
+                  height: 10px;
+                  padding: 5px;
+                  margin: 5px;
+                  background-color: #000 }
 
 body.flickrsolo #area1 { 
     position: absolute;
@@ -270,7 +324,10 @@ body.flickrsolo #area2 {
     display: inline-block;
     }
 
-body.flickrsolo #area2 img { width: 350px; height: auto; vertical-align: middle; } /* adusted height to auto from 600px to avoid distorting - revert if this doesn't work */
+body.flickrsolo #area2 img { width: 350px;
+                             height: auto;
+                             vertical-align: middle; } 
+/* adusted height to auto from 600px to avoid distorting - revert if this doesn't work */
 
 body.flickrsolo #area3 { 
     position: absolute;
@@ -281,7 +338,7 @@ body.flickrsolo #area3 {
     display: inline-block;
     }
 
-body.flickrsolo #area3 img{ width: 350px; height: auto; vertical-align: middle;}
+body.flickrsolo #area3 div, body.flickrsolo #area3 img{ width: 350px; height: auto; vertical-align: middle;}
 
 body.flickrsolo #area4,
 body.flickrsolo #area5,

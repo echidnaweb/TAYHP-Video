@@ -32,7 +32,7 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "portrait",
-                "iscommons": "true"
+                "license": "2,4"
               },
               "track": "Track0",
               "name": "TrackEvent1"
@@ -55,7 +55,7 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
-                "iscommons": "true"
+                "license": "2,4"
               },
               "track": "Track0",
               "name": "TrackEvent2"
@@ -80,7 +80,7 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
-                "iscommons": "true"
+                "license": "2,4"
               },
               "track": "Track0",
               "name": "TrackEvent3"
@@ -105,7 +105,7 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "portrait",
-                "iscommons": "true"
+                "license": "2,4"
               },
               "track": "Track0",
               "name": "TrackEvent4"
@@ -130,7 +130,7 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "portrait",
-                "iscommons": "true"
+                "license": "2,4"
               },
               "track": "Track0",
               "name": "TrackEvent5"
@@ -155,7 +155,7 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
-                "iscommons": "true"
+                "license": "2,4"
               },
               "track": "Track0",
               "name": "TrackEvent6"
@@ -180,7 +180,7 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "landscape",
-                "iscommons": "true"
+                "license": "2,4"
               },
               "track": "Track0",
               "name": "TrackEvent7"
@@ -205,7 +205,7 @@
                 "padding": "5px",
                 "border": "0px",
                 "orientation": "portrait",
-                "iscommons": "true"
+                "license": "2,4"
               },
               "track": "Track0",
               "name": "TrackEvent8"

@@ -8,7 +8,7 @@
 <script src="js/popcorn-complete.js"></script>
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/jcarousel/jquery.jcarousel.min.js"></script>
-<script src="processtimeline.js.php?video=<?php echo isset($_GET['video'])?$_GET['video']:"26646996"; ?>"></script> <!-- Starting Video (Argentina) -->
+<script src="processtimeline.js.php?video=<?php echo isset($_GET['video'])?$_GET['video']:"26646996"; ?>"></script> <!-- Starting Video (Mongolia) -->
 <script src="js/tayhpvideo.js"></script>
 <script>document.addEventListener( "DOMContentLoaded",init_popcorn,false);</script>
 </head>
@@ -30,7 +30,7 @@
   </div> 
   <div id="attrib"></div>
   <div id="thumbdrawer">
-    <div id="thumbtab">Choose video</div>
+    <div id="thumbtab">Choose a video</div>
     <div id="thumbs">
       <?php include('thumbs.php');?>
     </div>
