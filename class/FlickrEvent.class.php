@@ -108,8 +108,10 @@ EOF;
     $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
+    $this->occurences = isset($this->conf['occurences'])?(int)$this->conf['occurences']:1;
+    $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5;
+
     $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o,owner_name";
-    //$this->conf['popcornOptions']['page'] = rand(1,10);
     $this->conf['popcornOptions']['per_page'] = "200";
     $this->conf['popcornOptions']['license'] = isset($this->conf['popcornOptions']['license'])?$this->conf['popcornOptions']['license']:"2,4";
    

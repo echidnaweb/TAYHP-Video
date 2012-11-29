@@ -9,9 +9,10 @@ class TwitterAPI
   private static $cache;
 
   /* Process a Popcorn Twitter event */
-  public function processEvent(&$event)
+  public function processEvent(&$event,&$tweets)
   {
     $results = array();
+    $occurences = isset($event['occurences'])?(int)$event['occurences']:1;
     if(isset($event['popcornOptions']['src']))
     {
       $qry = $event['popcornOptions']['src'];
@@ -25,13 +26,17 @@ class TwitterAPI
         $this->getCache()->setValue($qry,$results);
         if ($results && count($results) > 0) $this->getCache()->save();
       }
-
       // Pick a random result and set the text node to its value 
       if ($results && count($results) > 0)
       {
-        $event['popcornOptions']['tweet'] = $results[array_rand($results)]; 
+        $keys = array_rand($results,$occurences); 
+        if (is_array($keys))
+          foreach ($keys as $key) $tweets[] = $results[$key];
+        else
+          $tweets[] = $results[$keys];
       } 
       else return false;
+return false;
     }
     else return false;
     return true;

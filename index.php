@@ -6,6 +6,7 @@
 <style type="text/css">@import url("js/jcarousel/skins/tango/skin.css");</style>
 <link href='http://fonts.googleapis.com/css?family=Nixie+One|PT+Sans|Abril+Fatface|Special+Elite' rel='stylesheet' type='text/css'>
 <script src="js/popcorn-complete.js"></script>
+<script src="js/popcorn.pausePlugin.js"></script>
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/jcarousel/jquery.jcarousel.min.js"></script>
 <script src="processtimeline.js.php?video=<?php echo isset($_GET['video'])?$_GET['video']:"26646996"; ?>"></script> <!-- Starting Video (Mongolia) -->

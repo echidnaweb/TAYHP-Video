@@ -59,7 +59,7 @@ class WordriverEvent
          $('#$this->target').css('$this->origin',start_point);
 
          // write the text to the target tag
-         $('#$this->target').html(text);
+         $('#$this->target').html($this->tweets[0]);
              
          // un-hide the dynamic content
          $('#$this->target #$this->id').show();
@@ -80,7 +80,7 @@ EOF;
   private function preprocess()
   {
     $oAPI = new TwitterAPI;
-    $oAPI->processEvent($this->conf);
+    $oAPI->processEvent($this->conf,$this->tweets);
 
     if (!isset($this->conf['popcornOptions']['text'])) return false;
 
@@ -88,7 +88,7 @@ EOF;
     $this->start = $this->conf['popcornOptions']['start'];
     $this->end = $this->conf['popcornOptions']['end'];
     $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:"unknown";
-    $this->text = addslashes($this->conf['popcornOptions']['text']);
+    //$this->text = addslashes($this->conf['popcornOptions']['text']);
     $this->template = isset($this->conf['template'])?$this->conf['template']:"wordriver";
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     $this->style = isset($this->conf['style'])?$this->conf['style']:"";

@@ -26,15 +26,20 @@ include ("lib/phpFlickr-3.1/phpFlickr.php");
 array_map('unlink', glob(CACHE_DIR."/*.cache"));
 array_map('unlink', glob(CACHE_DIR."/*.json"));
 
+
 $files = scandir(CONFIG_PATH);
 
 foreach ($files as $file)
 {
-  if (strpos($file,".json") && is_numeric(basename($file,".json")))
+  if (pathinfo($file, PATHINFO_EXTENSION)=="json" && substr($file,0,1) != ".")
   {
      echo "caching content for: ".$file."\n";
      $pcp = new PopCornProduction(CONFIG_PATH."/".$file);
   }
 }
+
+
+//echo "-->".CACHE_DIR."/*.cache";
+//chmod(CACHE_DIR."/*.cache", 0777);
 
 ?>

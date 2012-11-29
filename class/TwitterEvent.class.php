@@ -11,6 +11,7 @@ class TwitterEvent
   private $conf;
   private $js = "";
   private $id,$start,$end,$target,$src,$height,$width,$text,$from_user,$template,$class;
+  private $tweets = array();
 
   function __construct($conf)
   {
@@ -20,43 +21,60 @@ class TwitterEvent
 
   private function process()
   {
-    
-    $this->js .= <<<EOF
-    // Create a popcorn event 
+    for($i = 0; $i < $this->occurences; $i++)
+    {
+       //calculate start and end points for each repeat
+       $start = $this->start+($i*$this->interval);
+       $end =   $start+($this->end - $this->start);
+       $from_user = $this->tweets[$i]['from_user'];
+       $text = addslashes(preg_replace("/[^a-zA-Z0-9 !@#\$%\^\*\?\.;&:\-\+=\/]/","",nl2br($this->tweets[$i]['text']))); 
+       if ($this->targets) 
+       { 
+         $target = array_shift($this->targets);
+         array_push($this->targets,$target);
+       } else
+       {
+         $target = $this->target;
+       }
+
+   $this->js .= <<<EOF
+    // Create a popcorn event
     popcorn.code({
-       start: $this->start,
-       end: $this->end,
+       start: $start,
+       end: $end,
        onStart: function( options ) {
-         var tweet_text = '<span id=\'$this->id\' class=\'$this->class\'>@'+'$this->from_user<br>$this->text</span>';
-         $('body').attr('class','$this->template'); 
-         $('#$this->target').html(tweet_text);
-         $('#$this->target span#$this->id').fadeIn('slow');
+         var tweet_text = '<span id=\'$this->id\' class=\'$this->class\'>@'+'$from_user<br>$text</span>';
+         $('body').attr('class','$this->template');
+         $('#$target').html(tweet_text);
+         $('#$target span#$this->id').fadeIn('slow');
        },
        onEnd: function( options ) {
         $('span#$this->id').fadeOut('slow', function() { $('span#$this->id').remove(); });
        }
      });\n
-
 EOF;
 
+     } 
   }
-  
+
   private function preprocess()
   {
     $oAPI = new TwitterAPI;
-    $oAPI->processEvent($this->conf);
+    $oAPI->processEvent($this->conf,$this->tweets);
 
-    if (!isset($this->conf['popcornOptions']['tweet'])) return false;
+    if (!count($this->tweets)) return false;
 
     $this->id = $this->conf['id'];
     $this->start = $this->conf['popcornOptions']['start'];
     $this->end = $this->conf['popcornOptions']['end'];
     $this->target = $this->conf['popcornOptions']['target'];
     $this->src = $this->conf['popcornOptions']['src'];
-    $this->from_user = $this->conf['popcornOptions']['tweet']['from_user'];
-    $this->text = addslashes(preg_replace("/[^a-zA-Z0-9 !@#\$%\^\*\?\.;&:\-\+=\/]/","",nl2br($this->conf['popcornOptions']['tweet']['text'])));
     $this->template = isset($this->conf['template'])?$this->conf['template']:"";
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
+    $this->occurences = isset($this->conf['occurences'])?(int)$this->conf['occurences']:1;
+    $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5; 
+    $this->targets = isset($this->conf['targets'])?$this->conf['targets']:false;
+    $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:false;
     return true;
   }
 
@@ -64,6 +82,7 @@ EOF;
   {
     return $this->js;
   }
+
 }
 
 
