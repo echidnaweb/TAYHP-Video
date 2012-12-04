@@ -32,3 +32,17 @@ function load_video(id)
   //alert(exception);
 });
 }
+
+// Helper function for sending a message to the player
+function playercmd(action, value) {
+  var data = { method: action };
+
+  var f = $('iframe'),
+  url = f.attr('src').split('?')[0]
+
+  if (value) {
+      data.value = value;
+  }
+
+  f[0].contentWindow.postMessage(JSON.stringify(data), url);
+}
