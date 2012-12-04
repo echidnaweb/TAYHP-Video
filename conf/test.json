@@ -33,7 +33,8 @@
               "type": "pause",
               "template": "babble",
               "popcornOptions": {
-                "start": 30,
+                "start": 10,
+                "end": 15,
                 "duration": 20
               },
               "pauseEvents": [

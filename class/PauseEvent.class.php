@@ -21,16 +21,22 @@ class PauseEvent
   private function process()
   {
      $start = $this->start;
-     $end =   (int)$this->start+1;
-     $duration = $this->duration;
+     $end =   (int)$this->start+(int)$this->duration;
+     $duration = (int)$this->duration*1000;
        
    $this->js .= <<<EOF
-    // Create a popcorn event
-    popcorn.pause({
+     
+    popcorn.code({
        start: $start,
        end: $end,
-       duration: $duration
+       onStart: function( options ) {
+         playercmd('pause');
+         setTimeout(function() { playercmd('play'); }, $duration);
+       },
+       onEnd: function( options ) {
+       }
      });\n
+
 EOF;
 
   }

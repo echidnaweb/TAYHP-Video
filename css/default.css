@@ -44,7 +44,7 @@ body {
 
 #video {  /* margin: 142px 220px */ }
 
-#video object { margin: 142px 220px; padding: 0; width: 545px }
+#video object, #video iframe { margin: 142px 220px; padding: 0; width: 545px }
 
 .target > * { display: none }
 
