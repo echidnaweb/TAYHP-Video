@@ -23,7 +23,12 @@ class PauseEvent
      $start = $this->start;
      $end =   (int)$this->start+(int)$this->duration;
      $duration = (int)$this->duration*1000;
-       
+     $eventsjs = "";
+     foreach($this->aPauseEvent as $oPauseEvent)
+     {
+       $eventsjs .= $oPauseEvent->getJS();
+     }
+     
    $this->js .= <<<EOF
      
     popcorn.code({
@@ -32,6 +37,7 @@ class PauseEvent
        onStart: function( options ) {
          playercmd('pause');
          setTimeout(function() { playercmd('play'); }, $duration);
+         $eventsjs 
        },
        onEnd: function( options ) {
        }
@@ -47,7 +53,17 @@ EOF;
     $this->start = $this->conf['popcornOptions']['start'];
     $this->duration = $this->conf['popcornOptions']['duration'];
     $this->template = isset($this->conf['template'])?$this->conf['template']:"";
-    $this->pauseEvents = isset($this->conf['pauseEvents'])?$this->conf['pauseEvents']:array();
+    $pause_events = isset($this->conf['pauseEvents'])?$this->conf['pauseEvents']:array();
+
+    foreach($pause_events as $pause_event)
+    {
+      $eventClassname = ucfirst($pause_event['type'])."PauseEvent";
+      if (class_exists($eventClassname))
+      {
+         $this->aPauseEvent[] = new $eventClassname($pause_event);
+      } 
+    }
+
     return true;
   }
 

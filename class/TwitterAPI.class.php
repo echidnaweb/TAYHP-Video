@@ -14,31 +14,31 @@ class TwitterAPI
     $results = array();
     $occurences = isset($event['occurences'])?(int)$event['occurences']:1;
     if(isset($event['popcornOptions']['src']))
-    {
       $qry = $event['popcornOptions']['src'];
-
-      // if there is an entry in the cache retrieve it
-      $results = $this->getCache()->getValue($qry);
-      // otherwise search the Twitter API 
-      if (!$results || count($results) == 0) 
-      {
-        $results = $this->doSearch($qry);
-        $this->getCache()->setValue($qry,$results);
-        if ($results && count($results) > 0) $this->getCache()->save();
-      }
-      // Pick a random result and set the text node to its value 
-      if ($results && count($results) > 0)
-      {
-        $keys = array_rand($results,$occurences); 
-        if (is_array($keys))
-          foreach ($keys as $key) $tweets[] = $results[$key];
-        else
-          $tweets[] = $results[$keys];
-      } 
-      else return false;
-return false;
-    }
+    else if (isset($event['src']))
+      $qry = $event['src'];
     else return false;
+    
+    // if there is an entry in the cache retrieve it
+    $results = $this->getCache()->getValue($qry);
+    // otherwise search the Twitter API 
+    if (!$results || count($results) == 0) 
+    {
+      $results = $this->doSearch($qry);
+      $this->getCache()->setValue($qry,$results);
+      if ($results && count($results) > 0) $this->getCache()->save();
+    }
+    // Pick a random result and set the text node to its value 
+    if ($results && count($results) > 0)
+    {
+      $keys = array_rand($results,$occurences); 
+      if (is_array($keys))
+        foreach ($keys as $key) $tweets[] = $results[$key];
+      else
+        $tweets[] = $results[$keys];
+    } 
+    else return false;
+    
     return true;
   }
 

@@ -22,8 +22,8 @@
               "interval": 3,
               "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
               "popcornOptions": {
-                "start": 0,
-                "end": 6,
+                "start": 60,
+                "end": 120,
                 "target": "area1",
                 "src": "Mongolia, Country"
               }
@@ -34,25 +34,27 @@
               "template": "babble",
               "popcornOptions": {
                 "start": 10,
-                "end": 15,
-                "duration": 20
+                "duration": 50
               },
               "pauseEvents": [
                 {
                   "type": "twitter",
                   "delay": 0,
+                  "duration": 10,
                   "target": "area1",
                   "src": "chunky"
                 },
                 {
                   "type": "twitter",
                   "delay": 5,
+                  "duration": 10,
                   "target": "area2",
                   "src": "funky"
                 },
                 {
                   "type": "twitter",
                   "delay": 10,
+                  "duration": 10,
                   "target": "area3",
                   "src": "monkey"
                 } 
