@@ -30,7 +30,7 @@ class TwitterPauseEvent
        $duration = $this->duration*1000;
        $end = $start+$duration;
 
-       $id = "tweet_".uniqid();
+       $id = uniqid("tweet_");
        if ($this->targets)
        {
          $target = array_shift($this->targets);

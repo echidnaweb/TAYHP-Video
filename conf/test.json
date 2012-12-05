@@ -15,11 +15,29 @@
           "id": "Track0",
           "trackEvents": [
             {
+              "id": "TrackEvent3_02",
+              "type": "flickr",
+              "template": "cwtch",
+              "occurences": 16,
+              "interval": 5,
+              "duration": 7,
+              "popcornOptions": {
+                "start": 0,
+                "end": 80,
+                "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+                "orientations": "ppplll",
+                "ownername_target": "attrib",
+                "size": "small",
+                "tags": "Mongolia"
+              }
+            },
+            {
               "id": "TrackEvent1_11",
               "type": "twitter",
               "template": "babble",
               "occurences": 7,
               "interval": 3,
+              "duration": 5,
               "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
               "popcornOptions": {
                 "start": 60,
@@ -33,7 +51,7 @@
               "type": "pause",
               "template": "babble",
               "popcornOptions": {
-                "start": 10,
+                "start": 80,
                 "duration": 50
               },
               "pauseEvents": [

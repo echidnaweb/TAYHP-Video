@@ -28,28 +28,26 @@ class TwitterEvent
        $end =   $start+($this->end - $this->start);
        $from_user = $this->tweets[$i]['from_user'];
        $text = addslashes(preg_replace("/[^a-zA-Z0-9 !@#\$%\^\*\?\.;&:\-\+=\/]/","",nl2br($this->tweets[$i]['text']))); 
+       $id = uniqid("tweet_");
        if ($this->targets) 
        { 
          $target = array_shift($this->targets);
          array_push($this->targets,$target);
-       } else
-       {
-         $target = $this->target;
-       }
-
+       } else $target = $this->target;
+       
    $this->js .= <<<EOF
     // Create a popcorn event
     popcorn.code({
        start: $start,
        end: $end,
        onStart: function( options ) {
-         var tweet_text = '<span id=\'$this->id\' class=\'$this->class\'>@'+'$from_user<br>$text</span>';
+         var tweet_text = '<span id=\'$id\' class=\'$this->class\'>@'+'$from_user<br>$text</span>';
          $('body').attr('class','$this->template');
          $('#$target').html(tweet_text);
          $('#$target span#$this->id').fadeIn('slow');
        },
        onEnd: function( options ) {
-        $('span#$this->id').fadeOut('slow', function() { $('span#$this->id').remove(); });
+        $('span#$id').fadeOut('slow', function() { $('span#$this->id').remove(); });
        }
      });\n
 EOF;
