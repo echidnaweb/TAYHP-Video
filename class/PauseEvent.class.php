@@ -35,6 +35,7 @@ class PauseEvent
        start: $start,
        end: $end,
        onStart: function( options ) {
+         $('body').attr('class','$this->template');
          playercmd('pause');
          setTimeout(function() { playercmd('play'); }, $duration);
          $eventsjs 

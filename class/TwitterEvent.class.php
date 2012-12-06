@@ -25,7 +25,7 @@ class TwitterEvent
     {
        //calculate start and end points for each repeat
        $start = $this->start+($i*$this->interval);
-       $end =   $start+($this->end - $this->start);
+       $end =   $start+$this->duration;
        $from_user = $this->tweets[$i]['from_user'];
        $text = addslashes(preg_replace("/[^a-zA-Z0-9 !@#\$%\^\*\?\.;&:\-\+=\/]/","",nl2br($this->tweets[$i]['text']))); 
        $id = uniqid("tweet_");
@@ -71,6 +71,7 @@ EOF;
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     $this->occurences = isset($this->conf['occurences'])?(int)$this->conf['occurences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5; 
+    $this->duration = isset($this->conf['duration'])?(int)$this->conf['duration']:5;
     $this->targets = isset($this->conf['targets'])?$this->conf['targets']:false;
     $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:false;
     return true;

@@ -1,7 +1,8 @@
 <?php
 header('Content-Type: text/javascript; charset=UTF-8');
 ini_set('display_errors',1); 
- error_reporting(E_ALL);
+error_reporting(E_ERROR | E_WARNING | E_PARSE);
+// error_reporting(E_ALL);
 // Define Constants
 define("TWITTER_MAX_RESULTS",100);
 define("TWITTER_URL", "http://search.twitter.com/search.json?include_rts=0&rpp=".TWITTER_MAX_RESULTS);
@@ -19,6 +20,7 @@ include ("class/TwitterEvent.class.php");
 include ("class/TwitterPauseEvent.class.php");
 include ("class/TextEvent.class.php");
 include ("class/FlickrEvent.class.php");
+include ("class/FlickrPauseEvent.class.php");
 include ("class/GooglemapEvent.class.php");
 include ("class/WordriverEvent.class.php");
 include ("class/HideMediaEvent.class.php");

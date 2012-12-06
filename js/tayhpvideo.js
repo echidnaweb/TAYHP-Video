@@ -37,8 +37,8 @@ function load_video(id)
 function playercmd(action, value) {
   var data = { method: action };
 
-  var f = $('iframe'),
-  url = f.attr('src').split('?')[0]
+  var f = $('iframe');
+  var url = f.attr('src').split('?')[0]
 
   if (value) {
       data.value = value;
