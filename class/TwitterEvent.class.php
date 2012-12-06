@@ -44,7 +44,7 @@ class TwitterEvent
          var tweet_text = '<span id=\'$id\' class=\'$this->class\'>@'+'$from_user<br>$text</span>';
          $('body').attr('class','$this->template');
          $('#$target').html(tweet_text);
-         $('#$target span#$this->id').fadeIn('slow');
+         $('#$target span#$id').fadeIn('slow');
        },
        onEnd: function( options ) {
         $('span#$id').fadeOut('slow', function() { $('span#$this->id').remove(); });
@@ -71,7 +71,7 @@ EOF;
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     $this->occurences = isset($this->conf['occurences'])?(int)$this->conf['occurences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5; 
-    $this->duration = isset($this->conf['duration'])?(int)$this->conf['duration']:5;
+    $this->duration = isset($this->conf['duration'])?(int)$this->conf['duration']:$this->end-$this->start;
     $this->targets = isset($this->conf['targets'])?$this->conf['targets']:false;
     $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:false;
     return true;

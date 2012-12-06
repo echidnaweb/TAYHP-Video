@@ -34,19 +34,6 @@ class HideMediaEvent
        }
      });\n
 
-    // Create a popcorn event 
-    /*
-    popcorn.code({
-       start: $this->start,
-       end: $this->end,
-       onStart: function( options ) {
-         $('#videolayer object').css('visibility', 'hidden');
-       },
-       onEnd: function( options ) {
-         $('#videolayer object').css('visibility', 'visible');
-       }
-     });\n
-    */
 EOF;
 
   }
