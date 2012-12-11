@@ -162,7 +162,7 @@ EOF;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5;
     $this->duration = isset($this->conf['duration'])?(int)$this->conf['duration']:$this->end-$this->start;;
     $this->orientations = isset($this->conf['popcornOptions']['orientations'])?str_split($this->conf['popcornOptions']['orientations']):array($this->orientation[0]);
-    $this->targets = isset($this->conf['popcornOptions']['targets'])?$this->conf['popcornOptions']['targets']:array($this->target);
+    $this->targets = isset($this->conf['targets'])?$this->conf['targets']:array($this->target);
 
     $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o,owner_name";
     $this->conf['popcornOptions']['per_page'] = "200";
