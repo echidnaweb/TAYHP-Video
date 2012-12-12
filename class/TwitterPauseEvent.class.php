@@ -20,7 +20,7 @@ class TwitterPauseEvent
 
   private function process()
   {
-    for($i = 0; $i < $this->occurences; $i++)
+    for($i = 0; $i < $this->occurrences; $i++)
     {
        $from_user = $this->tweets[$i]['from_user'];
        $text = addslashes(preg_replace("/[^a-zA-Z0-9 !@#\$%\^\*\?\.;&:\-\+=\/]/","",nl2br($this->tweets[$i]['text'])));
@@ -65,7 +65,7 @@ EOF;
 
     $this->src = $this->conf['src'];
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
-    $this->occurences = isset($this->conf['occurences'])?(int)$this->conf['occurences']:1;
+    $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5; 
     $this->targets = isset($this->conf['targets'])?$this->conf['targets']:false;
     $this->target = isset($this->conf['target'])?$this->conf['target']:false;

@@ -21,7 +21,7 @@ class TwitterEvent
 
   private function process()
   {
-    for($i = 0; $i < $this->occurences; $i++)
+    for($i = 0; $i < $this->occurrences; $i++)
     {
        //calculate start and end points for each repeat
        $start = $this->start+($i*$this->interval);
@@ -69,7 +69,7 @@ EOF;
     $this->src = $this->conf['popcornOptions']['src'];
     $this->template = isset($this->conf['template'])?$this->conf['template']:"";
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
-    $this->occurences = isset($this->conf['occurences'])?(int)$this->conf['occurences']:1;
+    $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5; 
     $this->duration = isset($this->conf['duration'])?(int)$this->conf['duration']:$this->end-$this->start;
     $this->targets = isset($this->conf['targets'])?$this->conf['targets']:false;

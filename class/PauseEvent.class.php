@@ -24,9 +24,9 @@ class PauseEvent
      $end =   (int)$this->start+(int)$this->duration;
      $duration = (int)$this->duration*1000;
      $eventsjs = "";
-     foreach($this->aPauseEvent as $oPauseEvent)
+     foreach($this->aPauseSubEvent as $oPauseSubEvent)
      {
-       $eventsjs .= $oPauseEvent->getJS();
+       $eventsjs .= $oPauseSubEvent->getJS();
      }
      
    $this->js .= <<<EOF
@@ -52,16 +52,16 @@ EOF;
   {
     $this->id = $this->conf['id'];
     $this->start = $this->conf['popcornOptions']['start'];
-    $this->duration = $this->conf['popcornOptions']['duration'];
+    $this->duration = $this->conf['duration'];
     $this->template = isset($this->conf['template'])?$this->conf['template']:"";
-    $pause_events = isset($this->conf['pauseEvents'])?$this->conf['pauseEvents']:array();
+    $pause_sub_events = isset($this->conf['pauseSubEvents'])?$this->conf['pauseSubEvents']:array();
 
-    foreach($pause_events as $pause_event)
+    foreach($pause_sub_events as $pause_sub_event)
     {
-      $eventClassname = ucfirst($pause_event['type'])."PauseEvent";
+      $eventClassname = ucfirst($pause_sub_event['type'])."PauseEvent";
       if (class_exists($eventClassname))
       {
-         $this->aPauseEvent[] = new $eventClassname($pause_event);
+         $this->aPauseSubEvent[] = new $eventClassname($pause_sub_event);
       } 
     }
 

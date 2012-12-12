@@ -15,68 +15,25 @@
           "id": "Track0",
           "trackEvents": [
             {
-              "id": "TrackEvent3_02",
-              "type": "flickr",
-              "template": "cwtch",
-              "occurences": 16,
-              "interval": 5,
-              "duration": 7,
-              "popcornOptions": {
-                "start": 0,
-                "end": 80,
-                "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
-                "orientations": "ppplll",
-                "ownername_target": "attrib",
-                "size": "small",
-                "tags": "Mongolia"
-              }
-            },
-            {
-              "id": "TrackEvent1_11",
-              "type": "twitter",
-              "template": "babble",
-              "occurences": 7,
-              "interval": 3,
-              "duration": 5,
-              "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-              "popcornOptions": {
-                "start": 60,
-                "end": 120,
-                "target": "area1",
-                "src": "Mongolia, Country"
-              }
-            },
-            {
               "id": "TrackEvent2_01",
               "type": "pause",
-              "template": "babble",
+              "template": "cwtch",
+              "duration": 50,
               "popcornOptions": {
-                "start": 80,
-                "duration": 50
+                "start": 5 
               },
-              "pauseEvents": [
+              "pauseSubEvents": [
                 {
-                  "type": "twitter",
+                  "type": "flickr",
                   "delay": 0,
-                  "duration": 10,
-                  "target": "area1",
-                  "src": "chunky"
-                },
-                {
-                  "type": "twitter",
-                  "delay": 5,
-                  "duration": 10,
-                  "target": "area2",
-                  "src": "funky"
-                },
-                {
-                  "type": "twitter",
-                  "delay": 10,
-                  "duration": 10,
-                  "target": "area3",
-                  "src": "monkey"
-                } 
-              ]
+                  "occurrences": 8,
+                  "duration": 5,
+                  "interval": 3,
+                  "targets": ["area1","area2","area3","area4"],
+                  "orientations": "pllp",
+                  "tags": "orange"
+                }
+              ] 
             },            
             {
               "id": "TrackEvent2_02",

@@ -12,7 +12,7 @@ class TwitterAPI
   public function processEvent(&$event,&$tweets)
   {
     $results = array();
-    $occurences = isset($event['occurences'])?(int)$event['occurences']:1;
+    $occurrences = isset($event['occurrences'])?(int)$event['occurrences']:1;
     if(isset($event['popcornOptions']['src']))
       $qry = $event['popcornOptions']['src'];
     else if (isset($event['src']))
@@ -31,7 +31,7 @@ class TwitterAPI
     // Pick a random result and set the text node to its value 
     if ($results && count($results) > 0)
     {
-      $keys = array_rand($results,$occurences); 
+      $keys = array_rand($results,$occurrences); 
       if (is_array($keys))
         foreach ($keys as $key) $tweets[] = $results[$key];
       else

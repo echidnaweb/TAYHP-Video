@@ -95,7 +95,7 @@ class FlickrPauseEvent
   {
     if (!$this->photos || $this->photos['total'] == 0) return false;
     
-    $photos =  $this->get_random_photos($this->occurences,$this->orientations);
+    $photos =  $this->get_random_photos($this->occurrences,$this->orientations);
 
     for($i = 0; $i < count($photos); $i++)
     {
@@ -123,6 +123,9 @@ class FlickrPauseEvent
 
 
    $this->js .= <<<EOF
+         
+         //preload image
+         $('<img/>')[0].src = '$url';;
 
          setTimeout(function() {
            var imgtag = '$imgtag';
@@ -146,7 +149,7 @@ EOF;
     $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
-    $this->occurences = isset($this->conf['occurences'])?(int)$this->conf['occurences']:1;
+    $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5;
     $this->duration = isset($this->conf['duration'])?$this->conf['duration']:5;
     $this->target = isset($this->conf['target'])?$this->conf['target']:false;

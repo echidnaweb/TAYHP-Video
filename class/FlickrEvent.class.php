@@ -96,7 +96,7 @@ class FlickrEvent
   {
     if (!$this->photos || $this->photos['total'] == 0) return false;
     
-    $photos =  $this->get_random_photos($this->occurences,$this->orientations);
+    $photos =  $this->get_random_photos($this->occurrences,$this->orientations);
 
     for($i = 0; $i < count($photos); $i++)
     {
@@ -158,7 +158,7 @@ EOF;
     $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
-    $this->occurences = isset($this->conf['occurences'])?(int)$this->conf['occurences']:1;
+    $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5;
     $this->duration = isset($this->conf['duration'])?(int)$this->conf['duration']:$this->end-$this->start;;
     $this->orientations = isset($this->conf['popcornOptions']['orientations'])?str_split($this->conf['popcornOptions']['orientations']):array($this->orientation[0]);
