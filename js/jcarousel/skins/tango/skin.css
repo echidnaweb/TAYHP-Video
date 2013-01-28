@@ -51,7 +51,8 @@
 }
 
 .jcarousel-skin-tango .jcarousel-item-placeholder {
-    background: #fff;
+		/* adjusted to blend with background */
+    background: #333;
     color: #000;
 }
 
@@ -162,6 +163,8 @@
     height: 32px;
     cursor: pointer;
     background: transparent url(prev-vertical.png) no-repeat 0 0;
+        /* hide arrows (for now) */
+    display: none;
 }
 
 .jcarousel-skin-tango .jcarousel-prev-vertical:hover,

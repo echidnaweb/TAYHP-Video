@@ -90,6 +90,7 @@ body {
     height: 50px;
     margin: 0 auto;
 }
+	
 /* Twitter foursquare */
 
 body.foursquare #area1, #area2, #area5, #area6 { 
@@ -183,7 +184,7 @@ body.babble #area1 {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 1em;
+  font-size: 1.4em;
   font-family: 'Nixie One', cursive;
   width: 600px;
 }
@@ -192,25 +193,27 @@ body.babble #area2 {
   position: absolute;
   top: 200px;
   left: 250px;
-  font-size: 1em;
+  text-align: center;
+  font-size: 1.4em;
   font-family: 'PT Sans', sans-serif;
   width: 400px;
 }
 
 body.babble #area3 {
   position: absolute;
-  top: 300px;
+  top: 350px;
   left: 50px;
-  font-size: 1em;
+  font-size: 1.4em;
   font-family: 'Abril Fatface', cursive;
-  width: 200px;
+  width: 250px;
 }
 
 body.babble #area4 {
   position: absolute;
   top: 0;
-  left: 0;
-  font-size: 1em;
+  right: 20px;
+  text-align: right;
+  font-size: 1.4em;
   font-family: 'Special Elite', cursive;
   width: 600px;
 
@@ -218,20 +221,21 @@ body.babble #area4 {
 
 body.babble #area5 {
   position: absolute;
-  top: 200px;
-  left: 600px;
-  font-size: 1em;
+  top: 300px;
+  right: 0px;
+  text-align: right;
+  font-size: 1.4em;
   font-family: 'Nixie One', cursive;
-  width: 100px;
+  width: 200px;
 }
 
 body.babble #area6 {
   position: absolute;
   top: 300px;
-  left: 200px;
-  font-size: 1em;
+  left: 350px;
+  font-size: 1.4em;
   font-family: 'PT Sans', sans-serif;
-  width: 350px;
+  width: 400px;
 }
 
 
