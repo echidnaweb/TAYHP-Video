@@ -20,8 +20,8 @@
               "id": "TrackEvent1_11",
               "type": "twitter",
               "template": "babble",
-              "occurrences": 21,
-              "interval": 3,
+              "occurrences": 19,
+              "interval": 4,
               "duration": 6,
               "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
               "popcornOptions": {
@@ -36,7 +36,7 @@
               "template": "babble",
               "popcornOptions": {
                 "start": 166,
-                "end": 195
+                "end": 196
               }
             },            
             {
@@ -44,12 +44,12 @@
               "type": "twitter",
               "template": "babble",
               "occurrences": 9,
-              "interval": 3,
+              "interval": 4,
               "duration": 6,
               "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
               "popcornOptions": {
                 "start": 166,
-                "end": 196,
+                "end": 195,
                 "src": "Mongolia, Business"
               }
             },
@@ -58,7 +58,7 @@
               "type": "flickr",
               "template": "cwtch",
               "occurrences": 61,
-              "interval": 3,
+              "interval": 4,
               "duration": 6,
               "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
               "orientations": "pllppllp",
