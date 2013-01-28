@@ -3,7 +3,6 @@ body {
       background-color: #000;
       width:100%;
       height:100%;
-      color: #ccc;
       margin: 0;
       overflow: hidden;
       font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
@@ -18,7 +17,7 @@ body {
     height: 600px;
     margin: 0 auto;
     z-index: 10;
-    /* background: grey */
+    color: #ccc;
 }
 
 #videolayer {
@@ -50,10 +49,10 @@ body {
 
 #attrib { 
           position: absolute;
-          bottom: 10px;
+          bottom: 6px;
           left: 10px;
           z-index: 25;
-          font-size: 0.6em;
+          font-size: 0.8em;
         }
 
 /* carousel / slider */
@@ -72,12 +71,12 @@ body {
     position: relative;
     top: -20px; 
     margin: 0 auto;
-    padding: 4px 0;
+    padding: 1px;
     background: #333;
     width: 200px;
     height: 30px;
     text-align: center;
-    font-size: 0.75em;
+    font-size: 0.8em;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px; /* future proofing */
