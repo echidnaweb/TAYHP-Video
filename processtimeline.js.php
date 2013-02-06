@@ -5,7 +5,7 @@ error_reporting(E_ERROR | E_WARNING | E_PARSE);
 // error_reporting(E_ALL);
 // Define Constants
 define("TWITTER_MAX_RESULTS",100);
-define("TWITTER_URL", "http://search.twitter.com/search.json?include_rts=0&rpp=".TWITTER_MAX_RESULTS);
+define("TWITTER_URL", "http://search.twitter.com/search.json");
 define("TWITTER_CACHE_EXPIRY", 3600);
 define("FLICKR_PER_PAGE", 200);
 define("FLICKR_CACHE_EXPIRY", 3600);

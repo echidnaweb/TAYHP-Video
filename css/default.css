@@ -18,6 +18,7 @@ body {
     margin: 0 auto;
     z-index: 10;
     color: #ccc;
+    font-size: 75%;
 }
 
 #videolayer {
@@ -52,7 +53,7 @@ body {
           bottom: 6px;
           left: 10px;
           z-index: 25;
-          font-size: 0.8em;
+          font-size: 1.2em;
         }
 
 /* carousel / slider */
@@ -67,11 +68,12 @@ body {
     background: #333; }
 
 #thumbtab {
+    color: #eee;
     cursor: pointer;
     position: relative;
     top: -20px; 
     margin: 0 auto;
-    padding: 1px;
+    padding: 2px;
     background: #333;
     width: 200px;
     height: 30px;
@@ -145,7 +147,7 @@ body.foursquare #area6 {
 /* Fade-in text */
 body.foursquare #area6 {
 	font-family: 'Nixie One', sans-serif;
-	font-size: 1.4em;
+	font-size: 1.8em;
 }
 
 
@@ -155,7 +157,7 @@ body.wordriver #contentlayer { /* z-index: 25 */ }
 
 body.wordriver #area1 {
   position: absolute;
-  font-size: 1.4em;
+  font-size: 1.8em;
   width: 1200px;
   height: 50px;
 }
@@ -166,7 +168,7 @@ body.wordriver #area2 {
   position: absolute;
   top: 515px;
   left: 0;
-  font-size: 1.2em;
+  font-size: 1.8em;
   width: 100%;
 }
 
@@ -183,7 +185,7 @@ body.babble #area1 {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 1.4em;
+  font-size: 1.8em;
   font-family: 'Nixie One', cursive;
   width: 600px;
 }
@@ -192,8 +194,8 @@ body.babble #area2 {
   position: absolute;
   top: 200px;
   left: 250px;
-  text-align: center;
-  font-size: 1.4em;
+  text-align: justify;
+  font-size: 2em;
   font-family: 'PT Sans', sans-serif;
   width: 400px;
 }
@@ -202,9 +204,9 @@ body.babble #area3 {
   position: absolute;
   top: 350px;
   left: 50px;
-  font-size: 1.4em;
+  font-size: 2em;
   font-family: 'Abril Fatface', cursive;
-  width: 250px;
+  width: 400px;
 }
 
 body.babble #area4 {
@@ -212,7 +214,7 @@ body.babble #area4 {
   top: 0;
   right: 20px;
   text-align: right;
-  font-size: 1.4em;
+  font-size: 1.8em;
   font-family: 'Special Elite', cursive;
   width: 600px;
 
@@ -223,22 +225,24 @@ body.babble #area5 {
   top: 300px;
   right: 0px;
   text-align: right;
-  font-size: 1.4em;
+  font-size: 2em;
   font-family: 'Nixie One', cursive;
-  width: 200px;
+  width: 300px;
 }
 
 body.babble #area6 {
   position: absolute;
   top: 300px;
   left: 350px;
-  font-size: 1.4em;
+  font-size: 1.8em;
   font-family: 'PT Sans', sans-serif;
   width: 400px;
 }
 
 
 /* cwtch */
+
+body.cwtch .target span { font-size: 1em }
 
 body.cwtch #area1 h2,
 body.cwtch #area3 h2,
