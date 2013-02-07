@@ -22,9 +22,11 @@ function toggle_drawer()
 
 function load_video(id)
 {
+  $('#container2').remove();
   $('.target').empty();
   toggle_drawer();
-  $.getScript("processtimeline.js.php?video="+id+"&ts=<?php echo time(); ?>")
+  //alert("processtimeline.js.php?video="+id+"&ts="+new Date().getTime());
+  $.getScript("processtimeline.js.php?video="+id+"&ts="+new Date().getTime())
 .done(function(script, textStatus) {
   init_popcorn();
 })

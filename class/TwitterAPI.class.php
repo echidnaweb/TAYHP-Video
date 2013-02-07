@@ -62,7 +62,8 @@ class TwitterAPI
   {
     $results = array();
     // Call the Twitter API (unauthenticated)
-    $json = file_get_contents(TWITTER_URL."&q=".urlencode($qry)."+exclude:retweets");
+    //+exclude:retweets
+    $json = file_get_contents(TWITTER_URL."?q=".urlencode($qry)."&include_rts=0&rpp=".TWITTER_MAX_RESULTS);
     // Did it work?
     if (!$json) return array();
           
