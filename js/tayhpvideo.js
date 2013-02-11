@@ -26,7 +26,7 @@ function load_video(id)
   $('.target').empty();
   toggle_drawer();
   //alert("processtimeline.js.php?video="+id+"&ts="+new Date().getTime());
-  $.getScript("processtimeline.js.php?video="+id+"&ts="+new Date().getTime())
+  $.getScript("videos/processtimeline.js.php?video="+id+"&ts="+new Date().getTime())
 .done(function(script, textStatus) {
   init_popcorn();
 })
