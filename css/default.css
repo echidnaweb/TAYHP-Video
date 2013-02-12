@@ -46,6 +46,11 @@ body {
 
 #video object, #video iframe { margin: 142px 220px; padding: 0; width: 545px }
 
+#audio {
+    position: absolute;
+    top: -800px;
+}
+
 .target > * { display: none }
 
 #attrib { 

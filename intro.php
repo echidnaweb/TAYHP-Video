@@ -202,6 +202,7 @@ sub {
   <div id="videolayer">
     <div id="video"></div>
   </div>
+  <div id="audio"></div>
   <div id="attrib"></div>
   <div id="thumbdrawer">
     <div id="thumbtab">Choose a video</div>
