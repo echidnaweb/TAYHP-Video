@@ -32,19 +32,30 @@ body {
 }
 
 #video, #novideo {
-         
+        
          width: 100%;
          height: 100%;
+
          /* float: left; */
          padding: 0;
          margin: 0;
+/*
          min-width: 545px;
          min-height: 315px;
+*/
         }
 
 #video {  /* margin: 142px 220px */ }
 
 #video object, #video iframe { margin: 142px 220px; padding: 0; width: 545px }
+
+
+/* fullscreen */
+body.fullscreen #floater { height: 45% }
+body.fullscreen #videolayer { width: 1000px; height: 600px }
+body.fullscreen #video { margin: 0}
+body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; padding: 0; width: 1000px; height: 600px }
+
 
 #audio {
     position: absolute;
@@ -357,6 +368,7 @@ body.flickrsolo #area5,
 body.flickrsolo #area6,
 body.flickrsolo #area7,
 body.flickrsolo #area8 { display: none}
+
 
 /*
 #area1 { background: yellow }
