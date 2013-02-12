@@ -27,7 +27,7 @@ class SoundCloudEvent
        start: $this->start,
        end: $this->end,
        onStart: function( options ) {
-         $('#audio').html('<iframe id="$id" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F71861721&amp;color=ff6600&amp;auto_play=true&amp;show_artwork=true"></iframe>');
+         $('#audio').html('<iframe id="$id" width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F$this->trackid&amp;color=ff6600&amp;auto_play=true&amp;show_artwork=true"></iframe>');
        },
        onEnd: function( options ) {
          $('#$id').remove();
@@ -42,7 +42,7 @@ EOF;
   {
     $this->start = isset($this->conf['popcornOptions']['start'])?$this->conf['popcornOptions']['start']:"0";
     $this->end = isset($this->conf['popcornOptions']['end'])?$this->conf['popcornOptions']['end']:"0";
-    $this->trackid = isset($this->conf['trackid'])?$this->conf['trackid']:"0";
+    $this->trackid = isset($this->conf['trackid'])?$this->conf['trackid']:"";
     return true;
   }
   

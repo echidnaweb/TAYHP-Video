@@ -23,6 +23,7 @@ function toggle_drawer()
 function load_video(id)
 {
   $('#container2').remove();
+  $('#audio *').remove();
   $('.target').empty();
   toggle_drawer();
   //alert("processtimeline.js.php?video="+id+"&ts="+new Date().getTime());
