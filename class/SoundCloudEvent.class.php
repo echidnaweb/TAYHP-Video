@@ -40,8 +40,8 @@ EOF;
   
   private function preprocess()
   {
-    $this->start = isset($this->conf['popcornOptions']['start'])?$this->conf['popcornOptions']['start']:"0";
-    $this->end = isset($this->conf['popcornOptions']['end'])?$this->conf['popcornOptions']['end']:"0";
+    $this->start = isset($this->conf['start'])?$this->conf['start']:"0";
+    $this->end = isset($this->conf['end'])?$this->conf['end']:"0";
     $this->trackid = isset($this->conf['trackid'])?$this->conf['trackid']:"";
     return true;
   }

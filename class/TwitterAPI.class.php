@@ -13,8 +13,8 @@ class TwitterAPI
   {
     $results = array();
     $occurrences = isset($event['occurrences'])?(int)$event['occurrences']:1;
-    if(isset($event['popcornOptions']['src']))
-      $qry = $event['popcornOptions']['src'];
+    if(isset($event['src']))
+      $qry = $event['src'];
     else if (isset($event['src']))
       $qry = $event['src'];
     else return false;

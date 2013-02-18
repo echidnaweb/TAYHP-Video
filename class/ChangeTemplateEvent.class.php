@@ -1,16 +1,16 @@
 <?php
 /**
- * ChangeTemplateEvent class
- * Event to change the template in popcorn production 
+ * ChangeClassEvent class
+ * Event to change the body class in popcorn production 
  * Generates javascript code from config array 
  *
  **/
 
-class ChangeTemplateEvent
+class ChangeClassEvent
 {
   private $conf;
   private $js = "";
-  private $template,$start;
+  private $class,$start;
 
   function __construct($conf)
   {
@@ -26,7 +26,7 @@ class ChangeTemplateEvent
     popcorn.code({
        start: $this->start,
        onStart: function( options ) {
-         $('body').attr('class','$this->template');
+         $('body').attr('class','$this->class');
        }
      });\n
 
@@ -37,7 +37,7 @@ EOF;
   private function preprocess()
   {
     $this->start = isset($this->conf['start'])?$this->conf['start']:"0";
-    $this->template = isset($this->conf['template'])?$this->conf['template']:"0";
+    $this->class = isset($this->conf['class'])?$this->conf['class']:"0";
 
     return true;
   }

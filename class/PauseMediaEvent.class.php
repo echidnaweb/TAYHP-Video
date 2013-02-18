@@ -39,8 +39,8 @@ EOF;
   private function preprocess()
   {
     $this->id = isset($this->conf['id'])?$this->conf['id']:"0";
-    $this->start = isset($this->conf['popcornOptions']['start'])?$this->conf['popcornOptions']['start']:"0";
-    $this->duration = isset($this->conf['popcornOptions']['duration'])?$this->conf['popcornOptions']['duration']:"0";
+    $this->start = isset($this->conf['start'])?$this->conf['start']:"0";
+    $this->duration = isset($this->conf['duration'])?$this->conf['duration']:"0";
 
     return true;
   }

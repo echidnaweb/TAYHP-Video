@@ -10,7 +10,7 @@ class WordriverEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$target,$text,$template,$class,$style,$origin;
+  private $id,$start,$end,$target,$text,$class,$style,$origin;
 
   function __construct($conf)
   {
@@ -50,7 +50,7 @@ class WordriverEvent
          $('#$this->target').css('bottom', '');
     
          // set the class of the body tag to the template name
-         $('body').attr('class','$this->template');
+         $('body').attr('class','$this->class');
 
          $ststmt
          $dtstmt
@@ -82,17 +82,17 @@ EOF;
     $oAPI = new TwitterAPI;
     $oAPI->processEvent($this->conf,$this->tweets);
 
-    if (!isset($this->conf['popcornOptions']['text'])) return false;
+    if (!isset($this->conf['text'])) return false;
 
     $this->id = $this->conf['id'];
-    $this->start = $this->conf['popcornOptions']['start'];
-    $this->end = $this->conf['popcornOptions']['end'];
-    $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:"unknown";
-    //$this->text = addslashes($this->conf['popcornOptions']['text']);
-    $this->template = isset($this->conf['template'])?$this->conf['template']:"wordriver";
+    $this->start = $this->conf['start'];
+    $this->end = $this->conf['end'];
+    $this->target = isset($this->conf['target'])?$this->conf['target']:"unknown";
+    //$this->text = addslashes($this->conf['text']);
+    $this->class = isset($this->conf['class'])?$this->conf['class']:"wordriver";
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     $this->style = isset($this->conf['style'])?$this->conf['style']:"";
-    $this->origin = isset($this->conf['popcornOptions']['origin'])?$this->conf['popcornOptions']['origin']:"right";
+    $this->origin = isset($this->conf['origin'])?$this->conf['origin']:"right";
     return true;
   }
 

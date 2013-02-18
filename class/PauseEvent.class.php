@@ -10,7 +10,7 @@ class PauseEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$template;
+  private $id,$start,$end,$class;
 
   function __construct($conf)
   {
@@ -35,7 +35,7 @@ class PauseEvent
        start: $start,
        end: $end,
        onStart: function( options ) {
-         $('body').attr('class','$this->template');
+         $('body').attr('class','$this->class');
          playercmd('pause');
          setTimeout(function() { playercmd('play'); }, $duration);
          $eventsjs 
@@ -51,9 +51,9 @@ EOF;
   private function preprocess()
   {
     $this->id = $this->conf['id'];
-    $this->start = $this->conf['popcornOptions']['start'];
+    $this->start = $this->conf['start'];
     $this->duration = $this->conf['duration'];
-    $this->template = isset($this->conf['template'])?$this->conf['template']:"";
+    $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     $pause_sub_events = isset($this->conf['pauseSubEvents'])?$this->conf['pauseSubEvents']:array();
 
     foreach($pause_sub_events as $pause_sub_event)

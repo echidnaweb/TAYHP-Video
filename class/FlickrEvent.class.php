@@ -10,7 +10,7 @@ class FlickrEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$target,$ownername_target,$template,$orientation;
+  private $id,$start,$end,$target,$ownername_target,$class,$orientation;
   private $flickr_api;
   private $flickr_options = array(); 
   private $photos = array();
@@ -128,7 +128,7 @@ class FlickrEvent
        end: $end,
        onStart: function( options ) {
          var imgtag = '$imgtag';
-         $('body').attr('class','$this->template');
+         $('body').attr('class','$this->class');
          $('#$target').css('z-index',parseInt($('#$this->target').css('z-index'))+1);
          $('#$target').html(imgtag);
          $('#$target #$id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
@@ -145,28 +145,28 @@ EOF;
 
   private function preprocess()
   {
-    $api_key = isset($this->conf['popcornOptions']['apikey'])?$this->conf['popcornOptions']['apikey']:FLICKR_API_KEY; 
+    $api_key = isset($this->conf['apikey'])?$this->conf['apikey']:FLICKR_API_KEY; 
 
     $this->id = isset($this->conf['id'])?$this->conf['id']:"0";
-    $this->start = isset($this->conf['popcornOptions']['start'])?$this->conf['popcornOptions']['start']:"0";
-    $this->end = isset($this->conf['popcornOptions']['end'])?$this->conf['popcornOptions']['end']:"0";
-    $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:"unknown";
-    $this->ownername_target = isset($this->conf['popcornOptions']['ownername_target'])?$this->conf['popcornOptions']['ownername_target']:"unknown";
-    $this->template = isset($this->conf['template'])?$this->conf['template']:"0"; 
-    $this->orientation = isset($this->conf['popcornOptions']['orientation'])?$this->conf['popcornOptions']['orientation']:"landscape"; 
-    $this->size = isset($this->conf['popcornOptions']['size'])?$this->conf['popcornOptions']['size']:false;
+    $this->start = isset($this->conf['start'])?$this->conf['start']:"0";
+    $this->end = isset($this->conf['end'])?$this->conf['end']:"0";
+    $this->target = isset($this->conf['target'])?$this->conf['target']:"unknown";
+    $this->ownername_target = isset($this->conf['ownername_target'])?$this->conf['ownername_target']:"unknown";
+    $this->class = isset($this->conf['class'])?$this->conf['class']:"0"; 
+    $this->orientation = isset($this->conf['orientation'])?$this->conf['orientation']:"landscape"; 
+    $this->size = isset($this->conf['size'])?$this->conf['size']:false;
     $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
 
     $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5;
     $this->duration = isset($this->conf['duration'])?(int)$this->conf['duration']:$this->end-$this->start;;
-    $this->orientations = isset($this->conf['popcornOptions']['orientations'])?str_split($this->conf['popcornOptions']['orientations']):array($this->orientation[0]);
+    $this->orientations = isset($this->conf['orientations'])?str_split($this->conf['orientations']):array($this->orientation[0]);
     $this->targets = isset($this->conf['targets'])?$this->conf['targets']:array($this->target);
 
-    $this->conf['popcornOptions']['extras'] = "url_o,url_s,url_o,owner_name";
-    $this->conf['popcornOptions']['per_page'] = "200";
-    $this->conf['popcornOptions']['license'] = isset($this->conf['popcornOptions']['license'])?$this->conf['popcornOptions']['license']:"2,4";
+    $this->conf['extras'] = "url_o,url_s,url_o,owner_name";
+    $this->conf['per_page'] = "200";
+    $this->conf['license'] = isset($this->conf['license'])?$this->conf['license']:"2,4";
    
     // set any orientation defaults for specific tag ids 
     if (!$this->orientation && isset(self::$orientation_defaults[$this->target]))
@@ -177,7 +177,7 @@ EOF;
       $this->size = $this->size_defaults[$this->target];
     elseif (!$this->size)
       $this->size = "small";
-    if (!$this->photos = $this->flickr_api->photos_search($this->conf['popcornOptions']))
+    if (!$this->photos = $this->flickr_api->photos_search($this->conf))
       return false; 
 
     return true;

@@ -10,7 +10,7 @@ class TwitterEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$target,$src,$height,$width,$text,$from_user,$template,$class;
+  private $id,$start,$end,$target,$src,$height,$width,$text,$from_user,$class;
   private $tweets = array();
 
   function __construct($conf)
@@ -41,8 +41,8 @@ class TwitterEvent
        start: $start,
        end: $end,
        onStart: function( options ) {
-         var tweet_text = '<span id=\'$id\' class=\'$this->class\'>@'+'$from_user<br>$text</span>';
-         $('body').attr('class','$this->template');
+         var tweet_text = '<span id=\'$id\'>@'+'$from_user<br>$text</span>';
+         $('body').attr('class','$this->class');
          $('#$target').html(tweet_text);
          $('#$target span#$id').fadeIn('slow');
        },
@@ -63,17 +63,16 @@ EOF;
     if (!count($this->tweets)) return false;
 
     $this->id = $this->conf['id'];
-    $this->start = $this->conf['popcornOptions']['start'];
-    $this->end = $this->conf['popcornOptions']['end'];
-    $this->target = $this->conf['popcornOptions']['target'];
-    $this->src = $this->conf['popcornOptions']['src'];
-    $this->template = isset($this->conf['template'])?$this->conf['template']:"";
+    $this->start = $this->conf['start'];
+    $this->end = $this->conf['end'];
+    $this->target = $this->conf['target'];
+    $this->src = $this->conf['src'];
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5; 
     $this->duration = isset($this->conf['duration'])?(int)$this->conf['duration']:$this->end-$this->start;
     $this->targets = isset($this->conf['targets'])?$this->conf['targets']:false;
-    $this->target = isset($this->conf['popcornOptions']['target'])?$this->conf['popcornOptions']['target']:false;
+    $this->target = isset($this->conf['target'])?$this->conf['target']:false;
     return true;
   }
 

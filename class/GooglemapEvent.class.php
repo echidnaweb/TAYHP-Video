@@ -19,7 +19,7 @@ class GooglemapEvent
 
   private function process()
   {
-    $options = json_encode($this->conf['popcornOptions']);
+    $options = json_encode($this->conf);
     $options = preg_replace('/"([^"]+)"\s*:\s*/', '$1:', $options); 
    
     $this->js .= <<<EOF
