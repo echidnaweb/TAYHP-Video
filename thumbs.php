@@ -3,11 +3,11 @@
 // shows the list of videos and paths to their thumbnails
 $thumbs  = array(
 // 25726263 => "http://b.vimeocdn.com/ts/334/657/334657093_100.jpg", // UGANDA (wrong thumbnail for now, but can't locate the Uganda one)
-// 45636689 => "http://b.vimeocdn.com/ts/317/451/317451255_100.jpg", // PERU
+peru => "http://b.vimeocdn.com/ts/317/451/317451255_100.jpg",				// PERU 57693873 - 03/02/13 - Chris's edited file
 // 44798169 => "http://b.vimeocdn.com/ts/311/289/311289758_100.jpg", // TASMANIA
 // 33500169 => "http://b.vimeocdn.com/ts/227/414/227414986_100.jpg", // TRINIDAD
-argentina		=> "http://b.vimeocdn.com/ts/218/803/218803459_100.jpg", // ARGENTINA 47748959 - this needs editing before it will work 
-mongolia		=> "http://b.vimeocdn.com/ts/215/148/215148023_100.jpg", // MONGOLIA 52115455
+argentina		=> "http://b.vimeocdn.com/ts/218/803/218803459_100.jpg", // ARGENTINA 57625972 - 03/02/13 - Chris's edited file
+mongolia		=> "http://b.vimeocdn.com/ts/215/148/215148023_100.jpg", // MONGOLIA 52115455 - 03/02/13 - Chris's edited file
 // 31595710 => "http://b.vimeocdn.com/ts/213/089/213089500_100.jpg", // BRISTOL
 // 31597454 => "http://b.vimeocdn.com/ts/213/102/213102268_100.jpg", // MAHARASHTRA
 // 29045451 => "http://b.vimeocdn.com/ts/194/235/194235512_100.jpg", // ARGENTINA 2

@@ -59,7 +59,8 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 
 #audio {
     position: absolute;
-    top: -800px;
+    bottom: -6px;
+    right: 0;
 }
 
 .target > * { display: none }
