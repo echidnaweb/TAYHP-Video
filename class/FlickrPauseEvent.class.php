@@ -120,19 +120,19 @@ class FlickrPauseEvent
 
        $imgtag = "<img id=\"$id\" alt=\"$alt\" ".
               "src=\"" . $url . "\"></img>";
-
-
+       $classstatement = $this->class?"$('body').attr('class','$this->class');":"";
    $this->js .= <<<EOF
          
          //preload image
          $('<img/>')[0].src = '$url';;
 
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
+           $classstatement
            var imgtag = '$imgtag';
            $('#$target').css('z-index',parseInt($('#$this->target').css('z-index'))+1);
            $('#$target').html(imgtag);
            $('#$target #$id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')}); 
-         }, $start);
+         }, $start));
 
          setTimeout(function() {
            $('#$id').fadeOut('slow', function() { $('#$id').remove(); });
@@ -148,7 +148,7 @@ EOF;
     $api_key = isset($this->conf['apikey'])?$this->conf['apikey']:FLICKR_API_KEY;
     $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
-
+    $this->class = isset($this->conf['class'])?$this->conf['class']:false;
     $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5;
     $this->duration = isset($this->conf['duration'])?$this->conf['duration']:5;
@@ -173,7 +173,7 @@ EOF;
       $this->size = $this->size_defaults[$this->target];
     elseif (!$this->size)
       $this->size = "small";
-    if (!$this->photos = $this->flickr_api->photos_search($this->conf))
+    if (!$this->photos = $this->flickr_api->photos_search($this->removeArrayVals($this->conf)))
       return false;
 
     return true;
@@ -182,6 +182,15 @@ EOF;
   public function getJS()
   {
     return $this->js;
+  }
+  
+  private function removeArrayVals($conf)
+  {
+    foreach ($conf as $key => $val)
+    {
+      if (is_array($val)) unset($conf[$key]);
+    }
+    return $conf;
   }
 }
 

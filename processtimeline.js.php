@@ -2,7 +2,7 @@
 header('Content-Type: text/javascript; charset=UTF-8');
 ini_set('display_errors',1); 
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
- error_reporting(E_ALL);
+error_reporting(E_ALL);
 // Define Constants
 define("TWITTER_MAX_RESULTS",100);
 define("TWITTER_URL", "http://search.twitter.com/search.json");
@@ -21,15 +21,16 @@ include ("class/TwitterPauseEvent.class.php");
 include ("class/HTMLEvent.class.php");
 include ("class/FlickrEvent.class.php");
 include ("class/FlickrPauseEvent.class.php");
+include ("class/HTMLPauseEvent.class.php");
 include ("class/GooglemapEvent.class.php");
 include ("class/WordriverEvent.class.php");
 include ("class/HideMediaEvent.class.php");
 include ("class/SoundCloudEvent.class.php");
 include ("class/PauseEvent.class.php");
-include ("class/ChangeTemplateEvent.class.php");
+include ("class/ChangeClassEvent.class.php");
+include ("class/ChangeClassPauseEvent.class.php");
 include ("class/ExtDataCache.class.php");
 include ("lib/phpFlickr-3.1/phpFlickr.php");
-
 
 if (isset($_GET['video']))
 {
@@ -37,7 +38,6 @@ if (isset($_GET['video']))
    $output = $pcp->getJS();
 }
 else $output = "alert('Error: Missing Video ID!');";
-
 
 echo $output;
 

@@ -26,6 +26,7 @@ class ChangeClassEvent
     popcorn.code({
        start: $this->start,
        onStart: function( options ) {
+         //alert('foo 0');
          $('body').attr('class','$this->class');
        }
      });\n

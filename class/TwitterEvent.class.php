@@ -34,7 +34,7 @@ class TwitterEvent
          $target = array_shift($this->targets);
          array_push($this->targets,$target);
        } else $target = $this->target;
-       
+       $classstatement = $this->class?"$('body').attr('class','$this->class');":""; 
    $this->js .= <<<EOF
     // Create a popcorn event
     popcorn.code({
@@ -42,7 +42,7 @@ class TwitterEvent
        end: $end,
        onStart: function( options ) {
          var tweet_text = '<span id=\'$id\'>@'+'$from_user<br>$text</span>';
-         $('body').attr('class','$this->class');
+         $classstatement;
          $('#$target').html(tweet_text);
          $('#$target span#$id').fadeIn('slow');
        },

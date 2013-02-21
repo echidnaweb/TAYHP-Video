@@ -1,132 +1,153 @@
 {
-	"media": [{
-		"url": ["http://vimeo.com/57625972"],
-		"tracks": [{
-			"name": "Track0",
-			"id": "Track0",
-			"trackEvents": [{
-				"id": "TrackEvent1_01",
-				"type": "pause",
-				"template": "babble",
-				"duration": 40,
-				"popcornOptions": {
-					"start": 1
-				},
-				"pauseSubEvents": [{
-					"id": "TrackEvent1_02",
-					"type": "twitter",
-					"delay": 0,
-					"duration": 40,
-					"target": "area1",
-					"src": "argentina"
-				}]
-			}, {
-				"id": "TrackEvent1_03",
-				"type": "pause",
-				"template": "babble",
-				"duration": 33.5,
-				"popcornOptions": {
-					"start": 45
-				},
-				"pauseSubEvents": [{
-					"id": "TrackEvent1_04",
-					"type": "text",
-					"template": "foursquare",
-					"popcornOptions": {
-						"start": 0,
-						"end": 3.5,
-						"target": "area7",
-						"text": "Searching for happiness -  Argentina"
-					}
-				}, {
-					"id": "TrackEvent1_05",
-					"type": "flickr",
-					"template": "flickrsolo",
-					"delay": 3.5,
-					"duration": 30,
-					"tags": "Argentina, Feliz"
-				}]
-			},
-			{
-				"id": "TrackEvent1_06",
-				"type": "flickr",
-				"template": "cwtch",
-				"occurrences": 61,
-				"interval": 4,
-				"duration": 6,
-				"targets": ["area1", "area2", "area3", "area4", "area5", "area6", "area7", "area8"],
-				"orientations": "pllppllp",
-				"popcornOptions": {
-					"start": 45,
-					"end": 57,
-					"ownername_target": "attrib",
-					"size": "small",
-					"tags": "Argentina, Feliz"
-				},
-				{
-					"id": "TrackEvent1_07",
-					"type": "pause",
-					"template": "babble",
-					"duration": 33.5,
-					"popcornOptions": {
-						"start": 199.2
-					},
-					"pauseSubEvents": [{
-						"id": "TrackEvent1_08",
-						"template": "flickrsolo",
-						"tags": "Buenos Aires, felicidad""popcornOptions": {
-							"start": 199.2,
-							"end": 234.2
-						}]
-					},
-					{
-						"id": "TrackEvent1_09",
-						"type": "flickr",
-						"template": "cwtch",
-						"occurrences": 61,
-						"interval": 4,
-						"duration": 6,
-						"targets": ["area1", "area2", "area3", "area4", "area5", "area6", "area7", "area8"],
-						"orientations": "pllppllp",
-						"popcornOptions": {
-							"start": 199.2,
-							"end": 206.4,
-							"ownername_target": "attrib",
-							"size": "small",
-							"tags": "Buenos Aires, felicidad"
-						},
-						{
-							"id": "TrackEvent1_10",
-							"id": "mypause",
-							"type": "pause",
-							"template": "babble",
-							"duration": 40,
-							"popcornOptions": {
-								"start": 325.2
-							},
-							"pauseSubEvents": [{
-								"id": "TrackEvent1_11",
-								"template": "flickrsolo",
-								"tags": "Felicidad, Argentina, feliz",
-								"popcornOptions": {
-									"start": 0,
-									"end": 40
-								}
-							}] {
-								"id": "mypause",
-								"type": "pause",
-								"template": "cwtch",
-								"duration": 50,
-								"popcornOptions": {
-									"start": 495.6
-								},
-								"pauseSubEvents": [{
-									"type": "twitter",
-									"template": "babble",
-									"delay": 0,
-									"duration": 45,
-									"src": "Happiness, sad"
-								}]
-							}]
-					}]
-			}
+  "media": [
+    {
+      "url": ["http://vimeo.com/57625972"],
+      "tracks": [
+        {
+          "name": "Track0",
+          "id": "Track0",
+          "trackEvents": [
+            {
+              "comments": "religious woman 0.00-0.45",
+              "type": "changeClass",
+              "class": "fullscreen",
+              "start": 0
+            },
+            {
+              "type": "pause",
+              "class": "centred videohidden",
+              "duration": 50,
+              "start": 45.5,
+              "pauseSubEvents": [
+                {
+                  "type": "html",
+                  "delay": 2,
+                  "duration": 3,
+                  "target": "area1",
+                  "html": "<span style='font: 36px Zeyada, cursive'>Searching...</style>"
+                },
+                {
+                  "comments": "delay should be 5, duration: 3",
+                  "type": "html",
+                  "delay": 5,
+                  "interval": 4,
+                  "duration": 3,
+                  "target": "area1",
+                  "html": [
+                      "<span style='font: 36px Courgette, cursive'>Searching for Happiness</span>",
+                      "<br><span style='font: 36px Courgette, cursive'>in</span>",
+                      "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>ARGENTINA</span>"
+                  ]
+                },
+                {
+            	  "type": "flickr",
+                  "comments": "8 occurrences, delay: 10",
+                  "delay": 10,
+              	  "class": "babble videohidden",
+                  "occurrences": 8,
+                  "interval": 5,
+                  "duration": 5,
+                  "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+                  "orientations": "pllppllp",
+                  "ownername_target": "attrib",
+                  "size": "medium",
+                  "tags": "Argentina,Feliz",
+                  "content_type": 1,
+                  "sort": "relevance",
+                  "safe_search" : 1
+                },
+                {
+                  "comments": "Ramon",
+                  "type": "changeClass",
+                  "class": "fullscreen",
+                  "delay": 50 
+                }
+              ]
+            },
+            {
+              "type": "pause",
+              "class": "babble videohidden",
+              "duration": 35,
+              "start": 212.75,
+              "pauseSubEvents": [
+                {
+            	  "type": "flickr",
+                  "delay": 0,
+                  "occurrences": 7,
+                  "interval": 5,
+                  "duration": 5,
+                  "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+                  "orientations": "pllppllp",
+                  "ownername_target": "attrib",
+                  "size": "medium",
+                  "tags": "Buenos Aires,felicidad",
+                  "content_type": 1,
+                  "sort": "relevance",
+                  "safe_search" : 1
+                },
+                {
+                  "comments": "emotional woman in museum",
+                  "type": "changeClass",
+                  "class": "fullscreen",
+                  "delay": 35
+                }
+              ]
+            },
+            {
+              "type": "pause",
+              "class": "babble videohidden",
+              "duration": 40,
+              "start":342.5,
+              "pauseSubEvents": [
+                {
+            	  "type": "flickr",
+                  "delay": 0,
+                  "occurrences": 8,
+                  "interval": 5,
+                  "duration": 5,
+                  "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+                  "orientations": "pllppllp",
+                  "ownername_target": "attrib",
+                  "size": "medium",
+                  "tags": "felicidad,Argentina,feliz",
+                  "content_type": 1,
+                  "sort": "relevance",
+                  "safe_search" : 1
+                },
+                {
+                  "type": "changeClass",
+                  "class": "fullscreen",
+                  "delay": 40 
+                }
+              ]
+            },
+            {
+              "type": "pause",
+              "comments": "infinite pause",
+              "class": "babble videohidden",
+              "duration": 500,
+              "start":505,
+              "pauseSubEvents": [
+                {
+            	  "type": "flickr",
+                  "delay": 0,
+                  "occurrences": 100,
+                  "interval": 5,
+                  "duration": 5,
+                  "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+                  "orientations": "pllppllp",
+                  "ownername_target": "attrib",
+                  "size": "medium",
+                  "tags": "happiness,sad",
+                  "content_type": 1,
+                  "sort": "relevance",
+                  "safe_search" : 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

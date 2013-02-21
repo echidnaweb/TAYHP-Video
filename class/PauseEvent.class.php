@@ -10,7 +10,7 @@ class PauseEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$class;
+  private $start,$end,$class;
 
   function __construct($conf)
   {
@@ -28,19 +28,25 @@ class PauseEvent
      {
        $eventsjs .= $oPauseSubEvent->getJS();
      }
-     
+     $classstatement = $this->class?"$('body').attr('class','$this->class');":"";
+
    $this->js .= <<<EOF
      
     popcorn.code({
        start: $start,
-       end: $end,
+       end: $start+1,
        onStart: function( options ) {
-         $('body').attr('class','$this->class');
          playercmd('pause');
-         setTimeout(function() { playercmd('play'); }, $duration);
+         $classstatement
+         setTimeout(function() { 
+           //clearTimeout(pause_event_timer);
+           //alert('play!');
+           playercmd('play');
+         }, $duration);
          $eventsjs 
        },
        onEnd: function( options ) {
+         //alert('end of pause');
        }
      });\n
 
@@ -50,7 +56,6 @@ EOF;
 
   private function preprocess()
   {
-    $this->id = $this->conf['id'];
     $this->start = $this->conf['start'];
     $this->duration = $this->conf['duration'];
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";

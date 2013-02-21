@@ -33,8 +33,18 @@ Class PopcornProduction
     $this->js = <<<EOF
 function init_popcorn()
 {
+    // Clear all previously scheduled pause events
+    if (typeof pause_event_timer != "undefined")
+    {
+      for (var i = 0; i < pause_event_timer.length; i++)
+      {
+        clearTimeout(pause_event_timer[i]);
+      }
+    }
+    pause_event_timer = new Array();
+
     $('#video').empty();
-    $('#videolayer').css('top', '-600px');
+    //$('#videolayer').css('top', '-600px');
     $('.target').empty();
     popcorn = Popcorn.vimeo( "#video", "$media_url");
     popcorn.on( "loadedmetadata", function() { $('#attrib').empty(); this.play(); });

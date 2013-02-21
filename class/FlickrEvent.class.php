@@ -116,7 +116,7 @@ class FlickrEvent
 
        $imgtag = "<img id=\"$id\" alt=\"$alt\" ".
               "src=\"" . $url . "\"></img>";
-
+       $classstatement = $this->class?"$('body').attr('class','$this->class');":"";
    $this->js .= <<<EOF
     
     //preload image
@@ -128,7 +128,7 @@ class FlickrEvent
        end: $end,
        onStart: function( options ) {
          var imgtag = '$imgtag';
-         $('body').attr('class','$this->class');
+         $classstatement
          $('#$target').css('z-index',parseInt($('#$this->target').css('z-index'))+1);
          $('#$target').html(imgtag);
          $('#$target #$id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
@@ -177,7 +177,7 @@ EOF;
       $this->size = $this->size_defaults[$this->target];
     elseif (!$this->size)
       $this->size = "small";
-    if (!$this->photos = $this->flickr_api->photos_search($this->conf))
+    if (!$this->photos = $this->flickr_api->photos_search($this->removeArrayVals($this->conf)))
       return false; 
 
     return true;
@@ -186,6 +186,15 @@ EOF;
   public function getJS()
   {
     return $this->js;
+  }
+
+  private function removeArrayVals($conf)
+  {
+    foreach ($conf as $key => $val)
+    {
+      if (is_array($val)) unset($conf[$key]);
+    }
+    return $conf;
   }
 }
 

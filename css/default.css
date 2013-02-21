@@ -31,6 +31,8 @@ body {
     /* background: blue; */
 }
 
+body.videohidden #videolayer { top: 600px }
+
 #video, #novideo {
         
          width: 100%;
@@ -108,6 +110,11 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
     height: 50px;
     margin: 0 auto;
 }
+
+/* Centred (text etc) */
+
+body.centred #floater { height: 70% }
+body.centred #area1 { position: relative; width: 400px; margin: 0 auto }
 	
 /* Twitter foursquare */
 

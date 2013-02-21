@@ -10,7 +10,7 @@ class HTMLEvent
 {
   private $conf;
   private $js = "";
-  private $id,$start,$end,$target,$height,$width,$html,$class;
+  private $start,$end,$target,$height,$width,$html,$class;
 
   function __construct($conf)
   {
@@ -21,14 +21,15 @@ class HTMLEvent
   private function process()
   {
     $id = uniqid("html_"); 
+    $classstatement = $this->class?"$('body').attr('class','$this->class');":"";
     $this->js .= <<<EOF
     // Create a popcorn event 
     popcorn.code({
        start: $this->start,
        end: $this->end,
        onStart: function( options ) {
-         var html = '<div id=\'$id\' class=\'$this->class\'>$this->html</div>';
-         $('body').attr('class','$this->class'); 
+         var html = '<div id=\'$id\'>addslashes($this->html)</div>';
+         $classstatement
          $('#$this->target').html(text);
          $('#$this->target div#$id').fadeTo(1000, 0.999);
        },
@@ -43,13 +44,11 @@ EOF;
   
   private function preprocess()
   {
-    $this->id = $this->conf['id'];
     $this->start = $this->conf['start'];
     $this->end = $this->conf['end'];
     $this->target = $this->conf['target'];
     $this->html = $this->conf['html'];
-    $this->class = isset($this->conf['class'])?$this->conf['class']:"";
-    $this->class = isset($this->conf['class'])?$this->conf['class']:"";
+    $this->class = isset($this->conf['class'])?$this->conf['class']:false;
     return true;
   }
 
