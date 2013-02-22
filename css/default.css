@@ -114,17 +114,17 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 /* Centred (text etc) */
 
 body.centred #floater { height: 70% }
-body.centred #area1 { position: relative; width: 400px; margin: 0 auto }
+body.centred #area1,body.centred #area2 { position: relative; width: 460px; margin: 0 auto }
 	
 /* Twitter foursquare */
 
-body.foursquare #area1, #area2, #area5, #area6 { 
+body.foursquare #area1, body.foursquare #area2, body.foursquare #area5, body.foursquare #area6 { 
     width: 485px;
     height: 140px;
     float: left 
 }
 
-body.foursquare #area3, #area4 { 
+body.foursquare #area3, body.foursquare #area4 { 
 	width: 220px;
 	float: left;
 	min-height: 315px 

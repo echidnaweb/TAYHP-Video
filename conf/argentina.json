@@ -22,20 +22,18 @@
                 {
                   "type": "html",
                   "delay": 2,
-                  "duration": 3,
+                  "duration": 7,
                   "target": "area1",
                   "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
                 },
                 {
                   "comments": "delay should be 5, duration: 3",
                   "type": "html",
-                  "delay": 5,
-                  "interval": 4,
-                  "duration": 3,
-                  "target": "area1",
+                  "delay": 5.5,
+                  "duration": 3.5,
+                  "target": "area2",
                   "html": [
-                      "<span style='font: 36px Courgette, cursive'>Searching for Happiness</span>",
-                      "<br><span style='font: 36px Courgette, cursive'>in</span>",
+                      "<span style='font: 36px Courgette, cursive'>for Happiness in</span>",
                       "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>ARGENTINA</span>"
                   ]
                 },
