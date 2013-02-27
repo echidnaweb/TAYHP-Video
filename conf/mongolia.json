@@ -1,115 +1,131 @@
 {
-	"media": [
-    {
-      "url": ["http://vimeo.com/52115455"],
-      "tracks": [
-        {
-          "name": "Track0",
-          "id": "Track0",
-          "trackEvents": [
-            {
-              "id": "TrackEvent1_10",
-              "type": "hideMedia",
-              "template": "babble",
-              "popcornOptions": {
-                "start": 0,
-                "end": 66
-              }
-            },
-            {
-              "id": "TrackEvent1_11",
-              "type": "twitter",
-              "template": "babble",
-              "occurrences": 19,
-              "interval": 4,
-              "duration": 6,
-              "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-              "popcornOptions": {
-                "start": 0,
-                "end": 65,
-                "src": "Mongolia, Country"
-              }
-            },
-            {
-              "id": "TrackEvent2_01",
-              "type": "hideMedia",
-              "template": "babble",
-              "popcornOptions": {
-                "start": 166,
-                "end": 196
-              }
-            },            
-            {
-              "id": "TrackEvent2_02",
-              "type": "twitter",
-              "template": "babble",
-              "occurrences": 9,
-              "interval": 4,
-              "duration": 6,
-              "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-              "popcornOptions": {
-                "start": 166,
-                "end": 195,
-                "src": "Mongolia, Business"
-              }
-            },
-            {
-              "id": "TrackEvent3_02",
-              "type": "flickr",
-              "template": "cwtch",
-              "occurrences": 61,
-              "interval": 4,
-              "duration": 6,
-              "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
-              "orientations": "pllppllp",
-              "popcornOptions": {
-                "start": 195,
-                "end": 380,
-                "ownername_target": "attrib",
-                "size": "small",
-                "tags": "Mongolia"
-              }
-            },
-            {
-              "id": "TrackEvent4_02",
-              "type": "text",
-              "template": "foursquare",
-              "popcornOptions": {
-                "start": 380,
-                "end": 395,
-                "target": "area7",
-                "text": "Producer / Directors Jose de Leon & Henry Brown"
-              }
-            },
-            {
-            	"id": "TrackEvent5_01",
-            	"type": "hideMedia",
-            	"template": "flickrsolo",
-							"popcornOptions": {
-								"start": 396,
-								"end": 411
-							}
-						},
-            {
-              "id": "TrackEvent5_02",
-              "type": "flickr",
-              "template": "flickrsolo",
-              "occurrences": 4,
-              "duration": 6,
-              "interval": 3,
-              "targets": ["area1", "area2", "area3", "area1"],
-              "orientations": "pppp",
-              "popcornOptions": {
-                "start": 396,
-                "end": 410,
-                "ownername_target": "attrib",
-                "size": "medium",
-                "tags": "happy, happiness"
-              }
-	          }          
-          ]
-        }
-      ]
-    }
-  ]
+  "media": [
+  {
+     "url": ["http://vimeo.com/60609446"],
+     "tracks": [
+     {
+       "name": "Track0",
+       "id": "Track0",
+       "trackEvents": [
+       {
+          "type": "changeClass",
+          "class": "fullscreen",
+          "start": 0
+       },
+       {
+         "type": "pause",
+         "class": "babble videohidden",
+         "duration": 40,
+         "start": 42.5,
+         "pauseSubEvents": [
+         {
+           "type": "twitter",
+           "class": "babble videohidden",
+           "occurrences": 8,
+           "interval": 5,
+           "duration": 6,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
+           "src": "Mongolia"
+         },
+         {
+           "type": "changeClass",
+           "class": "fullscreen",
+           "delay": 40 
+         }]
+       },
+       {
+         "type": "pause",
+         "class": "babble videohidden",
+         "duration": 40,
+         "start": 121,
+         "pauseSubEvents": [
+         {
+           "type": "twitter",
+           "template": "babble videohidden",
+           "occurrences": 8,
+           "interval": 5,
+           "duration": 6,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
+           "src": "Mongolia Business"
+         },
+         {
+           "type": "changeClass",
+           "class": "fullscreen",
+           "delay": 40 
+         }]
+       },
+       {
+         "type": "pause",
+         "class": "centred videohidden",
+         "duration": 50,
+         "start": 204,
+         "pauseSubEvents": [
+         {
+            "type": "html",
+            "delay": 2,
+            "duration": 7,
+            "target": "area1",
+            "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+         },
+         {
+            "comments": "delay should be 5, duration: 3",
+            "type": "html",
+            "delay": 5.5,
+            "duration": 3.5,
+            "target": "area2",
+            "html": [
+               "<span style='font: 36px Courgette, cursive'>for Happiness in</span>",
+               "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Монгол улс</span>"
+            ]
+         },
+         {
+           "type": "flickr",
+           "comments": "",
+           "delay": 10,
+           "class": "babble videohidden",
+           "occurrences": 8,
+           "interval": 5,
+           "duration": 5,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Монгол улс",
+           "content_type": 1,
+           "sort": "recent",
+           "safe_search" : 1
+         },
+         {
+           "comments": "back to fs for end of video",
+           "type": "changeClass",
+           "class": "fullscreen",
+           "delay": 50
+         }]
+      },
+      {
+         "type": "pause",
+         "class": "babble videohidden",
+         "duration": 600,
+         "start": 298.7,
+         "pauseSubEvents": [
+         {
+           "type": "flickr",
+           "comments": "",
+           "delay": 6,
+           "class": "babble videohidden",
+           "occurrences": 8,
+           "interval": 5,
+           "duration": 5,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Happiness",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         }]
+     }]
+   }]
+ }]
 }

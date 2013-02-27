@@ -1,7 +1,7 @@
 {
   "media": [
     {
-      "url": ["http://vimeo.com/57625972"],
+      "url": ["http://vimeo.com/60610094"],
       "tracks": [
         {
           "name": "Track0",
@@ -17,7 +17,7 @@
               "type": "pause",
               "class": "centred videohidden",
               "duration": 50,
-              "start": 45.5,
+              "start": 46,
               "pauseSubEvents": [
                 {
                   "type": "html",
@@ -66,7 +66,7 @@
               "type": "pause",
               "class": "babble videohidden",
               "duration": 35,
-              "start": 212.75,
+              "start": 215,
               "pauseSubEvents": [
                 {
             	  "type": "flickr",
@@ -95,7 +95,7 @@
               "type": "pause",
               "class": "babble videohidden",
               "duration": 40,
-              "start":342.5,
+              "start":346,
               "pauseSubEvents": [
                 {
             	  "type": "flickr",
@@ -124,7 +124,7 @@
               "comments": "infinite pause",
               "class": "babble videohidden",
               "duration": 500,
-              "start":505,
+              "start":510,
               "pauseSubEvents": [
                 {
             	  "type": "flickr",
