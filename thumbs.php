@@ -2,19 +2,14 @@
 
 // shows the list of videos and paths to their thumbnails
 $thumbs  = array(
-// 25726263 => "http://b.vimeocdn.com/ts/334/657/334657093_100.jpg", // UGANDA (wrong thumbnail for now, but can't locate the Uganda one)
-peru => "http://b.vimeocdn.com/ts/317/451/317451255_100.jpg",				// PERU 57693873 - 03/02/13 - Chris's edited file
-// 44798169 => "http://b.vimeocdn.com/ts/311/289/311289758_100.jpg", // TASMANIA
-// 33500169 => "http://b.vimeocdn.com/ts/227/414/227414986_100.jpg", // TRINIDAD
-argentina		=> "http://b.vimeocdn.com/ts/218/803/218803459_100.jpg", // ARGENTINA 57625972 - 03/02/13 - Chris's edited file
-mongolia		=> "http://b.vimeocdn.com/ts/215/148/215148023_100.jpg", // MONGOLIA 52115455 - 03/02/13 - Chris's edited file
-// 31595710 => "http://b.vimeocdn.com/ts/213/089/213089500_100.jpg", // BRISTOL
-// 31597454 => "http://b.vimeocdn.com/ts/213/102/213102268_100.jpg", // MAHARASHTRA
-// 29045451 => "http://b.vimeocdn.com/ts/194/235/194235512_100.jpg", // ARGENTINA 2
-// 29017015 => "http://b.vimeocdn.com/ts/194/033/194033329_100.jpg", // ARGENTINA 1 (ORIG?)
-// 28764822 => "http://b.vimeocdn.com/ts/192/166/192166923_100.jpg", // GLASGOW
-// 28508255 => "http://b.vimeocdn.com/ts/190/274/190274883_100.jpg", // BULGARIA (COMMENTED OUT FOR SOME REASON?)
-// 26646996 => "http://b.vimeocdn.com/ts/176/188/176188947_100.jpg"  // ARGENTINA 2 (ORIG?)
+uganda => "http://b.vimeocdn.com/ts/420/738/420738487_100.jpg",      // UGANDA
+peru   => "http://b.vimeocdn.com/ts/420/717/420717525_100.jpg",			 // PERU
+wales  => "http://b.vimeocdn.com/ts/420/752/420752810_100.jpg",      // WALES
+maharashtra => "http://b.vimeocdn.com/ts/424/366/424366603_100.jpg", // MAHARASHTRA
+jharkhand => "http://b.vimeocdn.com/ts/420/264/420264171_100.jpg",   // JHARKHAND
+argentina => "http://b.vimeocdn.com/ts/420/778/420778755_100.jpg",   // ARGENTINA
+mongolia => "http://b.vimeocdn.com/ts/420/945/420945390_100.jpg",    // MONGOLIA 
+tasmania => "http://b.vimeocdn.com/ts/424/507/424507443_100.jpg"     // TASMANIA
 );
 $num_thumbs = count($thumbs);
 
