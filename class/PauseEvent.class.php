@@ -20,8 +20,9 @@ class PauseEvent
 
   private function process()
   {
-     $start = $this->start;
-     $end =   (int)$this->start+(int)$this->duration;
+     $start = number_format($this->start, 10, '.', '');
+     //$end =   number_format((float)$this->start+(int)$this->duration, 10, '.', '');
+     $end = $start+1;
      $duration = (int)$this->duration*1000;
      $eventsjs = "";
      foreach($this->aPauseSubEvent as $oPauseSubEvent)
@@ -34,19 +35,16 @@ class PauseEvent
      
     popcorn.code({
        start: $start,
-       end: $start+1,
+       end: $end,
        onStart: function( options ) {
          playercmd('pause');
          $classstatement
          setTimeout(function() { 
-           //clearTimeout(pause_event_timer);
-           //alert('play!');
            playercmd('play');
          }, $duration);
          $eventsjs 
        },
        onEnd: function( options ) {
-         //alert('end of pause');
        }
      });\n
 

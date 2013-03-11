@@ -124,12 +124,12 @@
               "comments": "infinite pause",
               "class": "babble videohidden",
               "duration": 500,
-              "start":510,
+              "start":511,
               "pauseSubEvents": [
                 {
             	  "type": "flickr",
                   "delay": 0,
-                  "occurrences": 100,
+                  "occurrences": 36,
                   "interval": 5,
                   "duration": 5,
                   "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
@@ -140,6 +140,13 @@
                   "content_type": 1,
                   "sort": "relevance",
                   "safe_search" : 1
+                },
+                {
+                  "type": "code",
+                  "delay": 180,
+                  "duration": 0,
+                  "startjs": "self.location='intro.php';",
+                  "endjs": ""
                 }
               ]
             }

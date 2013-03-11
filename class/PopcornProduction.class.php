@@ -30,9 +30,12 @@ Class PopcornProduction
   private function generateJS()
   {
     $media_url = $this->aConfig['media'][0]['url'][0];
+    $class = isset($this->aConfig['media'][0]['class'])?$this->aConfig['media'][0]['class']:"";
+    $classstatement = $class?"$('body').attr('class','$class');":"";
     $this->js = <<<EOF
 function init_popcorn()
 {
+    $classstatement 
     // Clear all previously scheduled pause events
     if (typeof pause_event_timer != "undefined")
     {
@@ -48,7 +51,6 @@ function init_popcorn()
     $('.target').empty();
     popcorn = Popcorn.vimeo( "#video", "$media_url");
     popcorn.on( "loadedmetadata", function() { $('#attrib').empty(); this.play(); });
-
 EOF;
 
     foreach ($this->aEvent as $event)

@@ -122,7 +122,6 @@ class FlickrPauseEvent
               "src=\"" . $url . "\"></img>";
        $classstatement = $this->class?"$('body').attr('class','$this->class');":"";
    $this->js .= <<<EOF
-         
          //preload image
          $('<img/>')[0].src = '$url';;
 
@@ -131,6 +130,8 @@ class FlickrPauseEvent
            var imgtag = '$imgtag';
            $('#$target').css('z-index',parseInt($('#$this->target').css('z-index'))+1);
            $('#$target').html(imgtag);
+           //if the image is 'broken' remove it
+           $('#$target img').error(function(){ $(this).hide(); });
            $('#$target #$id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')}); 
          }, $start));
 

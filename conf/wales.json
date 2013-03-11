@@ -2,7 +2,7 @@
   "media": [
   {
      "class": "babble videohidden",
-     "url": ["http://vimeo.com/60571270"],
+     "url": ["http://vimeo.com/60606751"],
      "tracks": [
      {
        "name": "Track0",
@@ -28,20 +28,19 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Peru",
+           "tags": "Wales,Cardiff",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
          }, 
          {
-           "id": "TrackEvent1_11",
            "type": "twitter",
            "occurrences": 1,
            "interval": 5,
            "duration": 5,
            "delay": 10,
            "targets": ["area3"],
-           "src": "Peru news"
+           "src": "Cardiff AND Wales"
          },
          {
            "type": "flickr",
@@ -53,20 +52,19 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Peru",
+           "tags": "Wales,Cardiff",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
          },
          {
-           "id": "TrackEvent1_11",
            "type": "twitter",
            "occurrences": 3,
            "interval": 5,
            "duration": 5,
            "delay": 20,
            "targets": ["area5", "area6","area7","area8"],
-           "src": "Peru news"
+           "src": "Cardiff AND Wales"
          },
          {
            "type": "flickr",
@@ -78,7 +76,7 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Peru", 
+           "tags": "Wales,Cardiff", 
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
@@ -93,7 +91,7 @@
          "type": "pause",
          "class": "centred videohidden",
          "duration": 50,
-         "start": 66.5,
+         "start": 100,
          "pauseSubEvents": [
          {
            "type": "html",
@@ -111,7 +109,7 @@
            "html": 
            [
              "<span style='font: 36px Courgette, cursive'>for Happiness in</span>",
-             "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>PERU</span>"
+             "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>WALES</span>"
            ]
          },
          {
@@ -126,7 +124,7 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Felicidad,Peru",
+           "tags": "Wales,happiness",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
@@ -141,7 +139,7 @@
          "type": "pause",
          "class": "babble videohidden",
          "duration": 40,
-         "start": 217,
+         "start": 249,
          "pauseSubEvents": [
          {
            "id": "TrackEvent1_11",
@@ -150,7 +148,7 @@
            "interval": 5,
            "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-           "src": "Peru business"
+           "src": "unemployed AND Wales OR business AND Wales"
          },
          {
            "comments": "back to fs for end of video",
@@ -162,22 +160,69 @@
       {
          "type": "pause",
          "class": "babble videohidden",
-         "duration": 180,
-         "start": 345,
+         "duration": 40,
+         "start": 394,
          "pauseSubEvents": [
          {
            "type": "flickr",
-           "comments": "",
-           "delay": 0,
-           "class": "babble videohidden",
-           "occurrences": 36,
+           "occurrences": 2,
            "interval": 5,
            "duration": 5,
+           "targets": ["area1", "area2"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "happy,sad",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         },
+         {
+           "id": "TrackEvent1_11",
+           "type": "twitter",
+           "occurrences": 1,
+           "interval": 5,
+           "duration": 5,
+           "delay": 10,
+           "targets": ["area3"],
+           "src": "happiness sad"
+         },
+         {
+           "type": "flickr",
+           "occurrences": 1,
+           "interval": 5,
+           "duration": 5,
+           "delay": 15,
+           "targets": ["area4"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "happy,sad",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         },
+         {
+           "id": "TrackEvent1_11",
+           "type": "twitter",
+           "occurrences": 3,
+           "interval": 5,
+           "duration": 5,
+           "delay": 20,
+           "targets": ["area5", "area6","area7","area8"],
+           "src": "happiness sad"
+         },
+         {
+           "type": "flickr",
+           "occurrences": 29,
+           "interval": 5,
+           "duration": 5,
+           "delay": 35,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Happiness",
+           "tags": "happy,sad",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1

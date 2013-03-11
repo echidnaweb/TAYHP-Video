@@ -131,6 +131,8 @@ class FlickrEvent
          $classstatement
          $('#$target').css('z-index',parseInt($('#$this->target').css('z-index'))+1);
          $('#$target').html(imgtag);
+         //if the image is 'broken' remove it
+         $('#$target img').error(function(){ $(this).hide(); });
          $('#$target #$id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
        },
        onEnd: function( options ) {

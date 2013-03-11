@@ -16,7 +16,7 @@
          "type": "pause",
          "class": "babble videohidden",
          "duration": 40,
-         "start": 42.5,
+         "start": 44.5,
          "pauseSubEvents": [
          {
            "type": "twitter",
@@ -37,7 +37,7 @@
          "type": "pause",
          "class": "babble videohidden",
          "duration": 40,
-         "start": 121,
+         "start": 123.5,
          "pauseSubEvents": [
          {
            "type": "twitter",
@@ -58,7 +58,7 @@
          "type": "pause",
          "class": "centred videohidden",
          "duration": 50,
-         "start": 204,
+         "start": 206,
          "pauseSubEvents": [
          {
             "type": "html",
@@ -75,7 +75,7 @@
             "target": "area2",
             "html": [
                "<span style='font: 36px Courgette, cursive'>for Happiness in</span>",
-               "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Монгол улс</span>"
+               "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Монгол улс [Mongolia]</span>"
             ]
          },
          {
@@ -105,15 +105,22 @@
       {
          "type": "pause",
          "class": "babble videohidden",
-         "duration": 600,
-         "start": 298.7,
+         "duration": 190,
+         "start": 301, 
          "pauseSubEvents": [
+         {
+           "type": "code",
+           "delay": 180,
+           "duration": 0,
+           "startjs": "self.location='intro.php';",
+           "endjs": ""
+         },
          {
            "type": "flickr",
            "comments": "",
-           "delay": 6,
+           "delay": 0,
            "class": "babble videohidden",
-           "occurrences": 8,
+           "occurrences": 36,
            "interval": 5,
            "duration": 5,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],

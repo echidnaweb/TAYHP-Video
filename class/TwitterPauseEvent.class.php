@@ -20,7 +20,7 @@ class TwitterPauseEvent
 
   private function process()
   {
-    for($i = 0; $i < $this->occurrences; $i++)
+    for($i = 0; $i < count($this->tweets); $i++)
     {
        $from_user = $this->tweets[$i]['from_user'];
        $text = addslashes(preg_replace("/[^a-zA-Z0-9 !@#\$%\^\*\?\.;&:\-\+=\/]/","",nl2br($this->tweets[$i]['text'])));

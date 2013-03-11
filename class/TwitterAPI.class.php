@@ -31,6 +31,7 @@ class TwitterAPI
     // Pick a random result and set the text node to its value 
     if ($results && count($results) > 0)
     {
+      if ($occurrences > count($results)) $occurrences = count($results);
       $keys = array_rand($results,$occurrences); 
       if (is_array($keys))
         foreach ($keys as $key) $tweets[] = $results[$key];

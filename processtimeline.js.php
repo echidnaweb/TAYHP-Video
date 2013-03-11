@@ -22,6 +22,7 @@ include ("class/HTMLEvent.class.php");
 include ("class/FlickrEvent.class.php");
 include ("class/FlickrPauseEvent.class.php");
 include ("class/HTMLPauseEvent.class.php");
+include ("class/CodePauseEvent.class.php");
 include ("class/GooglemapEvent.class.php");
 include ("class/WordriverEvent.class.php");
 include ("class/HideMediaEvent.class.php");
