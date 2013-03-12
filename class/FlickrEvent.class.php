@@ -117,11 +117,11 @@ class FlickrEvent
        $imgtag = "<img id=\"$id\" alt=\"$alt\" ".
               "src=\"" . $url . "\"></img>";
        $classstatement = $this->class?"$('body').attr('class','$this->class');":"";
+       $ownernametxt = "<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername";
    $this->js .= <<<EOF
     
     //preload image
     $('<img/>')[0].src = '$url';;
-
     // Create a popcorn event
     popcorn.code({
        start: $start,
@@ -133,11 +133,11 @@ class FlickrEvent
          $('#$target').html(imgtag);
          //if the image is 'broken' remove it
          $('#$target img').error(function(){ $(this).hide(); });
-         $('#$target #$id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')});
+         $('#$target #$id').fadeIn('slow', function() { $('#$this->ownername_target').html('$ownernametxt')});
        },
        onEnd: function( options ) {
         $('#$id').fadeOut('slow', function() { $('$this->id').remove(); });
-        $('#$this->ownername_target').empty();
+        if ( $('#$this->ownername_target').html() == '$ownernametxt') { $('#$this->ownername_target').empty(); }
        }
      });\n
 EOF;
