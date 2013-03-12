@@ -118,6 +118,8 @@ body.centred #area1,body.centred #area2 { position: relative; width: 460px; marg
 	
 /* Twitter foursquare */
 
+body.foursquare .target { font-size: 1.5em }
+
 body.foursquare #area1, body.foursquare #area2, body.foursquare #area5, body.foursquare #area6 { 
     width: 485px;
     height: 140px;
@@ -129,6 +131,8 @@ body.foursquare #area3, body.foursquare #area4 {
 	float: left;
 	min-height: 315px 
 }
+
+body.foursquare #area4 { margin-left: 20px }
 
 body.foursquare #area3 { 
 	margin-right: 530px 
