@@ -1,0 +1,131 @@
+{
+  "media": [
+    {
+      "url": ["http://vimeo.com/60604678"],
+      "tracks": [
+        {
+          "name": "Track0",
+          "trackEvents": [
+            {
+              "type": "twitter",
+              "class": "foursquare",
+              "start": 0,
+              "end": 35,
+              "occurrences": 5,
+              "interval": 5,
+              "duration": 6,
+              "targets": ["area1","area2","area3","area4","area5","area6","area7"],
+              "src": "Uganda"
+            },
+            {
+              "start": 53,
+              "end": 86,
+              "type": "flickr",
+              "class": "cwtch",
+              "occurrences": 6,
+              "interval": 5,
+              "duration": 6,
+              "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+              "orientations": "pllppllp",
+              "ownername_target": "attrib",
+              "size": "medium",
+              "tag_mode": "all",
+              "tags": "uganda,market",
+              "content_type": 1,
+              "sort": "relevance",
+              "safe_search" : 1
+            },
+            {
+              "type": "pause",
+              "class": "centred videohidden",
+              "duration": 40,
+              "start": 114,
+              "pauseSubEvents": [
+                {
+            	  "type": "twitter",
+              	  "class": "babble videohidden",
+                  "occurrences": 8,
+                  "interval": 5,
+                  "duration": 5,
+                  "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
+                  "src": "Uganda AND politics OR Uganda"
+                },
+                {
+                  "type": "changeClass",
+                  "class": "cwtch",
+                  "delay": 41 
+                }
+              ]
+            },
+            {
+              "start": 178,
+              "end": 201,
+              "type": "flickr",
+              "class": "cwtch",
+              "occurrences": 4,
+              "interval": 5,
+              "duration": 6,
+              "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+              "orientations": "pllppllp",
+              "ownername_target": "attrib",
+              "size": "medium",
+              "tag_mode": "all",
+              "tags": "Uganda,street",
+              "content_type": 1,
+              "sort": "relevance",
+              "safe_search" : 1
+            },
+            {
+              "start": 265,
+              "end": 280,
+              "type": "flickr",
+              "class": "cwtch",
+              "occurrences": 3,
+              "interval": 5,
+              "duration": 6,
+              "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+              "orientations": "pllppllp",
+              "ownername_target": "attrib",
+              "size": "medium",
+              "tags": "Uganda",
+              "content_type": 1,
+              "sort": "relevance",
+              "safe_search" : 1
+            },
+            {
+              "type": "pause",
+              "comments": "infinite pause",
+              "class": "babble videohidden",
+              "duration": 180,
+              "start":280,
+              "pauseSubEvents": [
+                {
+            	  "type": "flickr",
+                  "delay": 0,
+                  "occurrences": 36,
+                  "interval": 5,
+                  "duration": 5,
+                  "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+                  "orientations": "pllppllp",
+                  "ownername_target": "attrib",
+                  "size": "medium",
+                  "tags": "happiness,sad",
+                  "content_type": 1,
+                  "sort": "relevance",
+                  "safe_search" : 1
+                },
+                {
+                  "type": "code",
+                  "delay": 180,
+                  "duration": 0,
+                  "startjs": "self.location='intro.php';",
+                  "endjs": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
