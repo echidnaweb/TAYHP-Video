@@ -62,10 +62,8 @@ EOF;
 
     if (!count($this->tweets)) return false;
 
-    $this->id = $this->conf['id'];
     $this->start = $this->conf['start'];
     $this->end = $this->conf['end'];
-    $this->target = $this->conf['target'];
     $this->src = $this->conf['src'];
     $this->class = isset($this->conf['class'])?$this->conf['class']:"";
     $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
