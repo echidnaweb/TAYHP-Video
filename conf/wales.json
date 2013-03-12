@@ -142,7 +142,6 @@
          "start": 249,
          "pauseSubEvents": [
          {
-           "id": "TrackEvent1_11",
            "type": "twitter",
            "occurrences": 8,
            "interval": 5,
@@ -178,7 +177,6 @@
            "safe_search" : 1
          },
          {
-           "id": "TrackEvent1_11",
            "type": "twitter",
            "occurrences": 1,
            "interval": 5,
@@ -203,7 +201,6 @@
            "safe_search" : 1
          },
          {
-           "id": "TrackEvent1_11",
            "type": "twitter",
            "occurrences": 3,
            "interval": 5,
