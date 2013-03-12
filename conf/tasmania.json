@@ -1,0 +1,182 @@
+{
+  "media": [
+  {
+     "url": ["http://vimeo.com/57585681"],
+     "class": "fullscreen",
+     "tracks": [
+     {
+       "name": "Track0",
+       "id": "Track0",
+       "trackEvents": [
+       {
+         "type": "changeClass",
+         "class": "babble videohidden",
+         "start": 16.5 
+       },
+       {
+         "start": 17,
+         "end": 27,
+         "class": "babble videohidden",
+         "type": "flickr",
+         "occurrences": 2,
+         "interval": 5,
+         "duration": 5,
+         "targets": ["area1", "area2"],
+         "orientations": "pllppllp",
+         "ownername_target": "attrib",
+         "size": "medium",
+         "tags": "Tasmania",
+         "content_type": 1,
+         "sort": "relevance",
+         "safe_search" : 1
+       },
+       {
+         "start": 27,
+         "end": 32,
+         "type": "twitter",
+         "class": "babble videohidden",
+         "occurrences": 1,
+         "interval": 5,
+         "duration": 5,
+         "delay": 10,
+         "targets": ["area3"],
+         "src": "Tasmania"
+       },
+       {
+         "start": 32,
+         "end": 37,
+         "type": "flickr",
+         "class": "babble videohidden",
+         "occurrences": 1,
+         "interval": 5,
+         "duration": 5,
+         "delay": 15,
+         "targets": ["area4"],
+         "orientations": "pllppllp",
+         "ownername_target": "attrib",
+         "size": "medium",
+         "tags": "Tasmania",
+         "content_type": 1,
+         "sort": "relevance",
+         "safe_search" : 1
+       },
+       {
+         "start": 37,
+         "end": 44,
+         "type": "twitter",
+         "class": "babble videohidden",
+         "occurrences": 1,
+         "interval": 5,
+         "duration": 5,
+         "delay": 20,
+         "targets": ["area5", "area6","area3","area4"],
+         "src": "Tasmania"
+       },
+       {
+         "type": "changeClass",
+         "class": "fullscreen",
+         "start": 44 
+       },
+       {
+         "type": "changeClass",
+         "class": "babble videohidden",
+         "start": 152 
+       }, 
+       {
+         "start": 152,
+         "end": 190,
+         "type": "twitter",
+         "class": "babble videohidden",
+         "occurrences": 7,
+         "interval": 5,
+         "duration": 6,
+         "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
+         "src": "Tasmania AND politics"
+       },
+       {
+         "type": "changeClass",
+         "class": "fullscreen",
+         "start": 190 
+       },
+       {
+         "type": "pause",
+         "class": "centred videohidden",
+         "duration": 50,
+         "start": 297,
+         "pauseSubEvents": [
+         {
+            "type": "html",
+            "delay": 2,
+            "duration": 7,
+            "target": "area1",
+            "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+         },
+         {
+            "comments": "delay should be 5, duration: 3",
+            "type": "html",
+            "delay": 5.5,
+            "duration": 3.5,
+            "target": "area2",
+            "html": [
+               "<span style='font: 36px Courgette, cursive'>for Happiness in</span>",
+               "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Tasmania</span>"
+            ]
+         },
+         {
+           "type": "flickr",
+           "comments": "",
+           "delay": 10,
+           "class": "babble videohidden",
+           "occurrences": 8,
+           "interval": 5,
+           "duration": 5,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "happy,Tasmania",
+           "content_type": 1,
+           "sort": "recent",
+           "safe_search" : 1
+         },
+         {
+           "comments": "back to fs for end of video",
+           "type": "changeClass",
+           "class": "fullscreen",
+           "delay": 50
+         }]
+      },
+      {
+         "type": "pause",
+         "class": "babble videohidden",
+         "duration": 190,
+         "start": 458, 
+         "pauseSubEvents": [
+         {
+           "type": "code",
+           "delay": 180,
+           "duration": 0,
+           "startjs": "self.location='intro.php';",
+           "endjs": ""
+         },
+         {
+           "type": "flickr",
+           "comments": "",
+           "delay": 0,
+           "class": "babble videohidden",
+           "occurrences": 36,
+           "interval": 5,
+           "duration": 5,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Happiness",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         }]
+     }]
+   }]
+ }]
+}
