@@ -21,7 +21,7 @@ class TwitterEvent
 
   private function process()
   {
-    for($i = 0; $i < $this->occurrences; $i++)
+    for($i = 0; $i < count($this->tweets); $i++)
     {
        //calculate start and end points for each repeat
        $start = $this->start+($i*$this->interval);
