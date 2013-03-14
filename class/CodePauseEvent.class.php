@@ -34,14 +34,14 @@ class CodePauseEvent
    
        $this->js .= <<<EOF
 
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
            $classstatement
            $this->startjs
-         }, $start);
+         }, $start));
          
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
            $this->endjs
-         }, $end);     
+         }, $end));     
 
 EOF;
 

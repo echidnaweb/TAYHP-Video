@@ -135,10 +135,10 @@ class FlickrPauseEvent
            $('#$target #$id').fadeIn('slow', function() { $('#$this->ownername_target').html('<strong>Photo courtesy of</strong>&nbsp;&nbsp;$ownername')}); 
          }, $start));
 
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
            $('#$id').fadeOut('slow', function() { $('#$id').remove(); });
            $('#$this->ownername_target').empty();
-         }, $end);
+         }, $end));
 
 EOF;
      }

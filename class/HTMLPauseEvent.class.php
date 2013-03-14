@@ -55,16 +55,16 @@ class HTMLPauseEvent
    
        $this->js .= <<<EOF
 
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
            $classstatement
            var html = '<div id=\'$id\'>$this->html</div>';
            $('#$target').html(html);
            $('#$target div#$id').fadeIn('slow');
-         }, $start);
+         }, $start));
          
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
            $('div#$id').fadeOut('slow', function() { $('div#$id').remove(); });
-         }, $end);     
+         }, $end));
 
 EOF;
 

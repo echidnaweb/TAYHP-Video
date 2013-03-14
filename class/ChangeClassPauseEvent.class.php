@@ -25,9 +25,9 @@ class ChangeClassPauseEvent
    
      $this->js .= <<<EOF
 
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
            $classstatement
-         }, $delay);
+         }, $delay));
 EOF;
 
   }

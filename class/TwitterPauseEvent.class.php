@@ -42,16 +42,16 @@ class TwitterPauseEvent
        $classstatement = $this->class?"$('body').attr('class','$this->class');":"";
        $this->js .= <<<EOF
 
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
            $classstatement
            var tweet_text = '<span id=\'$id\' class=\'$this->class\'>@'+'$from_user<br>$text</span>';
            $('#$target').html(tweet_text);
            $('#$target span#$id').fadeIn('slow');
-         }, $start);
+         }, $start));
          
-         setTimeout(function() {
+         pause_event_timer.push(setTimeout(function() {
            $('span#$id').fadeOut('slow', function() { $('span#$id').remove(); });
-         }, $end);     
+         }, $end));
 
 EOF;
 
