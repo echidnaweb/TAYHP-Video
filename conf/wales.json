@@ -228,7 +228,7 @@
            "type": "code",
            "delay": 180,
            "duration": 0,
-           "startjs": "self.location='intro.php';",
+           "startjs": "self.location='/intro';",
            "endjs": ""
          }]
      }]
