@@ -22,7 +22,7 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="http://theareyouhappyproject.org/wp-content/themes/starkers/style.css" />
 
-<link href='http://fonts.googleapis.com/css?family=Nixie+One|PT+Sans|Abril+Fatface|Special+Elite' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Nixie+One|PT+Sans|Abril+Fatface|Special+Elite|Courgette|Lobster' rel='stylesheet' type='text/css'>
 <link rel="pingback" href="http://theareyouhappyproject.org/xmlrpc.php" />
 
 <script src="http://jquery-repository.googlecode.com/files/jquery-1.7.1.js"></script>
