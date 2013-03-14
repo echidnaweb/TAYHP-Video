@@ -10,13 +10,13 @@
        "trackEvents": [
        {
          "type": "changeClass",
-         "class": "babble videohidden",
+         "class": "flickrbabble videohidden",
          "start": 16.5 
        },
        {
          "start": 17,
          "end": 27,
-         "class": "babble videohidden",
+         "class": "flickrbabble videohidden",
          "type": "flickr",
          "occurrences": 2,
          "interval": 5,
@@ -46,7 +46,7 @@
          "start": 32,
          "end": 37,
          "type": "flickr",
-         "class": "babble videohidden",
+         "class": "flickrbabble videohidden",
          "occurrences": 1,
          "interval": 5,
          "duration": 5,
@@ -119,7 +119,7 @@
             "html": [
                "<span style='font: 36px Courgette, cursive'>for </span>",
                "<span style='font: 36px Lobster, cursive'>Happiness </span>",
-               "<span style='font: 36px Courgette, cursive'>in </span>",
+               "<span style='font: 36px Courgette, cursive'>in</span>",
                "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Tasmania</span>"
             ]
          },
@@ -127,7 +127,7 @@
            "type": "flickr",
            "comments": "",
            "delay": 10,
-           "class": "babble videohidden",
+           "class": "flickrbabble videohidden",
            "occurrences": 8,
            "interval": 5,
            "duration": 5,
@@ -149,7 +149,7 @@
       },
       {
          "type": "pause",
-         "class": "babble videohidden",
+         "class": "flickrbabble videohidden",
          "duration": 190,
          "start": 458, 
          "pauseSubEvents": [
@@ -164,7 +164,7 @@
            "type": "flickr",
            "comments": "",
            "delay": 0,
-           "class": "babble videohidden",
+           "class": "flickrbabble videohidden",
            "occurrences": 36,
            "interval": 5,
            "duration": 5,

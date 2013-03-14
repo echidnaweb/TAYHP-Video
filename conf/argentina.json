@@ -35,19 +35,19 @@
                   "html": [
                       "<span style='font: 36px Courgette, cursive'>for </span>",
                       "<span style='font: 36px Lobster, cursive'>Happiness </span>",
-                      "<span style='font: 36px Courgette, cursive'>in </span>",
-                      "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>ARGENTINA</span>"
+                      "<span style='font: 36px Courgette, cursive'>in</span>",
+                      "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px'>ARGENTINA</span>"
                   ]
                 },
                 {
             	  "type": "flickr",
                   "comments": "8 occurrences, delay: 10",
                   "delay": 10,
-              	  "class": "babble videohidden",
+              	  "class": "flickrbabble videohidden",
                   "occurrences": 8,
                   "interval": 5,
                   "duration": 5,
-                  "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+                  "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
                   "orientations": "pllppllp",
                   "ownername_target": "attrib",
                   "size": "medium",
@@ -66,12 +66,12 @@
             },
             {
               "type": "pause",
-              "class": "babble videohidden",
+              "class": "flickrbabble videohidden",
               "duration": 35,
               "start": 215,
               "pauseSubEvents": [
                 {
-            	  "type": "flickr",
+            	    "type": "flickr",
                   "delay": 0,
                   "occurrences": 7,
                   "interval": 5,
@@ -95,7 +95,7 @@
             },
             {
               "type": "pause",
-              "class": "babble videohidden",
+              "class": "flickrbabble videohidden",
               "duration": 40,
               "start":346,
               "pauseSubEvents": [
@@ -124,7 +124,7 @@
             {
               "type": "pause",
               "comments": "infinite pause",
-              "class": "babble videohidden",
+              "class": "flickrbabble videohidden",
               "duration": 500,
               "start":511,
               "pauseSubEvents": [

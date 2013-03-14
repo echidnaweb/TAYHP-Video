@@ -10,12 +10,11 @@
        "trackEvents": [
        {
          "type": "pause",
-         "class": "babble videohidden",
+         "class": "flickrbabble videohidden",
          "duration": 40,
          "start": 0.0001,
          "pauseSubEvents": [
          {
-           "class": "babble videohidden",
            "type": "flickr",
            "occurrences": 2,
            "interval": 5,
@@ -31,7 +30,6 @@
          },
          {
            "type": "twitter",
-           "class": "babble videohidden",
            "occurrences": 1,
            "interval": 5,
            "duration": 5,
@@ -41,7 +39,6 @@
          },
          {
            "type": "flickr",
-           "class": "babble videohidden",
            "occurrences": 1,
            "interval": 5,
            "duration": 5,
@@ -57,7 +54,6 @@
          },
          {
            "type": "twitter",
-           "class": "babble videohidden",
            "occurrences": 3,
            "interval": 5,
            "duration": 5,
@@ -67,7 +63,6 @@
          },
          {
            "type": "flickr",
-           "class": "babble videohidden",
            "occurrences": 1,
            "interval": 5,
            "duration": 5,

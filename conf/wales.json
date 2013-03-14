@@ -15,7 +15,7 @@
        },
        {
          "type": "pause",
-         "class": "babble videohidden",
+         "class": "flickrbabble videohidden",
          "duration": 40,
          "start": 0.0000001,
          "pauseSubEvents": [
@@ -109,7 +109,7 @@
            "html": [
             "<span style='font: 36px Courgette, cursive'>for </span>",
             "<span style='font: 36px Lobster, cursive'>Happiness </span>",
-            "<span style='font: 36px Courgette, cursive'>in </span>",
+            "<span style='font: 36px Courgette, cursive'>in</span>",
             "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>WALES</span>"
            ]
          },
@@ -117,7 +117,7 @@
            "type": "flickr",
            "comments": "",
            "delay": 10,
-           "class": "babble videohidden",
+           "class": "flickrbabble videohidden",
            "occurrences": 8,
            "interval": 5,
            "duration": 6,
@@ -159,7 +159,7 @@
       },
       {
          "type": "pause",
-         "class": "babble videohidden",
+         "class": "flickrbabble videohidden",
          "duration": 40,
          "start": 394,
          "pauseSubEvents": [

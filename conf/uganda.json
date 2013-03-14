@@ -95,7 +95,7 @@
             {
               "type": "pause",
               "comments": "infinite pause",
-              "class": "babble videohidden",
+              "class": "flickrbabble videohidden",
               "duration": 180,
               "start":280,
               "pauseSubEvents": [
