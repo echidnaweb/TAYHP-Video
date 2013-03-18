@@ -145,6 +145,13 @@
                 },
                 {
                   "type": "code",
+                  "delay": 0,
+                  "duration": 0,
+                  "startjs": "open_drawer()",
+                  "endjs": ""
+                },
+                {
+                  "type": "code",
                   "delay": 180,
                   "duration": 0,
                   "startjs": "self.location='/intro';",
