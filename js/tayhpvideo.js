@@ -12,12 +12,25 @@ document.addEventListener( "DOMContentLoaded",function() {
 function toggle_drawer()
 {
     var bottomval = $('#thumbdrawer').css('bottom');
+    //if open then close
     if(bottomval == "0px"){
         $("#thumbdrawer").animate({"bottom": "-=100px"}, "slow");
+    //if closed then open
     }else if (bottomval == "-100px") {
         $("#thumbdrawer").animate({"bottom": "+=100px"}, "slow");
     }
     else { }
+}
+
+function open_drawer()
+{
+  if ($('#thumbdrawer').css('bottom') == "-100px") toggle_drawer(); 
+}
+
+
+function close_drawer()
+{
+  if ($('#thumbdrawer').css('bottom') == "0px") toggle_drawer(); 
 }
 
 function load_video(id)
