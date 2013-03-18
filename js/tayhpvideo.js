@@ -35,6 +35,14 @@ function close_drawer()
 
 function load_video(id)
 {
+  if (typeof intro_event_timer != "undefined")
+  {
+    for (var i = 0; i < intro_event_timer.length; i++)
+    {
+      clearTimeout(intro_event_timer[i]);
+    }
+  }
+
   $('#container2').remove();
   $('#audio *').remove();
   $('.target').empty();
