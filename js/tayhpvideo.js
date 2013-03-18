@@ -35,6 +35,7 @@ function close_drawer()
 
 function load_video(id)
 {
+  $("#video").html("<img style=\"display: block; margin: 200px auto\" src=\"http://theareyouhappyproject.org/wp-content/themes/starkers/images/intro-assets/ajax-loader.gif\" alt=\"video loading\" width=\"32\" height=\"32\" />");
   if (typeof intro_event_timer != "undefined")
   {
     for (var i = 0; i < intro_event_timer.length; i++)
