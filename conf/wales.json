@@ -160,7 +160,7 @@
       {
          "type": "pause",
          "class": "flickrbabble videohidden",
-         "duration": 40,
+         "duration": 190,
          "start": 394,
          "pauseSubEvents": [
          {
@@ -176,6 +176,13 @@
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
+         },
+         {
+           "type": "code",
+           "delay": 0,
+           "duration": 0,
+           "startjs": "open_drawer()",
+           "endjs": ""
          },
          {
            "type": "twitter",

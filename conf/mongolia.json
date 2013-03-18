@@ -118,6 +118,13 @@
            "endjs": ""
          },
          {
+           "type": "code",
+           "delay": 0,
+           "duration": 0,
+           "startjs": "open_drawer()",
+           "endjs": ""
+         },
+         {
            "type": "flickr",
            "comments": "",
            "delay": 0,

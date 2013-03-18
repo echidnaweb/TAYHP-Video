@@ -161,7 +161,7 @@
       {
          "type": "pause",
          "class": "babble videohidden",
-         "duration": 300,
+         "duration": 190,
          "start": 434.5,
          "pauseSubEvents": [
          {
@@ -172,6 +172,13 @@
            "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
            "src": "happiness sad"
+         },
+         {
+           "type": "code",
+           "delay": 0,
+           "duration": 0,
+           "startjs": "open_drawer()",
+           "endjs": ""
          },
          {
            "type": "code",

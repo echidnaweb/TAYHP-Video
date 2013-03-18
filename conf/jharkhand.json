@@ -106,17 +106,31 @@
       {
          "type": "pause",
          "class": "babble videohidden",
-         "duration": 300,
+         "duration": 190,
          "start": 368,
          "pauseSubEvents": [
          {
            "type": "twitter",
            "class": "babble videohidden",
-           "occurrences": 60,
+           "occurrences": 36,
            "interval": 5,
            "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
            "src": "Jharkhand women"
+         },
+         {
+           "type": "code",
+           "delay": 0,
+           "duration": 0,
+           "startjs": "open_drawer()",
+           "endjs": ""
+         },
+         {
+           "type": "code",
+           "delay": 180,
+           "duration": 0,
+           "startjs": "self.location='/intro';",
+           "endjs": ""
          }]
       }]
    }]
