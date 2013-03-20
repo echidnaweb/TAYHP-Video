@@ -23,7 +23,7 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Maharashtra,women",
+           "tags": "Maharashtra",
            "tag_mode": "all",
            "content_type": 1,
            "sort": "relevance",
@@ -60,7 +60,7 @@
            "duration": 5,
            "delay": 20,
            "targets": ["area5", "area6","area1","area2"],
-           "src": "Maharashtra and news"
+           "src": "Maharashtra AND news"
          },
          {
            "type": "flickr",
@@ -126,7 +126,8 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Maharashtra,Women",
+           "tags": "Maharashtra,women",
+           "tag_mode": "all",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
@@ -146,11 +147,11 @@
          {
            "type": "twitter",
            "template": "babble videohidden",
-           "occurrences": 4,
+           "occurrences": 8,
            "interval": 5,
            "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-           "src": "India business"
+           "src": "India AND business"
          },
          {
            "comments": "back to fs for end of video",
