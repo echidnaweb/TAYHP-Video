@@ -114,7 +114,7 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 /* Centred (text etc) */
 
 body.centred #floater { height: 70% }
-body.centred #area1,body.centred #area2 { position: relative; width: 480px; margin: 0 auto }
+body.centred #area1,body.centred #area2 { position: relative; width: 500px; margin: 0 auto }
 	
 /* Twitter foursquare */
 
