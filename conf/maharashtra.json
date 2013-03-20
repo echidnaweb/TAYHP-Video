@@ -12,7 +12,7 @@
          "type": "pause",
          "class": "flickrbabble videohidden",
          "duration": 40,
-         "start": 0.0000001,
+         "start": 1,
          "pauseSubEvents": [
          {
            "type": "flickr",
