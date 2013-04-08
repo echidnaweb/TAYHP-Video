@@ -1,7 +1,7 @@
 {
   "media": [
   {
-     "url": ["http://vimeo.com/57585681"],
+     "url": ["http://vimeo.com/60510227"],
      "class": "fullscreen",
      "tracks": [
      {
@@ -102,7 +102,7 @@
          "type": "pause",
          "class": "centred videohidden",
          "duration": 50,
-         "start": 297,
+         "start": 299,
          "pauseSubEvents": [
          {
             "type": "html",
@@ -151,7 +151,7 @@
          "type": "pause",
          "class": "flickrbabble videohidden",
          "duration": 190,
-         "start": 458, 
+         "start": 506, 
          "pauseSubEvents": [
          {
            "type": "code",

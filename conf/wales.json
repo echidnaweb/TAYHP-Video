@@ -91,7 +91,7 @@
          "type": "pause",
          "class": "centred videohidden",
          "duration": 50,
-         "start": 100,
+         "start": 99.75,
          "pauseSubEvents": [
          {
            "type": "html",

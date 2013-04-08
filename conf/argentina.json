@@ -16,12 +16,11 @@
             {
               "type": "pause",
               "class": "centred videohidden",
-              "duration": 50,
+              "duration": 48,
               "start": 46,
               "pauseSubEvents": [
                 {
                   "type": "html",
-                  "delay": 2,
                   "duration": 7,
                   "target": "area1",
                   "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
@@ -29,7 +28,7 @@
                 {
                   "comments": "delay should be 5, duration: 3",
                   "type": "html",
-                  "delay": 5.5,
+                  "delay": 3.5,
                   "duration": 3.5,
                   "target": "area2",
                   "html": [
@@ -42,7 +41,7 @@
                 {
             	  "type": "flickr",
                   "comments": "8 occurrences, delay: 10",
-                  "delay": 10,
+                  "delay": 8,
               	  "class": "flickrbabble videohidden",
                   "occurrences": 8,
                   "interval": 5,
@@ -60,7 +59,7 @@
                   "comments": "Ramon",
                   "type": "changeClass",
                   "class": "fullscreen",
-                  "delay": 50 
+                  "delay": 48 
                 }
               ]
             },

@@ -41,7 +41,7 @@
            "duration": 5,
            "delay": 10,
            "targets": ["area3"],
-           "src": "Peru news"
+           "src": "Peru AND news"
          },
          {
            "type": "flickr",
@@ -93,7 +93,7 @@
          "type": "pause",
          "class": "centred videohidden",
          "duration": 50,
-         "start": 66.5,
+         "start": 66.25,
          "pauseSubEvents": [
          {
            "type": "html",

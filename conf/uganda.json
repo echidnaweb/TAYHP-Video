@@ -97,7 +97,7 @@
               "comments": "infinite pause",
               "class": "flickrbabble videohidden",
               "duration": 190,
-              "start":280,
+              "start":294,
               "pauseSubEvents": [
               {
             	  "type": "flickr",

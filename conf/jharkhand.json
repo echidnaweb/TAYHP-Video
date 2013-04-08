@@ -10,16 +10,37 @@
        "trackEvents": [
        {
          "type": "pause",
-         "class": "flickrbabble videohidden",
-         "duration": 40,
+         "class": "centred videohidden",
+         "duration": 45,
          "start": 0.0001,
          "pauseSubEvents": [
          {
-           "type": "flickr",
-           "occurrences": 2,
-           "interval": 5,
+           "type": "html",
+           "delay": 1,
            "duration": 5,
-           "targets": ["area1", "area2"],
+           "target": "area1",
+           "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+         },
+         {
+           "comments": "delay should be 5, duration: 3",
+           "type": "html",
+           "delay": 3,
+           "duration": 3,
+           "target": "area2",
+           "html": [
+            "<span style='font: 36px Courgette, cursive'>for </span>",
+            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>JHARKHAND, INDIA</span>"
+           ]
+         },
+         {
+           "type": "flickr",
+           "comments": "",
+           "delay": 7,
+           "class": "flickrbabble videohidden",
+           "occurrences": 8,
+           "interval": 5,
+           "duration": 6,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
@@ -29,57 +50,9 @@
            "safe_search" : 1
          },
          {
-           "type": "twitter",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 10,
-           "targets": ["area3"],
-           "src": "Jharkhand AND news"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 15,
-           "targets": ["area4"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Jharkhand",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-           "type": "twitter",
-           "occurrences": 3,
-           "interval": 5,
-           "duration": 5,
-           "delay": 20,
-           "targets": ["area5", "area6","area3","area4"],
-           "src": "Jharkhand and news"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 35,
-           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area4", "area1"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Jharkhand",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-         "type": "changeClass",
-         "class": "fullscreen",
-         "delay": 40
+           "type": "changeClass",
+           "class": "fullscreen",
+           "delay":45 
          }]
        },
        {
