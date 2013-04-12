@@ -15,87 +15,13 @@
        },
        {
          "type": "pause",
-         "class": "flickrbabble videohidden",
-         "duration": 40,
-         "start": 0.0000001,
-         "pauseSubEvents": [
-         {
-           "type": "flickr",
-           "occurrences": 2,
-           "interval": 5,
-           "duration": 5,
-           "targets": ["area1", "area2"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Wales,Cardiff",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         }, 
-         {
-           "type": "twitter",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 10,
-           "targets": ["area3"],
-           "src": "Cardiff AND Wales"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 15,
-           "targets": ["area4"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Wales,Cardiff",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-           "type": "twitter",
-           "occurrences": 3,
-           "interval": 5,
-           "duration": 5,
-           "delay": 20,
-           "targets": ["area5", "area6","area7","area8"],
-           "src": "Cardiff AND Wales"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 35,
-           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Wales,Cardiff", 
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-         "type": "changeClass",
-         "class": "fullscreen",
-         "delay": 40
-         }]
-       },
-       {
-         "type": "pause",
          "class": "centred videohidden",
-         "duration": 50,
+         "duration": 48,
          "start": 99.75,
          "pauseSubEvents": [
          {
            "type": "html",
-           "delay": 2,
+           "delay": 0,
            "duration": 7,
            "target": "area1",
            "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
@@ -103,14 +29,12 @@
          {
            "comments": "delay should be 5, duration: 3",
            "type": "html",
-           "delay": 5.5,
+           "delay": 3.5,
            "duration": 3.5,
            "target": "area2",
            "html": [
             "<span style='font: 36px Courgette, cursive'>for </span>",
-            "<span style='font: 36px Lobster, cursive'>Happiness </span>",
-            "<span style='font: 36px Courgette, cursive'>in</span>",
-            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>WALES</span>"
+            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>WALES / CYMRU</span>"
            ]
          },
          {
@@ -125,7 +49,7 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Wales,happiness",
+           "tags": "Wales,Cymru",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
@@ -159,24 +83,10 @@
       },
       {
          "type": "pause",
-         "class": "flickrbabble videohidden",
+         "class": "centred videohidden",
          "duration": 190,
          "start": 394,
          "pauseSubEvents": [
-         {
-           "type": "flickr",
-           "occurrences": 2,
-           "interval": 5,
-           "duration": 5,
-           "targets": ["area1", "area2"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "happy,sad",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
          {
            "type": "code",
            "delay": 0,
@@ -185,49 +95,36 @@
            "endjs": ""
          },
          {
-           "type": "twitter",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 10,
-           "targets": ["area3"],
-           "src": "happiness sad"
+           "type": "html",
+           "delay": 0,
+           "duration": 7,
+           "target": "area1",
+           "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+         },
+         {
+           "comments": "delay should be 5, duration: 3",
+           "type": "html",
+           "delay": 3.5,
+           "duration": 3.5,
+           "target": "area2",
+           "html": [
+            "<span style='font: 36px Courgette, cursive'>for </span>",
+            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>WALES / CYMRU</span>"
+           ]
          },
          {
            "type": "flickr",
-           "occurrences": 1,
+           "comments": "",
+           "delay": 8,
+           "class": "flickrbabble videohidden",
+           "occurrences": 36,
            "interval": 5,
-           "duration": 5,
-           "delay": 15,
-           "targets": ["area4"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "happy,sad",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-           "type": "twitter",
-           "occurrences": 3,
-           "interval": 5,
-           "duration": 5,
-           "delay": 20,
-           "targets": ["area5", "area6","area7","area8"],
-           "src": "happiness sad"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 29,
-           "interval": 5,
-           "duration": 5,
-           "delay": 35,
+           "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "happy,sad",
+           "tags": "Wales,Cymru",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
