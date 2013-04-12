@@ -10,13 +10,33 @@
        "trackEvents": [
        {
          "type": "pause",
-         "class": "flickrbabble videohidden",
-         "duration": 40,
-         "start": 1,
+         "class": "centred videohidden",
+         "duration": 48,
+         "start": 0.0001,
          "pauseSubEvents": [
          {
+           "type": "html",
+           "delay": 0,
+           "duration": 7,
+           "target": "area1",
+           "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+         },
+         {
+           "comments": "delay should be 5, duration: 3",
+           "type": "html",
+           "delay": 3.5,
+           "duration": 3.5,
+           "target": "area2",
+           "html": [
+            "<span style='font: 36px Courgette, cursive'>for </span>",
+            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>MAHARASHTRA</span>"
+           ]
+         },
+         {
            "type": "flickr",
+           "class": "flickrbabble videohidden",
            "occurrences": 2,
+           "delay": 8,
            "interval": 5,
            "duration": 5,
            "targets": ["area1", "area2"],
@@ -34,7 +54,7 @@
            "occurrences": 1,
            "interval": 5,
            "duration": 5,
-           "delay": 10,
+           "delay": 18,
            "targets": ["area3"],
            "src": "Maharashtra AND news"
          },
@@ -43,7 +63,7 @@
            "occurrences": 1,
            "interval": 5,
            "duration": 5,
-           "delay": 15,
+           "delay": 23,
            "targets": ["area4"],
            "orientations": "pllppllp",
            "ownername_target": "attrib",
@@ -58,7 +78,7 @@
            "occurrences": 3,
            "interval": 5,
            "duration": 5,
-           "delay": 20,
+           "delay": 28,
            "targets": ["area5", "area6","area1","area2"],
            "src": "Maharashtra AND news"
          },
@@ -67,7 +87,7 @@
            "occurrences": 1,
            "interval": 5,
            "duration": 5,
-           "delay": 35,
+           "delay": 43,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area1", "area2"],
            "orientations": "pllppllp",
            "ownername_target": "attrib",
@@ -151,7 +171,7 @@
            "interval": 5,
            "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-           "src": "India AND business"
+           "src": "Maharashtra OR India AND business"
          },
          {
            "comments": "back to fs for end of video",
@@ -167,13 +187,132 @@
          "start": 434.5,
          "pauseSubEvents": [
          {
-           "type": "twitter",
-           "template": "babble videohidden",
-           "occurrences": 36,
+           "type": "flickr",
+           "occurrences": 2,
+           "delay": 0,
            "interval": 5,
-           "duration": 6,
-           "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-           "src": "happiness sad"
+           "duration": 5,
+           "targets": ["area1", "area2"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Maharashtra",
+           "tag_mode": "all",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         },
+         {
+           "type": "twitter",
+           "occurrences": 1,
+           "interval": 5,
+           "duration": 5,
+           "delay": 10,
+           "targets": ["area3"],
+           "src": "Maharashtra AND news"
+         },
+         {
+           "type": "flickr",
+           "occurrences": 1,
+           "interval": 5,
+           "duration": 5,
+           "delay": 15,
+           "targets": ["area4"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Maharashtra",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         },
+         {
+           "type": "twitter",
+           "occurrences": 3,
+           "interval": 5,
+           "duration": 5,
+           "delay": 20,
+           "targets": ["area5", "area6","area1","area2"],
+           "src": "Maharashtra AND news"
+         },
+         {
+           "type": "flickr",
+           "occurrences": 1,
+           "interval": 5,
+           "duration": 5,
+           "delay": 35,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area1", "area2"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Maharashtra",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         },
+         {
+           "type": "flickr",
+           "occurrences": 2,
+           "delay": 40,
+           "interval": 5,
+           "duration": 5,
+           "targets": ["area1", "area2"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Maharashtra",
+           "tag_mode": "all",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         },
+         {
+           "type": "twitter",
+           "occurrences": 1,
+           "interval": 5,
+           "duration": 5,
+           "delay": 50,
+           "targets": ["area3"],
+           "src": "Maharashtra AND news"
+         },
+         {
+           "type": "flickr",
+           "occurrences": 1,
+           "interval": 5,
+           "duration": 5,
+           "delay": 55,
+           "targets": ["area4"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Maharashtra",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
+         },
+         {
+           "type": "twitter",
+           "occurrences": 3,
+           "interval": 5,
+           "duration": 5,
+           "delay": 60,
+           "targets": ["area5", "area6","area1","area2"],
+           "src": "Maharashtra AND news"
+         },
+         {
+           "type": "flickr",
+           "occurrences": 20,
+           "interval": 5,
+           "duration": 5,
+           "delay": 75,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area1", "area2"],
+           "orientations": "pllppllp",
+           "ownername_target": "attrib",
+           "size": "medium",
+           "tags": "Maharashtra",
+           "content_type": 1,
+           "sort": "relevance",
+           "safe_search" : 1
          },
          {
            "type": "code",
