@@ -10,18 +10,35 @@
        "trackEvents": [
        {
          "type": "changeClass",
-         "class": "flickrbabble videohidden",
+         "class": "centred videohidden",
          "start": 16.5 
        },
        {
-         "start": 17,
-         "end": 27,
+         "type": "html",
+         "start": 16.5,
+         "end": 23.5,
+         "target": "area1",
+         "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+       },
+       {
+         "type": "html",
+         "start": 20,
+         "end": 23.5,
+         "target": "area2",
+         "html": [
+            "<span style='font: 36px Courgette, cursive'>for </span>",
+            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Tasmania</span>"
+         ]
+       },
+       {
+         "start": 25,
+         "end": 48,
          "class": "flickrbabble videohidden",
          "type": "flickr",
-         "occurrences": 2,
+         "occurrences": 4,
          "interval": 5,
          "duration": 5,
-         "targets": ["area1", "area2"],
+         "targets": ["area1", "area2", "area3", "area4"],
          "orientations": "pllppllp",
          "ownername_target": "attrib",
          "size": "medium",
@@ -29,53 +46,11 @@
          "content_type": 1,
          "sort": "relevance",
          "safe_search" : 1
-       },
-       {
-         "start": 27,
-         "end": 32,
-         "type": "twitter",
-         "class": "babble videohidden",
-         "occurrences": 1,
-         "interval": 5,
-         "duration": 5,
-         "delay": 10,
-         "targets": ["area3"],
-         "src": "Tasmania"
-       },
-       {
-         "start": 32,
-         "end": 37,
-         "type": "flickr",
-         "class": "flickrbabble videohidden",
-         "occurrences": 1,
-         "interval": 5,
-         "duration": 5,
-         "delay": 15,
-         "targets": ["area4"],
-         "orientations": "pllppllp",
-         "ownername_target": "attrib",
-         "size": "medium",
-         "tags": "Tasmania",
-         "content_type": 1,
-         "sort": "relevance",
-         "safe_search" : 1
-       },
-       {
-         "start": 37,
-         "end": 44,
-         "type": "twitter",
-         "class": "babble videohidden",
-         "occurrences": 1,
-         "interval": 5,
-         "duration": 5,
-         "delay": 20,
-         "targets": ["area5", "area6","area3","area4"],
-         "src": "Tasmania"
        },
        {
          "type": "changeClass",
          "class": "fullscreen",
-         "start": 44 
+         "start": 48 
        },
        {
          "type": "changeClass",
