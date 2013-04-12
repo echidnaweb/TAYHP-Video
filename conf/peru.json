@@ -15,89 +15,13 @@
        },
        {
          "type": "pause",
-         "class": "flickrbabble videohidden",
-         "duration": 40,
-         "start": 0.0000001,
-         "pauseSubEvents": [
-         {
-           "type": "flickr",
-           "occurrences": 2,
-           "interval": 5,
-           "duration": 5,
-           "targets": ["area1", "area4"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Peru",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         }, 
-         {
-           "id": "TrackEvent1_11",
-           "type": "twitter",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 10,
-           "targets": ["area3"],
-           "src": "Peru AND news"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 15,
-           "targets": ["area6"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Peru",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-           "id": "TrackEvent1_11",
-           "type": "twitter",
-           "occurrences": 3,
-           "interval": 5,
-           "duration": 5,
-           "delay": 20,
-           "targets": ["area5", "area6","area1","area4"],
-           "src": "Peru news"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 35,
-           "targets": ["area2"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Peru", 
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-         "type": "changeClass",
-         "class": "fullscreen",
-         "delay": 40
-         }]
-       },
-       {
-         "type": "pause",
          "class": "centred videohidden",
-         "duration": 50,
-         "start": 66.25,
+         "duration": 48,
+         "start": 66.5,
          "pauseSubEvents": [
          {
            "type": "html",
-           "delay": 2,
+           "delay": 0,
            "duration": 7,
            "target": "area1",
            "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
@@ -105,13 +29,11 @@
          {
            "comments": "delay should be 5, duration: 3",
            "type": "html",
-           "delay": 5.5,
+           "delay": 3.5,
            "duration": 3.5,
            "target": "area2",
            "html": [
             "<span style='font: 36px Courgette, cursive'>for </span>",
-            "<span style='font: 36px Lobster, cursive'>Happiness </span>",
-            "<span style='font: 36px Courgette, cursive'>in</span>",
             "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>PERU</span>"
            ]
          },
@@ -122,12 +44,12 @@
            "class": "flickrbabble videohidden",
            "occurrences": 8,
            "interval": 5,
-           "duration": 6,
+           "duration": 5,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Felicidad,Peru",
+           "tags": "Peru",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
@@ -135,7 +57,7 @@
          {
            "type": "changeClass",
            "class": "fullscreen",
-           "delay": 50 
+           "delay": 48 
          }]
        },
        {
@@ -162,22 +84,43 @@
       },
       {
          "type": "pause",
-         "class": "flickrbabble videohidden",
+         "class": "centred videohidden",
          "duration": 190,
          "start": 345,
          "pauseSubEvents": [
          {
+           "type": "html",
+           "delay": 2,
+           "duration": 7,
+           "target": "area1",
+           "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+         },
+         {
+           "comments": "delay should be 5, duration: 3",
+           "type": "html",
+           "delay": 5.5,
+           "duration": 3.5,
+           "target": "area2",
+           "html": [
+            "<span style='font: 36px Courgette, cursive'>for </span>",
+            "<span style='font: 36px Lobster, cursive'>Happiness </span>",
+            "<span style='font: 36px Courgette, cursive'>in</span>",
+            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>PERU</span>"
+           ]
+         },
+         {
            "type": "flickr",
            "comments": "",
-           "delay": 0,
+           "delay": 10,
+           "class": "flickrbabble videohidden",
            "occurrences": 36,
            "interval": 5,
-           "duration": 5,
-           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
+           "duration": 6,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Happiness",
+           "tags": "Felicidad,Peru",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1
@@ -196,7 +139,7 @@
            "startjs": "self.location='/intro';",
            "endjs": ""
          }]
-     }]
+      }]
    }]
  }]
 }
