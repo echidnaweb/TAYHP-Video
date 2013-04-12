@@ -14,76 +14,31 @@
        },
        {
          "type": "pause",
-         "class": "babble videohidden",
-         "duration": 40,
+         "class": "centred videohidden",
+         "duration": 50,
          "start": 44.5,
          "pauseSubEvents": [
          {
-           "type": "twitter",
-           "class": "babble videohidden",
-           "occurrences": 8,
-           "interval": 5,
-           "duration": 6,
-           "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-           "src": "Mongolia"
-         },
-         {
-           "type": "changeClass",
-           "class": "fullscreen",
-           "delay": 40 
-         }]
-       },
-       {
-         "type": "pause",
-         "class": "babble videohidden",
-         "duration": 40,
-         "start": 123.5,
-         "pauseSubEvents": [
-         {
-           "type": "twitter",
-           "template": "babble videohidden",
-           "occurrences": 8,
-           "interval": 5,
-           "duration": 6,
-           "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-           "src": "Mongolia Business"
-         },
-         {
-           "type": "changeClass",
-           "class": "fullscreen",
-           "delay": 40 
-         }]
-       },
-       {
-         "type": "pause",
-         "class": "centred videohidden",
-         "duration": 50,
-         "start": 206,
-         "pauseSubEvents": [
-         {
             "type": "html",
-            "delay": 2,
+            "delay": 0,
             "duration": 7,
             "target": "area1",
             "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
          },
          {
-            "comments": "delay should be 5, duration: 3",
             "type": "html",
-            "delay": 5.5,
+            "delay": 3.5,
             "duration": 3.5,
             "target": "area2",
             "html": [
                "<span style='font: 36px Courgette, cursive'>for </span>",
-               "<span style='font: 36px Lobster, cursive'>Happiness </span>",
-               "<span style='font: 36px Courgette, cursive'>in</span>",
                "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Монгол улс [Mongolia]</span>"
             ]
          },
          {
            "type": "flickr",
            "comments": "",
-           "delay": 10,
+           "delay": 8,
            "class": "flickrbabble videohidden",
            "occurrences": 8,
            "interval": 5,
@@ -104,12 +59,74 @@
            "delay": 50
          }]
       },
-      {
+       {
          "type": "pause",
-         "class": "flickrbabble videohidden",
-         "duration": 190,
-         "start": 301, 
+         "class": "babble videohidden",
+         "duration": 40,
+         "start": 123.5,
          "pauseSubEvents": [
+         {
+           "type": "twitter",
+           "class": "babble videohidden",
+           "occurrences": 8,
+           "interval": 5,
+           "duration": 6,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
+           "src": "Mongolia News"
+         },
+         {
+           "type": "changeClass",
+           "class": "fullscreen",
+           "delay": 40 
+         }]
+       },
+       {
+         "type": "pause",
+         "class": "babble videohidden",
+         "duration": 40,
+         "start": 206,
+         "pauseSubEvents": [
+         {
+           "type": "twitter",
+           "template": "babble videohidden",
+           "occurrences": 8,
+           "interval": 5,
+           "duration": 6,
+           "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
+           "src": "Mongolia Business"
+         },
+         {
+           "type": "changeClass",
+           "class": "fullscreen",
+           "delay": 40 
+         }]
+       },
+       {
+         "type": "pause",
+         "class": "centred videohidden",
+         "duration": 190,
+         "start": 300,
+         "pauseSubEvents": [
+         {
+            "type": "html",
+            "delay": 0,
+            "duration": 7,
+            "target": "area1",
+            "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+         },
+         {
+            "comments": "delay should be 5, duration: 3",
+            "type": "html",
+            "delay": 3.5,
+            "duration": 3.5,
+            "target": "area2",
+            "html": [
+               "<span style='font: 36px Courgette, cursive'>for </span>",
+               "<span style='font: 36px Lobster, cursive'>Happiness </span>",
+               "<span style='font: 36px Courgette, cursive'>in</span>",
+               "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Монгол улс [Mongolia]</span>"
+            ]
+         },
          {
            "type": "code",
            "delay": 180,
