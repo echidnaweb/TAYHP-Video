@@ -32,7 +32,7 @@
        },
        {
          "start": 25,
-         "end": 48,
+         "end": 46,
          "class": "flickrbabble videohidden",
          "type": "flickr",
          "occurrences": 4,
@@ -50,7 +50,7 @@
        {
          "type": "changeClass",
          "class": "fullscreen",
-         "start": 48 
+         "start": 46 
        },
        {
          "type": "changeClass",
@@ -59,10 +59,10 @@
        }, 
        {
          "start": 152,
-         "end": 190,
+         "end": 175,
          "type": "twitter",
          "class": "babble videohidden",
-         "occurrences": 7,
+         "occurrences": 5,
          "interval": 5,
          "duration": 6,
          "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
@@ -71,7 +71,7 @@
        {
          "type": "changeClass",
          "class": "fullscreen",
-         "start": 190 
+         "start": 177 
        },
        {
          "type": "pause",
