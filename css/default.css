@@ -60,6 +60,7 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 
 
 #audio {
+    display: none;
     position: absolute;
     bottom: -6px;
     right: 0;
