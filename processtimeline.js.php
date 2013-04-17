@@ -27,6 +27,7 @@ include ("class/GooglemapEvent.class.php");
 include ("class/WordriverEvent.class.php");
 include ("class/HideMediaEvent.class.php");
 include ("class/SoundCloudEvent.class.php");
+include ("class/SoundCloudPauseEvent.class.php");
 include ("class/PauseEvent.class.php");
 include ("class/ChangeClassEvent.class.php");
 include ("class/ChangeClassPauseEvent.class.php");
