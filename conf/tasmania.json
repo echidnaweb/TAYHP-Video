@@ -26,7 +26,7 @@
          "end": 23.5,
          "target": "area2",
          "html": [
-            "<span style='font: 36px Courgette, cursive'>for </span>",
+            "<span style='font: 36px Courgette, cursive'>for</span>",
             "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Tasmania</span>"
          ]
        },
@@ -92,7 +92,7 @@
             "duration": 3.5,
             "target": "area2",
             "html": [
-               "<span style='font: 36px Courgette, cursive'>for </span>",
+               "<span style='font: 36px Courgette, cursive'>for</span>",
                "<span style='font: 36px Lobster, cursive'>Happiness </span>",
                "<span style='font: 36px Courgette, cursive'>in</span>",
                "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Tasmania</span>"
@@ -137,7 +137,7 @@
          },
          {
            "type": "code",
-           "delay": 0,
+           "delay": 60,
            "duration": 0,
            "startjs": "open_drawer()",
            "endjs": ""
@@ -154,9 +154,9 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Happiness",
+           "tags": "Tasmania,happy",
            "content_type": 1,
-           "sort": "relevance",
+           "sort": "recent",
            "safe_search" : 1
          }]
      }]

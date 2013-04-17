@@ -1,4 +1,3 @@
-{
   "media": [
   {
      "url": ["http://vimeo.com/60535968"],
@@ -28,7 +27,7 @@
            "duration": 3,
            "target": "area2",
            "html": [
-            "<span style='font: 36px Courgette, cursive'>for </span>",
+            "<span style='font: 36px Courgette, cursive'>for</span>",
             "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>JHARKHAND, INDIA</span>"
            ]
          },
@@ -39,7 +38,7 @@
            "class": "flickrbabble videohidden",
            "occurrences": 8,
            "interval": 5,
-           "duration": 6,
+           "duration": 5, 
            "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
            "orientations": "pllppllp",
            "ownername_target": "attrib",
@@ -68,7 +67,7 @@
            "interval": 5,
            "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6","area1", "area2", "area3"],
-           "src": "Jharkhand business"
+           "src": "Jharkhand News"
          },
          {
            "type": "changeClass",
@@ -93,7 +92,7 @@
          },
          {
            "type": "code",
-           "delay": 0,
+           "delay": 60,
            "duration": 0,
            "startjs": "open_drawer()",
            "endjs": ""

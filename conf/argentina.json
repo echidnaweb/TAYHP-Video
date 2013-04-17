@@ -33,7 +33,7 @@
                   "duration": 3.5,
                   "target": "area2",
                   "html": [
-                      "<span style='font: 36px Courgette, cursive'>for </span>",
+                      "<span style='font: 36px Courgette, cursive'>for</span>",
                       "<span style='font: 36px Lobster, cursive'>Happiness </span>",
                       "<span style='font: 36px Courgette, cursive'>in</span>",
                       "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px'>ARGENTINA</span>"
@@ -68,20 +68,20 @@
               "comments": "pause 2",
               "type": "pause",
               "class": "flickrbabble videohidden",
-              "duration": 35,
+              "duration": 40,
               "start": 215,
               "pauseSubEvents": [
                 {
             	    "type": "flickr",
                   "delay": 0,
-                  "occurrences": 7,
+                  "occurrences": 8,
                   "interval": 5,
                   "duration": 5,
                   "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
                   "orientations": "pllppllp",
                   "ownername_target": "attrib",
                   "size": "medium",
-                  "tags": "felicidad,Argentina,feliz",
+                  "tags": "felicidad,Argentina",
                   "content_type": 1,
                   "sort": "relevance",
                   "safe_search" : 1
@@ -119,7 +119,7 @@
                 },
                 {
                   "type": "code",
-                  "delay": 0,
+                  "delay": 60,
                   "duration": 0,
                   "startjs": "open_drawer()",
                   "endjs": ""

@@ -6,10 +6,52 @@
         {
           "name": "Track0",
           "trackEvents": [
+          {
+             "type": "pause",
+             "class": "centred videohidden",
+             "duration": 48,
+             "start": 0.0001,
+             "pauseSubEvents": [
+              {
+                "type": "html",
+                "delay": 0,
+                "duration": 7,
+                "target": "area1",
+                "html": "<span style='font: 36px Courgette, cursive'>Searching...</style>"
+              },
+              {
+                "comments": "delay should be 5, duration: 3",
+                "type": "html",
+                "delay": 3.5,
+                "duration": 3.5,
+                "target": "area2",
+                "html": [
+                 "<span style='font: 36px Courgette, cursive'>for</span>",
+                 "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>UGANDA</span>"
+                ]
+              },
+              {
+                "type": "soundcloud",
+                "class": "centred videohidden",
+                "delay": 5,
+                "duration": 42,
+                "trackid": "36772805"             
+              },
+              {
+                "class": "babble videohidden",
+                "type": "twitter",
+                "occurrences": 8,
+                "interval": 5,
+                "duration": 6,
+                "delay": 8,
+                "targets": ["area1","area2","area3","area4","area5","area6"],
+                "src": "Uganda AND news"
+              }]
+            }, 
             {
               "type": "twitter",
               "class": "foursquare",
-              "start": 0,
+              "start": 1,
               "end": 35,
               "occurrences": 5,
               "interval": 5,
@@ -18,6 +60,7 @@
               "src": "Uganda"
             },
             {
+              "notes": "Uganda,market",
               "start": 53,
               "end": 86,
               "type": "flickr",
@@ -30,7 +73,7 @@
               "ownername_target": "attrib",
               "size": "medium",
               "tag_mode": "all",
-              "tags": "uganda,market",
+              "tags": "Uganda,market",
               "content_type": 1,
               "sort": "relevance",
               "safe_search" : 1
@@ -58,6 +101,7 @@
               ]
             },
             {
+              "notes": "Uganda,streets",
               "start": 178,
               "end": 201,
               "type": "flickr",
@@ -69,8 +113,7 @@
               "orientations": "pllppllp",
               "ownername_target": "attrib",
               "size": "medium",
-              "tag_mode": "all",
-              "tags": "Uganda,street",
+              "tags": "Uganda,streets",
               "content_type": 1,
               "sort": "relevance",
               "safe_search" : 1
@@ -87,16 +130,23 @@
               "orientations": "pllppllp",
               "ownername_target": "attrib",
               "size": "medium",
-              "tags": "Uganda",
+              "tags": "Uganda,streets",
               "content_type": 1,
               "sort": "relevance",
               "safe_search" : 1
             },
             {
+            "type": "soundcloud",
+            "class": "centred videohidden",
+            "start": 292,
+            "end": 300,
+            "trackid": "36772805"
+            },
+            {
               "type": "pause",
               "comments": "infinite pause",
               "class": "flickrbabble videohidden",
-              "duration": 190,
+              "duration": 60,
               "start":294,
               "pauseSubEvents": [
               {
@@ -109,7 +159,7 @@
                 "orientations": "pllppllp",
                 "ownername_target": "attrib",
                 "size": "medium",
-                "tags": "happiness,sad",
+                "tags": "Uganda,streets",
                 "content_type": 1,
                 "sort": "relevance",
                 "safe_search" : 1

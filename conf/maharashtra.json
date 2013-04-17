@@ -28,14 +28,14 @@
            "duration": 3.5,
            "target": "area2",
            "html": [
-            "<span style='font: 36px Courgette, cursive'>for </span>",
+            "<span style='font: 36px Courgette, cursive'>for</span>",
             "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>MAHARASHTRA</span>"
            ]
          },
          {
            "type": "flickr",
            "class": "flickrbabble videohidden",
-           "occurrences": 2,
+           "occurrences": 8,
            "delay": 8,
            "interval": 5,
            "duration": 5,
@@ -45,54 +45,6 @@
            "size": "medium",
            "tags": "Maharashtra",
            "tag_mode": "all",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-           "type": "twitter",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 18,
-           "targets": ["area3"],
-           "src": "Maharashtra AND news"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 23,
-           "targets": ["area4"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Maharashtra",
-           "content_type": 1,
-           "sort": "relevance",
-           "safe_search" : 1
-         },
-         {
-           "type": "twitter",
-           "occurrences": 3,
-           "interval": 5,
-           "duration": 5,
-           "delay": 28,
-           "targets": ["area5", "area6","area1","area2"],
-           "src": "Maharashtra AND news"
-         },
-         {
-           "type": "flickr",
-           "occurrences": 1,
-           "interval": 5,
-           "duration": 5,
-           "delay": 43,
-           "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area1", "area2"],
-           "orientations": "pllppllp",
-           "ownername_target": "attrib",
-           "size": "medium",
-           "tags": "Maharashtra",
            "content_type": 1,
            "sort": "relevance",
            "safe_search" : 1

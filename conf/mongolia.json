@@ -31,7 +31,7 @@
             "duration": 3.5,
             "target": "area2",
             "html": [
-               "<span style='font: 36px Courgette, cursive'>for </span>",
+               "<span style='font: 36px Courgette, cursive'>for</span>",
                "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Монгол улс [Mongolia]</span>"
             ]
          },
@@ -49,7 +49,7 @@
            "size": "medium",
            "tags": "Монгол улс",
            "content_type": 1,
-           "sort": "recent",
+           "sort": "relevance",
            "safe_search" : 1
          },
          {
@@ -121,7 +121,7 @@
             "duration": 3.5,
             "target": "area2",
             "html": [
-               "<span style='font: 36px Courgette, cursive'>for </span>",
+               "<span style='font: 36px Courgette, cursive'>for</span>",
                "<span style='font: 36px Lobster, cursive'>Happiness </span>",
                "<span style='font: 36px Courgette, cursive'>in</span>",
                "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>Монгол улс [Mongolia]</span>"
@@ -136,7 +136,7 @@
          },
          {
            "type": "code",
-           "delay": 0,
+           "delay": 60,
            "duration": 0,
            "startjs": "open_drawer()",
            "endjs": ""
@@ -152,9 +152,9 @@
            "orientations": "pllppllp",
            "ownername_target": "attrib",
            "size": "medium",
-           "tags": "Happiness",
+           "tags": "Монгол улс", 
            "content_type": 1,
-           "sort": "relevance",
+           "sort": "recent",
            "safe_search" : 1
          }]
      }]
