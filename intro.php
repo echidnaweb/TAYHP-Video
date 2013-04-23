@@ -144,6 +144,7 @@ sub {
 			</div>
 			
 			<p class="d-txt intro-element">Film makers around the world have been<br>asking the same question today</p>
+                        <p class="e-txt intro-element">The following content is unfiltered<br>and may not be suitable for children.</p>
 			
 			<h1 class="e-img-wordmark intro-element">
 				 <img src="http://theareyouhappyproject.org/wp-content/themes/starkers/images/intro-assets/logos/logo-ayh.png" alt="logo-ayh" width="605" height="158">
