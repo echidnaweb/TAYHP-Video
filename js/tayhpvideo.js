@@ -14,17 +14,17 @@ function toggle_drawer()
     var bottomval = $('#thumbdrawer').css('bottom');
     //if open then close
     if(bottomval == "0px"){
-        $("#thumbdrawer").animate({"bottom": "-=100px"}, "slow");
+        $("#thumbdrawer").animate({"bottom": "-=120px"}, "slow");
     //if closed then open
-    }else if (bottomval == "-100px") {
-        $("#thumbdrawer").animate({"bottom": "+=100px"}, "slow");
+    }else if (bottomval == "-120px") {
+        $("#thumbdrawer").animate({"bottom": "+=120px"}, "slow");
     }
     else { }
 }
 
 function open_drawer()
 {
-  if ($('#thumbdrawer').css('bottom') == "-100px") toggle_drawer(); 
+  if ($('#thumbdrawer').css('bottom') == "-120px") toggle_drawer(); 
 }
 
 
