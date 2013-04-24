@@ -60,7 +60,6 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 
 
 #audio {
-    display: none;
     position: absolute;
     bottom: -6px;
     right: 0;
@@ -351,7 +350,7 @@ body.flickrbabble #area6 {
 body.flickrbabble #area7 {
   position: absolute;
   top: 50px;
-  right: 20200px;
+  right: 200px;
   text-align: right;
   font-size: 2em;
   font-family: 'Nixie One', cursive;
