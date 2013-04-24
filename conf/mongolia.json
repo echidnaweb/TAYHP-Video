@@ -66,6 +66,12 @@
          "start": 123.5,
          "pauseSubEvents": [
          {
+           "type": "soundcloud",
+           "delay": 0,
+           "duration": 40,
+           "trackid": "88411098"
+         },
+         {
            "type": "twitter",
            "class": "babble videohidden",
            "occurrences": 8,
@@ -86,6 +92,12 @@
          "duration": 40,
          "start": 206,
          "pauseSubEvents": [
+         {
+           "type": "soundcloud",
+           "delay": 0,
+           "duration": 42,
+           "trackid": "88411173"
+         },
          {
            "type": "twitter",
            "template": "babble videohidden",
