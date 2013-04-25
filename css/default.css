@@ -8,6 +8,11 @@ body {
       font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
 }
 
+.footer {
+    position: absolute;
+    bottom: 20px;
+}
+
 #floater { float: left; height: 50%; margin-bottom: -300px }
 
 #contentlayer {
