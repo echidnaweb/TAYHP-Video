@@ -98,6 +98,11 @@ sub {
 	margin-left:-.2em;
 }
 
+.footer {
+  position: absolute;
+  bottom: 20px;
+}
+
 /* because formatting .numbers should consider your current font settings, we will not style it here */
 </style>
 

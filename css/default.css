@@ -65,6 +65,8 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
     right: 0;
 }
 
+#audio iframe { display: none }
+
 .target > * { display: none }
 
 #attrib { 
