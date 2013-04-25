@@ -52,13 +52,13 @@
          {
          "type": "changeClass",
          "class": "fullscreen",
-         "delay": 40
+         "delay": 48 
          }]
        },
        {
          "type": "changeClass",
          "class": "fullscreen",
-         "delay": 40 
+         "start": 1 
        },
        {
          "type": "pause",
@@ -268,7 +268,7 @@
          },
          {
            "type": "code",
-           "delay": 0,
+           "delay": 60,
            "duration": 0,
            "startjs": "open_drawer()",
            "endjs": ""
