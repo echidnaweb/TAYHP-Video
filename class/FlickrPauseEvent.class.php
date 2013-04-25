@@ -108,6 +108,8 @@ class FlickrPauseEvent
        $alt = addslashes($photos[$i]['title']);
        $ownername = addslashes($photos[$i]['ownername']);
 
+       if ($i == 0) $start += 500;
+
        $id = uniqid("flickr_");
        if ($this->targets)
        {
