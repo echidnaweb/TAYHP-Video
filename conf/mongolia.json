@@ -155,6 +155,7 @@
          },
          {
            "type": "flickr",
+           "class": "flickrbabble videohidden",
            "comments": "",
            "delay": 8,
            "occurrences": 36,
