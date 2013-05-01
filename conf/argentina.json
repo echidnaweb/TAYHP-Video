@@ -14,6 +14,13 @@
               "start": 0
             },
             {
+              "comments": "track title: Music 1",
+              "type": "soundcloud",
+              "start": 42,
+              "end": 48,
+              "trackid": "90257758"
+            },
+            {
               "comments": "pause 1",
               "type": "pause",
               "class": "centred videohidden",
@@ -93,6 +100,13 @@
                   "delay": 35
                 }
               ]
+            },
+            {
+              "comments": "track title: Ending-Argentina v2 Rendered",
+              "type": "soundcloud",
+              "start": 342,
+              "end": 348,
+              "trackid": "90270266"
             },
             {
               "comments": "pause 3",
