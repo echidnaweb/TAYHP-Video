@@ -13,6 +13,13 @@
           "start": 0
        },
        {
+          "comments": "track title: Music 1",
+          "type": "soundcloud",
+          "start": 36,
+          "end": 45,
+          "trackid": "90257758"
+       },
+       {
          "type": "pause",
          "class": "centred videohidden",
          "duration": 50,
@@ -60,17 +67,18 @@
          }]
       },
        {
+          "comments": "track title: Pause - Mongolia Rendered (2)",
+          "type": "soundcloud",
+          "start": 118,
+          "end": 124,
+          "trackid": "90260238"
+       },
+       {
          "type": "pause",
          "class": "babble videohidden",
          "duration": 40,
          "start": 123.5,
          "pauseSubEvents": [
-         {
-           "type": "soundcloud",
-           "delay": 0,
-           "duration": 40,
-           "trackid": "88411098"
-         },
          {
            "type": "twitter",
            "class": "babble videohidden",
@@ -87,17 +95,18 @@
          }]
        },
        {
+          "comments": "track title: Pause2 – Mongolia Rendered",
+          "type": "soundcloud",
+          "start": 201,
+          "end": 207,
+          "trackid": "90260282"
+       },
+       {
          "type": "pause",
          "class": "babble videohidden",
          "duration": 40,
          "start": 206,
          "pauseSubEvents": [
-         {
-           "type": "soundcloud",
-           "delay": 0,
-           "duration": 42,
-           "trackid": "88411173"
-         },
          {
            "type": "twitter",
            "template": "babble videohidden",
