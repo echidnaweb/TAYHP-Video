@@ -14,6 +14,13 @@
          "start": 0
        },
        {
+         "comments": "track title: Music 1",
+         "type": "soundcloud",
+         "start": 61,
+         "end": 68,
+         "trackid": "90257758"
+       },
+       {
          "type": "pause",
          "class": "centred videohidden",
          "duration": 48,
