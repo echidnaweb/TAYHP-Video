@@ -24,6 +24,7 @@ foreach  ($thumbs as $id => $thumb_url)
   echo "<li class=\"jcarousel-item-$index\">\n";
   echo "<a href=\"javascript:load_video('$id')\">\n";
   echo "<img src=\"$thumb_url\"></img></a>\n";
+  echo "<div class='countryname'>".ucfirst($id)."</div>\n";
   echo "</li>\n";
 }
 ?>

@@ -15,9 +15,11 @@ function toggle_drawer()
     //if open then close
     if(bottomval == "0px"){
         $("#thumbdrawer").animate({"bottom": "-=120px"}, "slow");
+        $("#audio").css('display','inline');
     //if closed then open
     }else if (bottomval == "-120px") {
         $("#thumbdrawer").animate({"bottom": "+=120px"}, "slow");
+        $("#audio").css('display','none');
     }
     else { }
 }
