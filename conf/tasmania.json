@@ -74,6 +74,13 @@
          "start": 177 
        },
        {
+         "comments": "track title: MUSIC1 variation9-timestretched-55secs",
+         "type": "soundcloud",
+         "start": 295,
+         "end": 301,
+         "trackid": "90257758"
+       },
+       {
          "type": "pause",
          "class": "centred videohidden",
          "duration": 50,
@@ -121,6 +128,13 @@
            "class": "fullscreen",
            "delay": 50
          }]
+      },
+      {
+         "comments": "track title: Ending – Tasmania rendered",
+         "type": "soundcloud",
+         "start": 503,
+         "end": 505,
+         "trackid": "90275032"
       },
       {
          "type": "pause",

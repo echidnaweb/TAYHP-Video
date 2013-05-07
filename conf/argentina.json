@@ -72,6 +72,13 @@
               ]
             },
             {
+              "comments": "track title: MUSIC3 variation12a-46sec",
+              "type": "soundcloud",
+              "start": 212,
+              "end": 214,
+              "trackid": "90257839"
+            }, 
+            {
               "comments": "pause 2",
               "type": "pause",
               "class": "flickrbabble videohidden",

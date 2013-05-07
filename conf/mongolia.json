@@ -15,7 +15,7 @@
        {
           "comments": "track title: Music 1",
           "type": "soundcloud",
-          "start": 36,
+          "start": 38,
           "end": 45,
           "trackid": "90257758"
        },
@@ -67,11 +67,11 @@
          }]
       },
        {
-          "comments": "track title: Pause - Mongolia Rendered (2)",
+          "comments": "track title: MUSIC3 variation12a-46sec",
           "type": "soundcloud",
-          "start": 118,
+          "start": 119,
           "end": 124,
-          "trackid": "90260238"
+          "trackid": "90257839"
        },
        {
          "type": "pause",
@@ -121,6 +121,13 @@
            "class": "fullscreen",
            "delay": 40 
          }]
+       },
+       {
+          "comments": "track title: Ending Mongolia rendered",
+          "type": "soundcloud",
+          "start": 297,
+          "end": 310,
+          "trackid": "90260738"
        },
        {
          "type": "pause",
