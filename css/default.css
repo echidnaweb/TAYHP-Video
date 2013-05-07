@@ -496,6 +496,12 @@ body.flickrsolo #area6,
 body.flickrsolo #area7,
 body.flickrsolo #area8 { display: none}
 
+.filmdetails { 
+               color: #ccc; 
+               display: none;
+               position: absolute;
+               bottom: 100px;
+               left: 10px; }
 
 /*
 #area1 { background: yellow }

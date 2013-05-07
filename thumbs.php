@@ -12,7 +12,6 @@ tasmania => "http://b.vimeocdn.com/ts/424/507/424507443_100.jpg",    // TASMANIA
 uganda => "http://b.vimeocdn.com/ts/420/738/420738487_100.jpg",      // UGANDA
 wales  => "http://b.vimeocdn.com/ts/420/752/420752810_100.jpg");      // WALES
 
-
 $num_thumbs = count($thumbs);
 
 ?>

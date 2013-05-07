@@ -167,7 +167,7 @@ sub {
 			<p class="h-txt intro-element">What does happiness mean in different places?</p>
 			
 			<p class="i-txt intro-element">What do we talk about when we talk about happiness?</p>
-			
+
 			<!--<a href="#" alt="continue to gallery"><img class="btn-continue" src="http://theareyouhappyproject.org/wp-content/themes/starkers/images/intro-assets/elements/start-button.png" alt="start-button" width="224" height="52"></a>-->
 			
 		</div><!-- intro-wrapper -->
@@ -215,6 +215,16 @@ sub {
     <div id="thumbs">
       <?php include('thumbs.php');?>
     </div>
+  </div>
+  <div id="filmdetailscontainer">
+    <p class='filmdetails' id='fd-argentina'><span class='filmcountry'>Argentina</span><span class='filmcredit'>Filming: Maria Rosa Andreotti</span><span class='filmlength'>7.5 minutes</span></p>
+    <p class='filmdetails' id='fd-jharkhand'><span class='filmcountry'>Jharkhand</span><span class='filmcredit'>Filming: Mukesh Rajak</span><span class='filmlength'>8 minutes</span>
+    <p class='filmdetails' id='fd-maharashtra'><span class='filmcountry'>Maharashtra</span><span class='filmcredit'>Filming: Rohini Pawar</span><span class='filmlength'>9 minutes</span>
+    <p class='filmdetails' id='fd-mongolia'><span class='filmcountry'>Mongolia</span><span class='filmcredit'>Filming: Of Land & Water</span><span class='filmlength'>7.5 minutes</span>
+    <p class='filmdetails' id='fd-peru'><span class='filmcountry'>Peru</span><span class='filmcredit'>Filming: Irma Luz Poma Canchumani</span><span class='filmlength'>8 minutes</span>
+    <p class='filmdetails' id='fd-wales'><span class='filmcountry'>Wales</span><span class='filmcredit'>Filming: Danae Hunter, Cath Lewis, Mandy Rose</span><span class='filmlength'>8 minutes</span>
+    <p class='filmdetails' id='fd-tasmania'><span class='filmcountry'>Tasmania</span><span class='filmcredit'>Filming: Kate Nash</span><span class='filmlength'>9 minutes</span>
+    <p class='filmdetails' id='fd-uganda'><span class='filmcountry'>Uganda</span><span class='filmcredit'>Filming: Irene Nduta</span><span class='filmlength'>5.5 minutes</span>
   </div>
 </body>
 </html>

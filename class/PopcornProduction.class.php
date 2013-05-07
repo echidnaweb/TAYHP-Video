@@ -50,7 +50,7 @@ function init_popcorn()
     //$('#videolayer').css('top', '-600px');
     $('.target').empty();
     popcorn = Popcorn.vimeo( "#video", "$media_url");
-    popcorn.on( "loadedmetadata", function() { $('#attrib').empty(); this.play(); });
+    popcorn.on( "loadedmetadata", function() { $('[id^=fd-]').css('display','none'); $('#attrib').empty(); this.play(); });
 EOF;
 
     foreach ($this->aEvent as $event)
