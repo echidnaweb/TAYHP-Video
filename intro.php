@@ -22,7 +22,8 @@
 
 <link rel="stylesheet" type="text/css" media="all" href="http://theareyouhappyproject.org/wp-content/themes/starkers/style.css" />
 
-<link href='http://fonts.googleapis.com/css?family=Nixie+One|PT+Sans|Abril+Fatface|Special+Elite|Courgette|Lobster' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Nixie+One|PT+Sans|Abril+Fatface|Special+Elite|Courgette|Lobster|VT323' rel='stylesheet' type='text/css'>
+
 <link rel="pingback" href="http://theareyouhappyproject.org/xmlrpc.php" />
 
 <script src="http://jquery-repository.googlecode.com/files/jquery-1.7.1.js"></script>
@@ -217,14 +218,14 @@ sub {
     </div>
   </div>
   <div id="filmdetailscontainer">
-    <p class='filmdetails' id='fd-argentina'><span class='filmcountry'>Argentina</span><span class='filmcredit'>Filming: Maria Rosa Andreotti</span><span class='filmlength'>7.5 minutes</span></p>
-    <p class='filmdetails' id='fd-jharkhand'><span class='filmcountry'>Jharkhand</span><span class='filmcredit'>Filming: Mukesh Rajak</span><span class='filmlength'>8 minutes</span>
-    <p class='filmdetails' id='fd-maharashtra'><span class='filmcountry'>Maharashtra</span><span class='filmcredit'>Filming: Rohini Pawar</span><span class='filmlength'>9 minutes</span>
-    <p class='filmdetails' id='fd-mongolia'><span class='filmcountry'>Mongolia</span><span class='filmcredit'>Filming: Of Land & Water</span><span class='filmlength'>7.5 minutes</span>
-    <p class='filmdetails' id='fd-peru'><span class='filmcountry'>Peru</span><span class='filmcredit'>Filming: Irma Luz Poma Canchumani</span><span class='filmlength'>8 minutes</span>
-    <p class='filmdetails' id='fd-wales'><span class='filmcountry'>Wales</span><span class='filmcredit'>Filming: Danae Hunter, Cath Lewis, Mandy Rose</span><span class='filmlength'>8 minutes</span>
-    <p class='filmdetails' id='fd-tasmania'><span class='filmcountry'>Tasmania</span><span class='filmcredit'>Filming: Kate Nash</span><span class='filmlength'>9 minutes</span>
-    <p class='filmdetails' id='fd-uganda'><span class='filmcountry'>Uganda</span><span class='filmcredit'>Filming: Irene Nduta</span><span class='filmlength'>5.5 minutes</span>
+    <p class='filmdetails' id='fd-argentina'><span class='filmcountry'>Argentina</span><span class='filmcredit'>Filming: Maria Rosa Andreotti</span><span class='filmlength'>7.5 MINUTES</span></p>
+    <p class='filmdetails' id='fd-jharkhand'><span class='filmcountry'>Jharkhand</span><span class='filmcredit'>Filming: Mukesh Rajak</span><span class='filmlength'>8 MINUTES</span>
+    <p class='filmdetails' id='fd-maharashtra'><span class='filmcountry'>Maharashtra</span><span class='filmcredit'>Filming: Rohini Pawar</span><span class='filmlength'>9 MINUTES</span>
+    <p class='filmdetails' id='fd-mongolia'><span class='filmcountry'>Mongolia</span><span class='filmcredit'>Filming: Of Land & Water</span><span class='filmlength'>7.5 MINUTES</span>
+    <p class='filmdetails' id='fd-peru'><span class='filmcountry'>Peru</span><span class='filmcredit'>Filming: Irma Luz Poma Canchumani</span><span class='filmlength'>8 MINUTES</span>
+    <p class='filmdetails' id='fd-wales'><span class='filmcountry'>Wales</span><span class='filmcredit'>Filming: Danae Hunter, Cath Lewis, Mandy Rose</span><span class='filmlength'>8 MINUTES</span>
+    <p class='filmdetails' id='fd-tasmania'><span class='filmcountry'>Tasmania</span><span class='filmcredit'>Filming: Kate Nash</span><span class='filmlength'>9 MINUTES</span>
+    <p class='filmdetails' id='fd-uganda'><span class='filmcountry'>Uganda</span><span class='filmcredit'>Filming: Irene Nduta</span><span class='filmlength'>5.5 MINUTES</span>
   </div>
 </body>
 </html>

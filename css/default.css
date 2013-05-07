@@ -497,12 +497,18 @@ body.flickrsolo #area7,
 body.flickrsolo #area8 { display: none}
 
 .filmdetails { 
+               z-index: 100;
                color: #ccc; 
                display: none;
                position: absolute;
-               bottom: 100px;
-               left: 10px; }
+               bottom: 150px;
+               left: 50px; }
 
+.filmdetails span { display: block; }
+
+.filmdetails .filmcredit { font-family: 'PT Sans', sans-serif; font-size: 1em }
+.filmdetails .filmcountry { font-family: 'Abril Fatface', cursive; font-size: 1em }
+.filmdetails .filmlength { font-family: 'VT323', cursive; font-size: 1.2em}
 /*
 #area1 { background: yellow }
 #area2 { background: green }
