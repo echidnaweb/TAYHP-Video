@@ -86,6 +86,7 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 /* carousel / slider */
 
 #thumbdrawer {
+    /* font-family: Georgia, Palatino, "Times New Roman"; */
     position: absolute; 
     z-index: 40;
     bottom: -120px; 
@@ -95,7 +96,7 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
     background: #fff; }
 
 #thumbtab {
-    color: #3B3B3B;
+    color: #000;
     font-weight: bold;
     cursor: pointer;
     position: relative;
@@ -121,7 +122,8 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 }
 
 #thumbs div.countryname {
-    color: #3B3B3B;
+    color: #000;
+    font-weight: bold;
     font-size: 0.75em;
     width: 100px;
     text-align: center;
