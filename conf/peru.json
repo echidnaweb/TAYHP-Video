@@ -97,6 +97,13 @@
          }]
       },
       {
+         "comments": "track title: Ending-Peru",
+         "type": "soundcloud", 
+         "start": 343, 
+         "end": 347,
+         "trackid": "91159021"
+      },
+      {
          "type": "pause",
          "class": "centred videohidden",
          "duration": 190,
