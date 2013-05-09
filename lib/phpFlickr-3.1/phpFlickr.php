@@ -126,6 +126,7 @@ if ( !class_exists('phpFlickr') ) {
 
 		function getCached ($request)
 		{
+      //print_r($request);
 			//Checks the database or filesystem for a cached result to the request.
 			//If there is no cache result, it returns a value of false. If it finds one,
 			//it returns the unparsed XML.
@@ -148,6 +149,7 @@ if ( !class_exists('phpFlickr') ) {
 			} elseif ($this->cache == 'fs') {
 				$file = $this->cache_dir . '/' . $reqhash . '.cache';
 				if (file_exists($file)) {
+          //echo "-->".$file."\n";
 					if ($this->php_version[0] > 4 || ($this->php_version[0] == 4 && $this->php_version[1] >= 3)) {
 						return file_get_contents($file);
 					} else {
@@ -277,6 +279,9 @@ if ( !class_exists('phpFlickr') ) {
 			$auth_sig = "";
 			$this->last_request = $args;
 			if (!($this->response = $this->getCached($args)) || $nocache) {
+        //echo "===>nocache\n";
+        //print_r($args);
+        //echo "\n";
 				foreach ($args as $key => $data) {
 					if ( is_null($data) ) {
 						unset($args[$key]);
@@ -288,7 +293,14 @@ if ( !class_exists('phpFlickr') ) {
 					$api_sig = md5($this->secret . $auth_sig);
 					$args['api_sig'] = $api_sig;
 				}
+        //echo "hitting flickr";
 				$this->response = $this->post($args);
+        //RG: hack - if response comes back empty, give it one more shot
+        if (strlen($this->response) < 200)
+        {
+          $this->response = $this->post($args);
+        }
+
 				$this->cache($args, $this->response);
 			}
 			
