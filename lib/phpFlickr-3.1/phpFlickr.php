@@ -295,9 +295,10 @@ if ( !class_exists('phpFlickr') ) {
 				}
         //echo "hitting flickr";
 				$this->response = $this->post($args);
-        //RG: hack - if response comes back empty, give it one more shot
+        //RG: hack - if response comes back empty, wait 1 sec then give it one more shot
         if (strlen($this->response) < 200)
         {
+          sleep (1);
           $this->response = $this->post($args);
         }
 
