@@ -170,7 +170,7 @@
            "size": "medium",
            "tags": "family",
            "content_type": 1,
-           "sort": "recent",
+           "sort": "relevance",
            "safe_search" : 1
          }]
      }]
