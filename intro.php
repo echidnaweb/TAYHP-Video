@@ -176,8 +176,8 @@ sub {
 		<div class="footer intro-footer span-24">
 			<div class="badges span-14">
 				<div class="push">
-					<a href="http://www.ahrc.ac.uk/" title="visit Arts and Humanities Research Council website"><img src="http://theareyouhappyproject.org/wp-content/themes/starkers/images/intro-assets/logos/logosponsor-ahrc.png" alt="logosponser-ahrc" width="275" height="66" /></a>
-					<a href="http://www.dcrc.org.uk/" title="visit Digital Cultures Research Centre"><img src="http://theareyouhappyproject.org/wp-content/themes/starkers/images/intro-assets/logos/logosponsor-dcrc.png" alt="logosponser-dcrc" width="172" height="66" /></a>
+					<a href="http://www.ahrc.ac.uk/" title="visit Arts and Humanities Research Council website"><img src="http://theareyouhappyproject.org/wp-content/themes/starkers/images/intro-assets/logos/logosponsor-ahrc.png" alt="logosponser-ahrc" width="276" height="67" /></a>
+					<a href="http://www.dcrc.org.uk/" title="visit Digital Cultures Research Centre"><img src="http://theareyouhappyproject.org/wp-content/themes/starkers/images/intro-assets/logos/logosponsor-dcrc.png" alt="logosponser-dcrc" width="166" height="53" /></a>
 				</div><!-- push -->
 			</div><!-- badges -->
 			
