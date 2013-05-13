@@ -7,6 +7,14 @@
           "name": "Track0",
           "trackEvents": [
           {
+            "comments": "https://soundcloud.com/collabdocs/ugandamarket-65secs-1",
+            "type": "soundcloud",
+            "class": "centred videohidden",
+            "start": 0.001,
+            "end": 300,
+            "trackid": "91435306"
+          },
+          {
              "type": "pause",
              "class": "centred videohidden",
              "duration": 48,
@@ -29,13 +37,6 @@
                  "<span style='font: 36px Courgette, cursive'>for</span>",
                  "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>KAMPALA, UGANDA</span>"
                 ]
-              },
-              {
-                "type": "soundcloud",
-                "class": "centred videohidden",
-                "delay": 5,
-                "duration": 42,
-                "trackid": "36772805"             
               },
               {
                 "class": "flickrbabble videohidden",
@@ -150,11 +151,12 @@
               "safe_search" : 1
             },
             {
-            "type": "soundcloud",
-            "class": "centred videohidden",
-            "start": 292,
-            "end": 300,
-            "trackid": "36772805"
+              "comments": "https://soundcloud.com/collabdocs/ugandamarket-65secs-1",
+              "type": "soundcloud",
+              "class": "centred videohidden",
+              "start": 290,
+              "end": 300,
+              "trackid": "91435306"
             },
             {
               "type": "pause",
