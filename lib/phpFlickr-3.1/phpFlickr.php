@@ -42,7 +42,7 @@ if ( !class_exists('phpFlickr') ) {
 		var $token;
 		var $php_version;
 		var $custom_post = null, $custom_cache_get = null, $custom_cache_set = null;
-
+    var $max_calls_per_hour = 50;
 		/*
 		 * When your database cache table hits this many rows, a cleanup
 		 * will occur to get rid of all of the old rows and cleanup the
@@ -260,7 +260,40 @@ if ( !class_exists('phpFlickr') ) {
 			}
 			return $response;
 		}
-		
+	
+    function num_calls_during_last_hour()
+    {
+      $log_dir = getcwd() . '/log'; 
+
+      if (!file_exists($log_dir))
+      {
+        echo "Error: call log dir does not exist";
+        return false;
+      }
+
+      $files = scandir($log_dir); 
+      $files = array_diff($files, array('..', '.'));
+ 
+      foreach($files as $key => $file)
+      {
+        if ($file < (time() - 3600))
+        {
+          unlink($log_dir."/".$file);
+          unset($files[$key]); 
+        }
+      }
+      return count($files); 
+    } 
+    
+    function log_call()
+    {
+      $log_dir = getcwd() . '/log';
+      if (file_exists($log_dir)) 
+      {
+        touch ($log_dir."/".time());
+      }   
+    } 
+     	
 		function request ($command, $args = array(), $nocache = false)
 		{
 			//Sends a request to Flickr's REST endpoint via POST.
@@ -279,9 +312,6 @@ if ( !class_exists('phpFlickr') ) {
 			$auth_sig = "";
 			$this->last_request = $args;
 			if (!($this->response = $this->getCached($args)) || $nocache) {
-        //echo "===>nocache\n";
-        //print_r($args);
-        //echo "\n";
 				foreach ($args as $key => $data) {
 					if ( is_null($data) ) {
 						unset($args[$key]);
@@ -293,18 +323,23 @@ if ( !class_exists('phpFlickr') ) {
 					$api_sig = md5($this->secret . $auth_sig);
 					$args['api_sig'] = $api_sig;
 				}
-        //echo "hitting flickr";
-				$this->response = $this->post($args);
-        //RG: hack - if response comes back empty, wait 1 sec then give it one more shot
-        if (strlen($this->response) < 200)
-        {
-          sleep (1);
-          $this->response = $this->post($args);
-        }
 
-				$this->cache($args, $this->response);
+        if ($this->num_calls_during_last_hour() < $this->max_calls_per_hour)
+        { 
+				  $this->response = $this->post($args);
+          $this->log_call();   
+				  $this->cache($args, $this->response);
+        }
+        else echo "Warning: Maximum Flickr API calls exceeded";
 			}
-			
+
+      if (strlen($this->response) < 200 && ($this->num_calls_during_last_hour() < $this->max_calls_per_hour))
+      {
+        $this->response = $this->post($args);
+        $this->log_call();
+        $this->cache($args, $this->response);
+      }
+
 			/*
 			 * Uncomment this line (and comment out the next one) if you're doing large queries
 			 * and you're concerned about time.  This will, however, change the structure of
