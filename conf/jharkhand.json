@@ -9,6 +9,13 @@
        "id": "Track0",
        "trackEvents": [
        {
+          "comments": "track title: Music 1", 
+          "type": "soundcloud",
+          "start": 1,
+          "end": 3,
+          "trackid": "90257758"
+       },
+       {
          "type": "pause",
          "class": "centred videohidden",
          "duration": 45,
@@ -56,6 +63,13 @@
          }]
        },
        {
+          "comments": "track title: MUSIC5-46sec normal level",
+          "type": "soundcloud",
+          "start": 204,
+          "end": 208,
+          "trackid": "91438971"
+       },
+       {
          "type": "pause",
          "class": "babble videohidden",
          "duration": 45,
@@ -68,13 +82,20 @@
            "interval": 5,
            "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6","area1", "area2", "area3"],
-           "src": "Jharkhand News"
+           "src": "Jharkhand"
          },
          {
            "type": "changeClass",
            "class": "fullscreen",
            "delay": 50 
          }]
+      },
+      {
+          "comments": "track title: Ending-Jharkand w Grace",
+          "type": "soundcloud",
+          "start": 367,
+          "end": 370,
+          "trackid": "91547210"
       },
       {
          "type": "pause",
