@@ -151,6 +151,8 @@ EOF;
     $api_key = isset($this->conf['apikey'])?$this->conf['apikey']:FLICKR_API_KEY;
     $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
+    $this->flickr_api->enableLogLimiting(FLICKR_LOG_DIR,FLICKR_LOG_LIMIT);
+
     $this->class = isset($this->conf['class'])?$this->conf['class']:false;
     $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;
     $this->interval = isset($this->conf['interval'])?(int)$this->conf['interval']:5;

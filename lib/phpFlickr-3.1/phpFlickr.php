@@ -42,7 +42,9 @@ if ( !class_exists('phpFlickr') ) {
 		var $token;
 		var $php_version;
 		var $custom_post = null, $custom_cache_get = null, $custom_cache_set = null;
-    var $max_calls_per_hour = 50;
+    var $log_limiting = false;
+    var $log_dir;
+    var $max_calls_per_hour = 0;
 		/*
 		 * When your database cache table hits this many rows, a cleanup
 		 * will occur to get rid of all of the old rows and cleanup the
@@ -67,7 +69,14 @@ if ( !class_exists('phpFlickr') ) {
 			$this->php_version = explode("-", phpversion());
 			$this->php_version = explode(".", $this->php_version[0]);
 		}
-
+    
+    function enableLogLimiting ($log_dir,$limit)
+    {
+      $this->log_limiting = true;
+      $this->log_dir = $log_dir;
+      $this->max_calls_per_hour = $limit;  
+    } 
+     
 		function enableCache ($type, $connection, $cache_expire = 600, $table = 'flickr_cache') {
 			// Turns on caching.  $type must be either "db" (for database caching) or "fs" (for filesystem).
 			// When using db, $connection must be a PEAR::DB connection string. Example:
@@ -263,22 +272,20 @@ if ( !class_exists('phpFlickr') ) {
 	
     function num_calls_during_last_hour()
     {
-      $log_dir = getcwd() . '/log'; 
-
-      if (!file_exists($log_dir))
+      if (!file_exists($this->log_dir))
       {
         echo "Error: call log dir does not exist";
         return false;
       }
 
-      $files = scandir($log_dir); 
+      $files = scandir($this->log_dir); 
       $files = array_diff($files, array('..', '.'));
  
       foreach($files as $key => $file)
       {
         if ($file < (time() - 3600))
         {
-          unlink($log_dir."/".$file);
+          unlink($this->log_dir."/".$file);
           unset($files[$key]); 
         }
       }
@@ -287,10 +294,9 @@ if ( !class_exists('phpFlickr') ) {
     
     function log_call()
     {
-      $log_dir = getcwd() . '/log';
-      if (file_exists($log_dir)) 
+      if (file_exists($this->log_dir)) 
       {
-        touch ($log_dir."/".time());
+        touch ($this->log_dir."/".time());
       }   
     } 
      	
@@ -324,7 +330,7 @@ if ( !class_exists('phpFlickr') ) {
 					$args['api_sig'] = $api_sig;
 				}
 
-        if ($this->num_calls_during_last_hour() < $this->max_calls_per_hour)
+        if ($this->log_limiting === false || $this->num_calls_during_last_hour() < $this->max_calls_per_hour)
         { 
 				  $this->response = $this->post($args);
           $this->log_call();   
@@ -333,7 +339,7 @@ if ( !class_exists('phpFlickr') ) {
         else echo "Warning: Maximum Flickr API calls exceeded";
 			}
 
-      if (strlen($this->response) < 200 && ($this->num_calls_during_last_hour() < $this->max_calls_per_hour))
+      if (strlen($this->response) < 200 && ($this->log_limiting === false || $this->num_calls_during_last_hour() < $this->max_calls_per_hour))
       {
         $this->response = $this->post($args);
         $this->log_call();
