@@ -16,6 +16,7 @@ class FlickrSet
   {
     $this->flickr_api = new phpFlickr(FLICKR_API_KEY);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
+    $this->flickr_api->enableLogLimiting(FLICKR_LOG_DIR,FLICKR_LOG_LIMIT);
     $this->options = $options; 
     $this->process();
   }
