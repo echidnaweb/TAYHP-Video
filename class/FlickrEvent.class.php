@@ -159,6 +159,8 @@ EOF;
     $this->size = isset($this->conf['size'])?$this->conf['size']:false;
     $this->flickr_api = new phpFlickr($api_key);
     $this->flickr_api->enableCache("fs", CACHE_DIR,FLICKR_CACHE_EXPIRY);
+    $this->flickr_api->enablePermCache(PERM_CACHE_DIR);
+    $this->flickr_api->setSafeMode(SAFE_MODE);
     $this->flickr_api->enableLogLimiting(FLICKR_LOG_DIR,FLICKR_LOG_LIMIT); 
 
     $this->occurrences = isset($this->conf['occurrences'])?(int)$this->conf['occurrences']:1;

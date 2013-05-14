@@ -44,6 +44,8 @@ if ( !class_exists('phpFlickr') ) {
 		var $custom_post = null, $custom_cache_get = null, $custom_cache_set = null;
     var $log_limiting = false;
     var $log_dir;
+    var $perm_cache_dir;
+    var $safe_mode = false;
     var $max_calls_per_hour = 0;
 		/*
 		 * When your database cache table hits this many rows, a cleanup
@@ -70,6 +72,16 @@ if ( !class_exists('phpFlickr') ) {
 			$this->php_version = explode(".", $this->php_version[0]);
 		}
     
+    function enablePermCache($perm_cache_dir)
+    {
+      $this->perm_cache_dir = $perm_cache_dir;
+    }
+    
+    function setSafeMode($bool)
+    {
+      $this->safe_mode = $bool;
+    }
+     
     function enableLogLimiting ($log_dir,$limit)
     {
       $this->log_limiting = true;
@@ -133,9 +145,8 @@ if ( !class_exists('phpFlickr') ) {
 			$this->cache_expire = $cache_expire;
 		}
 
-		function getCached ($request)
+		function getCached ($request,$dir=false)
 		{
-      //print_r($request);
 			//Checks the database or filesystem for a cached result to the request.
 			//If there is no cache result, it returns a value of false. If it finds one,
 			//it returns the unparsed XML.
@@ -156,7 +167,8 @@ if ( !class_exists('phpFlickr') ) {
 					return false;
 				}
 			} elseif ($this->cache == 'fs') {
-				$file = $this->cache_dir . '/' . $reqhash . '.cache';
+        $dir = $dir?$dir:$this->cache_dir;
+				$file = $dir . '/' . $reqhash . '.cache';
 				if (file_exists($file)) {
           //echo "-->".$file."\n";
 					if ($this->php_version[0] > 4 || ($this->php_version[0] == 4 && $this->php_version[1] >= 3)) {
@@ -170,6 +182,14 @@ if ( !class_exists('phpFlickr') ) {
 			}
 			return false;
 		}
+
+    function getPermCached($request)
+    {
+      if (isset($this->perm_cache_dir))
+      {
+        return $this->getCached($request,$this->perm_cache_dir);
+      }
+    } 
 
 		function cache ($request, $response)
 		{
