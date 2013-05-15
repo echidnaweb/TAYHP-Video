@@ -44,6 +44,7 @@ if ( !class_exists('phpFlickr') ) {
 		var $custom_post = null, $custom_cache_get = null, $custom_cache_set = null;
     var $log_limiting = false;
     var $log_dir;
+    var $perm_cache = false;
     var $perm_cache_dir;
     var $safe_mode = false;
     var $max_calls_per_hour = 0;
@@ -74,6 +75,7 @@ if ( !class_exists('phpFlickr') ) {
     
     function enablePermCache($perm_cache_dir)
     {
+      $this->perm_cache = true;
       $this->perm_cache_dir = $perm_cache_dir;
     }
     
@@ -337,7 +339,14 @@ if ( !class_exists('phpFlickr') ) {
 			ksort($args);
 			$auth_sig = "";
 			$this->last_request = $args;
-			if (!($this->response = $this->getCached($args)) || $nocache) {
+
+      // if safe mode is enabled, read only from the perm cache & do not call flickr API at all
+      if ($this->safe_mode && $this->perm_cache)
+      {
+        $this->response = $this->getPermCached($args);
+      }
+      // try for any results stored in the regular cache
+			else if (!($this->response = $this->getCached($args)) || $nocache) {
 				foreach ($args as $key => $data) {
 					if ( is_null($data) ) {
 						unset($args[$key]);
@@ -350,20 +359,25 @@ if ( !class_exists('phpFlickr') ) {
 					$args['api_sig'] = $api_sig;
 				}
 
+        // if the cache produces no results and we have not exceeded our API call limit, call the API
         if ($this->log_limiting === false || $this->num_calls_during_last_hour() < $this->max_calls_per_hour)
         { 
 				  $this->response = $this->post($args);
-          $this->log_call();   
-				  $this->cache($args, $this->response);
+          $this->log_call();
+          // if the API returns a useful result, cache it
+				  if (strlen($this->response) > 200) $this->cache($args, $this->response);
         }
-        else echo "Warning: Maximum Flickr API calls exceeded";
+        // if we have exceeded API call limit revert to the perm cache if possible
+        else if ($this->perm_cache)
+        {
+          $this->response = $this->getPermCached($args);
+        }
 			}
 
-      if (strlen($this->response) < 200 && ($this->log_limiting === false || $this->num_calls_during_last_hour() < $this->max_calls_per_hour))
+      // if we still have no useful result use perm cache if possible
+      if ((strlen($this->response) < 200) && $this->perm_cache)
       {
-        $this->response = $this->post($args);
-        $this->log_call();
-        $this->cache($args, $this->response);
+        $this->response = $this->getPermCached($args);
       }
 
 			/*
