@@ -86,7 +86,7 @@
            "interval": 5,
            "duration": 6,
            "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-           "src": "unemployed AND Wales OR business AND Wales"
+           "src": "unemployment AND Wales"
          },
          {
            "comments": "back to fs for end of video",
@@ -132,7 +132,7 @@
             "<span style='font: 36px Courgette, cursive'>for </span>",
             "<span style='font: 36px Lobster, cursive'>Happiness </span>",
             "<span style='font: 36px Courgette, cursive'>in</span>",
-            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>WALES / CYMRU</span>"
+            "<span style='font: 36px Special Elite, sans-serif; margin-left: 15px '>WALES/CYMRU</span>"
            ]
          },
          {
