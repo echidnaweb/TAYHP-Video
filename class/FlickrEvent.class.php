@@ -58,9 +58,10 @@ class FlickrEvent
             if ($pool[$j]['height_s'] > $pool[$j]['width_s'])
             {
               // assign matching element to result array
-              $photos[] = $pool[$j];
-              // pull it out of the pool array and push it on the end
-              array_push($pool,array_splice($pool,$j,1));
+              $photo = array_shift($pool);
+              $photos[] = $photo;
+              // push it back on the end
+              array_push($pool,$photo);
               $match = true;
               continue;
             }
@@ -69,11 +70,12 @@ class FlickrEvent
             if ($pool[$j]['width_s'] > $pool[$j]['height_s'])
             {
               // assign matching element to result array
-              $photos[] = $pool[$j];
-              // pull it out of the pool array and push it on the end
-              array_push($pool,array_splice($pool,$j,1));
+              $photo = array_shift($pool);
+              $photos[] = $photo;
+              // push it back on the end
+              array_push($pool,$photo);
               $match = true;
-              continue;
+              continue; 
             }
             break;
         }
@@ -84,8 +86,9 @@ class FlickrEvent
       // if we still don't have a match just pick the first element 
       if (!$match)
       {
-         $photos[] = $pool[0];
-         array_push($pool,array_splice($pool,0,1));
+        $photo = array_shift($pool);
+        $photos[] = $photo;
+        array_push($pool,$photo);
       }
        
     }
