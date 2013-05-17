@@ -15,7 +15,8 @@ define("FLICKR_LOG_LIMIT", 100);
 define("CONFIG_PATH", getcwd()."/conf");
 define("CACHE_DIR", getcwd()."/cache");
 define("PERM_CACHE_DIR", getcwd()."/permcache");
-define("SAFE_MODE", true);
+define("SAFE_MODE", false);
+define("SPOOF_API_FAIL", false);
 
 // Includes
 include ("class/PopcornProduction.class.php");

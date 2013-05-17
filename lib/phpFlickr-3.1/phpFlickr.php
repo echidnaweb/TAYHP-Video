@@ -27,7 +27,7 @@ if ( !class_exists('phpFlickr') ) {
 		var $upload_endpoint = 'http://api.flickr.com/services/upload/';
 		var $replace_endpoint = 'http://api.flickr.com/services/replace/';
 		var $req;
-		var $response;
+		var $response = "";
 		var $parsed_response;
 		var $cache = false;
 		var $cache_db = null;
@@ -133,11 +133,13 @@ if ( !class_exists('phpFlickr') ) {
 				$connection = realpath($connection);
 				$this->cache_dir = $connection;
 				if ($dir = opendir($this->cache_dir)) {
+          /*
 					while ($file = readdir($dir)) {
 						if (substr($file, -6) == '.cache' && ((filemtime($this->cache_dir . '/' . $file) + $cache_expire) < time()) ) {
 							unlink($this->cache_dir . '/' . $file);
 						}
 					}
+          */
 				}
 			} elseif ( $type == 'custom' ) {
 				$this->cache = "custom";
@@ -147,7 +149,7 @@ if ( !class_exists('phpFlickr') ) {
 			$this->cache_expire = $cache_expire;
 		}
 
-		function getCached ($request,$dir=false)
+		function getCached ($request,$dir=false,$is_expired=false)
 		{
 			//Checks the database or filesystem for a cached result to the request.
 			//If there is no cache result, it returns a value of false. If it finds one,
@@ -178,6 +180,7 @@ if ( !class_exists('phpFlickr') ) {
 					} else {
 						return implode('', file($file));
 					}
+          $is_expired = ((filemtime($this->cache_dir . '/' . $file) + $cache_expire) < time());
 				}
 			} elseif ( $this->cache == 'custom' ) {
 				return call_user_func_array($this->custom_cache_get, array($reqhash));
@@ -321,15 +324,62 @@ if ( !class_exists('phpFlickr') ) {
         touch ($this->log_dir."/".time());
       }   
     } 
-     	
+     
+    function doAPICall($args)
+    {
+      if (defined("SPOOF_API_FAIL") && SPOOF_API_FAIL === true)
+      {
+        echo "spoofing!";
+        $this->response = 'a:2:{s:6:"photos";a:5:{s:4:"page";i:1;s:5:"pages";i:0;s:7:"perpage";i:200;s:5:"total";N;s:5:"photo";a:0:{}}s:4:"stat";s:2:"ok";}';
+        return true;
+      }
+
+      $auth_sig = "";
+      foreach ($args as $key => $data)
+      {
+        if (is_null($data))
+        {
+          unset($args[$key]);
+          continue;
+        }
+        $auth_sig .= $key . $data;
+      }
+     
+      if (!empty($this->secret))
+      {
+        $api_sig = md5($this->secret . $auth_sig);
+        $args['api_sig'] = $api_sig;
+      }
+
+      // if the cache produces no results and we have not exceeded our API call limit, call the API
+      if ($this->log_limiting === false || $this->num_calls_during_last_hour() < $this->max_calls_per_hour)
+      {
+        $this->response = $this->post($args);
+        $this->log_call();
+        // if the API returns a useful result, cache it
+        if (strlen($this->response) > 200)
+        {
+          $this->cache($args, $this->response);
+          return true;
+        }
+      } 
+      return false;
+    }
+   
+    function isCacheExpires($args)
+    {
+      if (substr($file, -6) == '.cache' && ((filemtime($this->cache_dir . '/' . $file) + $cache_expire) < time()) ) {
+              unlink($this->cache_dir . '/' . $file);
+            }
+    }
+ 	
 		function request ($command, $args = array(), $nocache = false)
 		{
-			//Sends a request to Flickr's REST endpoint via POST.
 			if (substr($command,0,7) != "flickr.") {
 				$command = "flickr." . $command;
 			}
 
-			//Process arguments, including method and login data.
+			// Process arguments, including method and login data.
 			$args = array_merge(array("method" => $command, "format" => "php_serial", "api_key" => $this->api_key), $args);
 			if (!empty($this->token)) {
 				$args = array_merge($args, array("auth_token" => $this->token));
@@ -337,47 +387,34 @@ if ( !class_exists('phpFlickr') ) {
 				$args = array_merge($args, array("auth_token" => $_SESSION['phpFlickr_auth_token']));
 			}
 			ksort($args);
-			$auth_sig = "";
 			$this->last_request = $args;
 
-      // if safe mode is enabled, read only from the perm cache & do not call flickr API at all
+      // if safe mode is enabled, read from the perm cache & do not call flickr API at all
       if ($this->safe_mode && $this->perm_cache)
       {
         $this->response = $this->getPermCached($args);
       }
-      // try for any results stored in the regular cache
-			else if (!($this->response = $this->getCached($args)) || $nocache) {
-				foreach ($args as $key => $data) {
-					if ( is_null($data) ) {
-						unset($args[$key]);
-						continue;
-					}
-					$auth_sig .= $key . $data;
-				}
-				if (!empty($this->secret)) {
-					$api_sig = md5($this->secret . $auth_sig);
-					$args['api_sig'] = $api_sig;
-				}
 
-        // if the cache produces no results and we have not exceeded our API call limit, call the API
-        if ($this->log_limiting === false || $this->num_calls_during_last_hour() < $this->max_calls_per_hour)
-        { 
-				  $this->response = $this->post($args);
-          $this->log_call();
-          // if the API returns a useful result, cache it
-				  if (strlen($this->response) > 200) $this->cache($args, $this->response);
-        }
-        // if we have exceeded API call limit revert to the perm cache if possible
-        else if ($this->perm_cache)
-        {
-          $this->response = $this->getPermCached($args);
-        }
-			}
+      // is there a cached version?
+      $cache_expired = false;
+      $cached = $this->getCached($args,false,$cache_expired);
+
+      // if there is no cache, or the cache has expired call the API
+      if ((!$cached || $cache_expired || $nocache) && !$this->safe_mode)
+      {
+        $this->doAPICall($args);
+      }
+      
+      // if we have a valid unexpired cache or the API came back with no decent result use the cache
+      if ((strlen($this->response) < 200) && strlen($cached) > 200) $response = $cached;
 
       // if we still have no useful result use perm cache if possible
       if ((strlen($this->response) < 200) && $this->perm_cache)
       {
         $this->response = $this->getPermCached($args);
+        
+        //re-cache the response from the perm cache so we don't hit the API for another hour
+        if (strlen($this->response) > 200) $this->cache($args, $this->response);
       }
 
 			/*
