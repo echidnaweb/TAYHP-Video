@@ -8,7 +8,7 @@ define("TWITTER_MAX_RESULTS",100);
 define("TWITTER_URL", "http://search.twitter.com/search.json");
 define("TWITTER_CACHE_EXPIRY", 3600);
 define("FLICKR_PER_PAGE", 200);
-define("FLICKR_CACHE_EXPIRY", 3600);
+define("FLICKR_CACHE_EXPIRY", 86400);
 define("FLICKR_API_KEY", "b9f54a73e2502555f2f88cae4461e70f");
 define("FLICKR_LOG_DIR", getcwd()."/log/flickr");
 define("FLICKR_LOG_LIMIT", 100);

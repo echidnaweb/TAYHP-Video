@@ -54,8 +54,8 @@
                 "content_type": 1,
                 "sort": "relevance",
                 "safe_search" : 1
-              }]
-            }, 
+              }
+            ]}, 
             {
               "type": "flickr",
               "class": "cwtch",
@@ -94,6 +94,14 @@
               "safe_search" : 1
             },
             {
+              "comments": "https://soundcloud.com/collabdocs/ugandamarket-45secs",
+              "type": "soundcloud",
+              "class": "centred videohidden",
+              "start": 111,
+              "end": 116,
+              "trackid": "91426843"
+            },
+            {
               "type": "pause",
               "class": "centred videohidden",
               "duration": 40,
@@ -106,7 +114,7 @@
                   "interval": 5,
                   "duration": 5,
                   "targets": ["area1", "area2", "area3", "area4","area5", "area6"],
-                  "src": "Uganda AND politics OR Uganda"
+                  "src": "Uganda AND news"
                 },
                 {
                   "type": "changeClass",
@@ -175,21 +183,21 @@
                 "orientations": "pllppllp",
                 "ownername_target": "attrib",
                 "size": "medium",
-                "tags": "Uganda,streets",
+                "tags": "Kampala",
                 "content_type": 1,
                 "sort": "relevance",
                 "safe_search" : 1
               },
               {
                 "type": "code",
-                "delay": 0,
+                "delay": 60,
                 "duration": 0,
                 "startjs": "open_drawer()",
                 "endjs": ""
               },
               {
                 "type": "code",
-                 "delay": 60,
+                 "delay": 180,
                  "duration": 0,
                  "startjs": "self.location='/intro';",
                  "endjs": ""

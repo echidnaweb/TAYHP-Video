@@ -9,10 +9,18 @@
        "id": "Track0",
        "trackEvents": [
        {
+            "comments": "https://soundcloud.com/collabdocs/music5-46sec-normal-level",
+            "type": "soundcloud",
+            "class": "centred videohidden",
+            "start": 0.0001,
+            "end": 2,
+            "trackid": "91438971"
+       },
+       {
          "type": "pause",
          "class": "centred videohidden",
          "duration": 48,
-         "start": 0.0001,
+         "start": 0.0002,
          "pauseSubEvents": [
          {
            "type": "html",
@@ -59,6 +67,14 @@
          "type": "changeClass",
          "class": "fullscreen",
          "start": 1 
+       },
+       {
+          "comments": "https://soundcloud.com/collabdocs/music1-variation9",
+          "type": "soundcloud",
+          "class": "centred videohidden",
+          "start": 93,
+          "end": 98,
+          "trackid": "90257758"
        },
        {
          "type": "pause",
@@ -111,6 +127,14 @@
          }]
        },
        {
+          "comments": "https://soundcloud.com/collabdocs/music5-46sec-normal-level",
+          "type": "soundcloud",
+          "class": "centred videohidden",
+          "start": 272,
+          "end": 277,
+          "trackid": "91438971"
+       },
+       {
          "type": "pause",
          "class": "babble videohidden",
          "duration": 40,
@@ -132,6 +156,14 @@
            "delay": 40 
          }]
       },
+      {
+          "comments": "https://soundcloud.com/collabdocs/music4-ending-template",
+          "type": "soundcloud",
+          "class": "centred videohidden",
+          "start": 432,
+          "end": 437,
+          "trackid": "90257885"
+       },
       {
          "type": "pause",
          "class": "babble videohidden",
