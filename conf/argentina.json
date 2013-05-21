@@ -25,7 +25,7 @@
               "type": "pause",
               "class": "centred videohidden",
               "duration": 48,
-              "start": 46,
+              "start": 46.5,
               "pauseSubEvents": [
                 {
                   "type": "html",
@@ -74,7 +74,7 @@
             {
               "comments": "track title: MUSIC3 variation12a-46sec - 90257839",
               "type": "soundcloud",
-              "start": 214,
+              "start": 212,
               "end": 217,
               "trackid": "90257839"
             }, 
