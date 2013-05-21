@@ -332,7 +332,6 @@ if ( !class_exists('phpFlickr') ) {
         $this->response = 'a:2:{s:6:"photos";a:5:{s:4:"page";i:1;s:5:"pages";i:0;s:7:"perpage";i:200;s:5:"total";N;s:5:"photo";a:0:{}}s:4:"stat";s:2:"ok";}';
         return true;
       }
-
       $auth_sig = "";
       foreach ($args as $key => $data)
       {
