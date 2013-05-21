@@ -19,7 +19,7 @@
        {
          "type": "pause",
          "class": "centred videohidden",
-         "duration": 48,
+         "duration": 46,
          "start": 0.0002,
          "pauseSubEvents": [
          {
