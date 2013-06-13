@@ -48,6 +48,7 @@ class TwitterAPI
     $results = array();
     // if there is an entry in the cache retrieve it
     $results = $this->getCache()->getValue($qry);
+    print_r($results);
     // otherwise search the Twitter API
     if (!$results || count($results) == 0)
     {
@@ -62,19 +63,28 @@ class TwitterAPI
   private function doSearch($qry)
   {
     $results = array();
-    // Call the Twitter API (unauthenticated)
-    //+exclude:retweets
-    $json = file_get_contents(TWITTER_URL."?q=".urlencode($qry)."&include_rts=0&rpp=".TWITTER_MAX_RESULTS);
-    // Did it work?
+
+    $settings = array(
+    'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
+    'oauth_access_token_secret' => TWITTER_OAUTH_ACCESS_TOKEN_SECRET,
+    'consumer_key' => TWITTER_CONSUMER_KEY,
+    'consumer_secret' => TWITTER_CONSUMER_SECRET);
+
+    //$getfield = "?q=test&include_rts=0&rpp=".TWITTER_MAX_RESULTS;
+    $getfield = "?q=".rawurlencode($qry)."&include_rts=0&rpp=".TWITTER_MAX_RESULTS;    
+
+    $requestMethod = 'GET';
+    $twitter = new TwitterAPIExchange($settings);
+    $json = $twitter->setGetfield($getfield)
+             ->buildOauth(TWITTER_URL, $requestMethod)
+             ->performRequest();
+
     if (!$json) return array();
           
-    // Decode json to PHP array
     $returndata = json_decode($json, true);
-              
-    // Make a simple assoc array from the results
-    foreach ($returndata['results'] as $rawresult)
+    foreach ($returndata['statuses'] as $rawresult)
     {
-      $results[] = array( "from_user" => $rawresult['from_user'],
+      $results[] = array( "from_user" => "@".$rawresult['user']['screen_name'],
                          "text" => $rawresult['text'] );
     }
     return $results; 

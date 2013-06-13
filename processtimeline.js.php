@@ -4,8 +4,12 @@ ini_set('display_errors',1);
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 error_reporting(E_ALL);
 // Define Constants
+define("TWITTER_OAUTH_ACCESS_TOKEN", "7619782-TsSsAljCsbPfYCaaUN59ZNpZTgCfwcMDcIZiWCrX8k");
+define("TWITTER_OAUTH_ACCESS_TOKEN_SECRET", "ZzHsuO7ZrbjISonEoLZE2i1X6ErepHlnFdZ6MPU8bA");
+define("TWITTER_CONSUMER_KEY", "pdfFi9gSd9YfhCm0cUfQ");
+define("TWITTER_CONSUMER_SECRET", "Z6mr8PacBrdh6JwanSfEI2loIXYUNFPzrhHg2n8YpA");
 define("TWITTER_MAX_RESULTS",100);
-define("TWITTER_URL", "http://search.twitter.com/search.json");
+define("TWITTER_URL", "https://api.twitter.com/1.1/search/tweets.json");
 define("TWITTER_CACHE_EXPIRY", 3600);
 define("FLICKR_PER_PAGE", 200);
 define("FLICKR_CACHE_EXPIRY", 86400);
@@ -38,6 +42,7 @@ include ("class/ChangeClassEvent.class.php");
 include ("class/ChangeClassPauseEvent.class.php");
 include ("class/ExtDataCache.class.php");
 include ("lib/phpFlickr-3.1/phpFlickr.php");
+include ("lib/twitter-api-php/TwitterAPIExchange.php");
 
 if (isset($_GET['video']))
 {
