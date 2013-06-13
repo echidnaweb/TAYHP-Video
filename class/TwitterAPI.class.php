@@ -84,7 +84,7 @@ class TwitterAPI
     $returndata = json_decode($json, true);
     foreach ($returndata['statuses'] as $rawresult)
     {
-      $results[] = array( "from_user" => "@".$rawresult['user']['screen_name'],
+      $results[] = array( "from_user" => $rawresult['user']['screen_name'],
                          "text" => $rawresult['text'] );
     }
     return $results; 
