@@ -48,7 +48,6 @@ class TwitterAPI
     $results = array();
     // if there is an entry in the cache retrieve it
     $results = $this->getCache()->getValue($qry);
-    print_r($results);
     // otherwise search the Twitter API
     if (!$results || count($results) == 0)
     {
