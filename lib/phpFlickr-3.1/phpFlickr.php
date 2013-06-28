@@ -404,7 +404,7 @@ if ( !class_exists('phpFlickr') ) {
       }
       
       // if we have a valid unexpired cache or the API came back with no decent result use the cache
-      if ((strlen($this->response) < 200) && strlen($cached) > 200) $response = $cached;
+      if ((strlen($this->response) < 200) && strlen($cached) > 200) $this->response = $cached;
 
       // if we still have no useful result use perm cache if possible
       if ((strlen($this->response) < 200) && $this->perm_cache)
