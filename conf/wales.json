@@ -110,7 +110,7 @@
          "pauseSubEvents": [
          {
            "type": "code",
-           "delay": 0,
+           "delay": 60,
            "duration": 0,
            "startjs": "open_drawer()",
            "endjs": ""
