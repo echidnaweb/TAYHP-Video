@@ -7,9 +7,13 @@
           "name": "Track0",
           "trackEvents": [
           {
+              "type": "changeClass",
+              "class": "fullscreen",
+              "start": 0
+          },
+          {
             "comments": "https://soundcloud.com/collabdocs/ugandamarket-65secs-1",
             "type": "soundcloud",
-            "class": "centred videohidden",
             "start": 0.001,
             "end": 300,
             "trackid": "91435306"
@@ -54,56 +58,23 @@
                 "content_type": 1,
                 "sort": "relevance",
                 "safe_search" : 1
+              },
+              {
+                  "type": "changeClass",
+                  "class": "fullscreen",
+                  "delay": 48
               }
             ]}, 
             {
-              "type": "flickr",
-              "class": "cwtch",
-              "start": 1,
-              "end": 35,
-              "occurrences": 5,
-              "interval": 5,
-              "duration": 6,
-              "targets": ["area1","area2","area3","area4","area8","area7","area6"],
-              "orientations": "pllppllp",
-              "ownername_target": "attrib",
-              "size": "medium",
-              "tag_mode": "all",
-              "tags": "Kampala,Uganda",
-              "content_type": 1,
-              "sort": "relevance",
-              "safe_search" : 1
-            },
-            {
-              "notes": "Uganda,market",
-              "start": 53,
-              "end": 86,
-              "type": "flickr",
-              "class": "cwtch",
-              "occurrences": 6,
-              "interval": 5,
-              "duration": 6,
-              "targets": ["area1", "area2", "area3", "area4","area8", "area7", "area6", "area5"],
-              "orientations": "pllppllp",
-              "ownername_target": "attrib",
-              "size": "medium",
-              "tag_mode": "all",
-              "tags": "Uganda,market",
-              "content_type": 1,
-              "sort": "relevance",
-              "safe_search" : 1
-            },
-            {
               "comments": "https://soundcloud.com/collabdocs/ugandamarket-45secs",
               "type": "soundcloud",
-              "class": "centred videohidden",
               "start": 111,
               "end": 116,
               "trackid": "91426843"
             },
             {
               "type": "pause",
-              "class": "centred videohidden",
+              "class": "babble videohidden",
               "duration": 40,
               "start": 114,
               "pauseSubEvents": [
@@ -118,51 +89,14 @@
                 },
                 {
                   "type": "changeClass",
-                  "class": "cwtch",
+                  "class": "fullscreen",
                   "delay": 41 
                 }
               ]
             },
             {
-              "start": 178,
-              "end": 201,
-              "type": "flickr",
-              "class": "cwtch",
-              "occurrences": 4,
-              "interval": 5,
-              "duration": 6,
-              "targets": ["area1", "area2", "area3", "area4","area8", "area7", "area6", "area5"],
-              "orientations": "pllppllp",
-              "ownername_target": "attrib",
-              "size": "medium",
-              "tags": "Kampala",
-              "tag_mode": "all",
-              "content_type": 1,
-              "sort": "relevance",
-              "safe_search" : 1
-            },
-            {
-              "start": 265,
-              "end": 280,
-              "type": "flickr",
-              "class": "cwtch",
-              "occurrences": 3,
-              "interval": 5,
-              "duration": 6,
-              "targets": ["area1", "area2", "area3", "area4","area5", "area6", "area7", "area8"],
-              "orientations": "pllppllp",
-              "ownername_target": "attrib",
-              "size": "medium",
-              "tags": "Kampala",
-              "tag_mode": "all",
-              "content_type": 1,
-              "sort": "relevance",
-              "safe_search" : 1
-            },
-            {
               "comments": "https://soundcloud.com/collabdocs/ugandamarket-65secs-1",
               "type": "soundcloud",
-              "class": "centred videohidden",
               "start": 290,
               "end": 300,
               "trackid": "91435306"
@@ -170,7 +104,7 @@
             {
               "type": "pause",
               "comments": "infinite pause",
-              "class": "flickrbabble videohidden",
+              "class": "babble videohidden",
               "duration": 60,
               "start":292,
               "pauseSubEvents": [
