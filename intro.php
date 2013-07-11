@@ -26,7 +26,7 @@
 
 <link rel="pingback" href="http://theareyouhappyproject.org/xmlrpc.php" />
 
-<script src="http://jquery-repository.googlecode.com/files/jquery-1.7.1.js"></script>
+<script src="http://theareyouhappyproject.org/wp-content/themes/starkers/js/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="http://theareyouhappyproject.org/wp-content/themes/starkers/js/introscript.js.php"></script>
 <!--[if lt IE 7]>
 	<script type="text/javascript" src="http://theareyouhappyproject.org/wp-content/themes/starkers/js/unitpngfix/unitpngfix.js"></script>
@@ -114,6 +114,9 @@ sub {
 <script src="js/popcorn-complete.js"></script>
 <script src="js/tayhpvideo.js"></script>
 <!--<script>document.addEventListener( "DOMContentLoaded",init_popcorn,false);</script>-->
+<?php if (isset($_GET['video'])) { ?>
+<script> window.onload=function(){ load_video('<?php echo $_GET['video']?>'); };</script>
+<? } ?>
 </head>
 
 <body class="page page-id-618 page-template-default" id="intro">
@@ -210,6 +213,7 @@ sub {
     <div id="video"></div>
   </div>
   <div id="audio"></div>
+  <div id="compat"></div>
   <div id="attrib"></div>
   <div id="thumbdrawer">
     <div id="thumbtab">Choose a video</div>
