@@ -4,10 +4,18 @@ ini_set('display_errors',1);
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 error_reporting(E_ALL);
 // Define Constants
+/*
 define("TWITTER_OAUTH_ACCESS_TOKEN", "7619782-TsSsAljCsbPfYCaaUN59ZNpZTgCfwcMDcIZiWCrX8k");
 define("TWITTER_OAUTH_ACCESS_TOKEN_SECRET", "ZzHsuO7ZrbjISonEoLZE2i1X6ErepHlnFdZ6MPU8bA");
 define("TWITTER_CONSUMER_KEY", "pdfFi9gSd9YfhCm0cUfQ");
 define("TWITTER_CONSUMER_SECRET", "Z6mr8PacBrdh6JwanSfEI2loIXYUNFPzrhHg2n8YpA");
+*/
+
+define("TWITTER_OAUTH_ACCESS_TOKEN", "77024507-sI2xw9y9AquC30CJSmEkOSST5nUQ3k9aJfvw0iCw");
+define("TWITTER_OAUTH_ACCESS_TOKEN_SECRET", "LIHmNG2SM72r3UC8u18wiZ4EjBQsji0THxSAYBq7fYw");
+define("TWITTER_CONSUMER_KEY", "h6MWYLSb0OJPyDTedqjpA");
+define("TWITTER_CONSUMER_SECRET", "tmLIWSDzvYRmvbCg7iANcC9ycRmS3WvqUuEEz1LwYKA");
+
 define("TWITTER_MAX_RESULTS",100);
 define("TWITTER_URL", "https://api.twitter.com/1.1/search/tweets.json");
 define("TWITTER_CACHE_EXPIRY", 3600);
