@@ -75,7 +75,7 @@ function load_video(id)
 
   close_drawer();
 
-  if (window.compat < 1)
+  if ((window.compat < 1)||(typeof window.compat === 'undefined'))
   {
     $.getScript("videos/processtimeline.js.php?video="+id+"&ts="+new Date().getTime())
       .done(function(script, textStatus) {
