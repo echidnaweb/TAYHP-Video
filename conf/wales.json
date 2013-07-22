@@ -154,7 +154,7 @@
          },
          {
            "type": "code",
-           "delay": 180,
+           "delay": 170,
            "duration": 0,
            "startjs": "self.location='/intro';",
            "endjs": ""

@@ -97,7 +97,7 @@
             {
               "comments": "https://soundcloud.com/collabdocs/ugandamarket-65secs-1",
               "type": "soundcloud",
-              "start": 290,
+              "start": 280,
               "end": 300,
               "trackid": "91435306"
             },
@@ -126,14 +126,14 @@
               },
               {
                 "type": "code",
-                "delay": 10,
+                "delay": 20,
                 "duration": 0,
                 "startjs": "open_drawer()",
                 "endjs": ""
               },
               {
                 "type": "code",
-                 "delay": 60,
+                 "delay": 50,
                  "duration": 0,
                  "startjs": "self.location='/intro';",
                  "endjs": ""
