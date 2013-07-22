@@ -243,7 +243,7 @@ body.babble #area1 {
   left: 0;
   font-size: 1.8em;
   font-family: 'Nixie One', cursive;
-  width: 600px;
+  width: 600px
 }
 
 body.babble #area2 {
@@ -258,7 +258,7 @@ body.babble #area2 {
 
 body.babble #area3 {
   position: absolute;
-  top: 350px;
+  top: 250px; /* was 350px */
   left: 50px;
   font-size: 2em;
   font-family: 'Abril Fatface', cursive;
@@ -278,7 +278,7 @@ body.babble #area4 {
 
 body.babble #area5 {
   position: absolute;
-  top: 300px;
+  top: 225px;
   right: 0px;
   text-align: right;
   font-size: 2em;
@@ -321,77 +321,48 @@ body.flickrbabble #area1 {
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 1.8em;
-  font-family: 'Nixie One', cursive;
-  width: 600px;
 }
 
 body.flickrbabble #area2 {
   position: absolute;
   top: 140px;
   left: 250px;
-  text-align: justify;
-  font-size: 2em;
-  font-family: 'PT Sans', sans-serif;
-  width: 400px;
 }
 
 body.flickrbabble #area3 {
   position: absolute;
   top: 200px;
   left: 50px;
-  font-size: 2em;
-  font-family: 'Abril Fatface', cursive;
-  width: 400px;
 }
 
 body.flickrbabble #area4 {
   position: absolute;
   top: 0;
   right: 20px;
-  text-align: right;
-  font-size: 1.8em;
-  font-family: 'Special Elite', cursive;
-  width: 600px;
-
 }
 
 body.flickrbabble #area5 {
   position: absolute;
   top: 80px;
   right: 0px;
-  text-align: right;
-  font-size: 2em;
-  font-family: 'Nixie One', cursive;
-  width: 300px;
 }
 
 body.flickrbabble #area6 {
   position: absolute;
   top: 160px;
   left: 350px;
-  font-size: 1.8em;
-  font-family: 'PT Sans', sans-serif;
-  width: 400px;
 }
 
 body.flickrbabble #area7 {
   position: absolute;
   top: 50px;
   right: 200px;
-  text-align: right;
-  font-size: 2em;
-  font-family: 'Nixie One', cursive;
-  width: 300px;
 }
 
 body.flickrbabble #area8 {
   position: absolute;
   top: 70px;
   left: 0px;
-  font-size: 1.8em;
-  font-family: 'Special Elite', cursive;
-  width: 400px;
 }
 
 /* cwtch */
