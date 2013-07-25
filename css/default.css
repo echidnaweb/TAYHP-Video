@@ -86,8 +86,13 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 
 #attrib { 
           position: absolute;
+          /* move back after capture, and put tag back  */
+          /*
           bottom: 6px;
           left: 10px;
+          */
+          bottom: 50px;
+          left: 20px;
           z-index: 25;
           font-size: 1.2em;
         }
