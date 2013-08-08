@@ -91,14 +91,14 @@ function load_video(id)
 function load_plain_video(id)
 {
   var vid_id = {
-    argentina: 0,
-    jharkhand: 0, 
-    maharashtra: 0,
-    mongolia: 0,
-    peru: 0,
-    tasmania: 69243208,
-    uganda: 0,
-    wales: 0 
+    argentina: 71726402,
+    jharkhand: 71726403, 
+    maharashtra: 71726404,
+    mongolia: 71726405,
+    peru: 71726401,
+    tasmania: 71765708,
+    uganda: 71765710,
+    wales: 71765709 
   };
 
   //alert('launching plain '+vid_id[id]);
