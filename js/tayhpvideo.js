@@ -41,11 +41,11 @@ function set_compat(val)
 
   if (val > 0)
   {
-    $('#compat').html("<a href=\"javascript:set_compat(0)\">switch to full version</a>");
+    $('#compat').html("<a href=\"javascript:set_compat(0)\">Switch to realtime version</a>");
   }
   else
   {
-    $('#compat').html("<a href=\"javascript:set_compat(1)\">not working? - try compatibility mode</a>");
+    $('#compat').html("<a href=\"javascript:set_compat(1)\" title=\"Watch a version we captured earlier - for slower internet connections and IE users\">Not working?</a>");
   }
 
   if ($("#video iframe").length) load_video(window.curvideo); 

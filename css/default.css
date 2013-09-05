@@ -72,29 +72,26 @@ body.fullscreen #video object, body.fullscreen #video iframe { margin: auto; pad
 }
 
 #compat {
-    font-size: 12px;
-    color: #fff;
+    font-size: 16px;
+    color: #ccc;
     position: absolute;
-    bottom: 5px;
-    left: 10px;
+    bottom: 20px;
+    right: 20px;
     z-index: 20;
 }
+
+#compat a { color: #fff; font-weight: normal }
 
 #audio iframe { display: none }
 
 .target > * { display: none }
 
 #attrib { 
-          position: absolute;
-          /* move back after capture, and put tag back  */
-          /*
-          bottom: 6px;
-          left: 10px;
-          */
-          bottom: 50px;
+          position: fixed;
+          bottom: 20px;
           left: 20px;
           z-index: 25;
-          font-size: 1.2em;
+          font-size: 16px;
         }
 
 /* carousel / slider */
