@@ -60,18 +60,31 @@ function load_video(id)
   $('[id^=fd-]').css('display','none');
   $("#fd-"+id).css('display','inline');
   $("#video").html("<img style=\"display: block; margin: 200px auto\" src=\"http://theareyouhappyproject.org/wp-content/themes/starkers/images/intro-assets/ajax-loader.gif\" alt=\"video loading\" width=\"32\" height=\"32\" />");
+
   if (typeof intro_event_timer != "undefined")
   {
+    //alert(intro_event_timer);
     for (var i = 0; i < intro_event_timer.length; i++)
     {
+      //alert("-->"+intro_event_timer[i]);
       clearTimeout(intro_event_timer[i]);
     }
   }
 
+  if (typeof pause_event_timer != "undefined")
+  {
+    //alert(pause_event_timer);
+    for (var i = 0; i < pause_event_timer.length; i++)
+    {
+      clearTimeout(pause_event_timer[i]);
+    }
+  }
+
   //these lines causing 'Uncaught Error: NotFoundError: DOM Exception 8' error in Chrome with video-specific url
-  if ($('#container2').length) { $('#container2').remove(); }
-  if ($('#audio *').length) { $('#audio *').remove(); }
-  if ($('.target').length) { $('.target').empty(); }
+
+  if ($('#container2').length) { $('#container2').attr("src", " "); $('#container2').remove(); }
+  if ($('#audio *').length) { $('#audio *').attr("src", " "); $('#audio *').remove(); }
+  if ($('.target').length) { $('.target').attr("src", " "); $('.target').empty(); }
 
   close_drawer();
 
@@ -90,6 +103,7 @@ function load_video(id)
 
 function load_plain_video(id)
 {
+  $('body').attr('class','fullscreen');
   var vid_id = {
     argentina: 71726402,
     jharkhand: 71726403, 
@@ -102,8 +116,7 @@ function load_plain_video(id)
   };
 
   //alert('launching plain '+vid_id[id]);
-  
-  $('#video').html('<iframe src="http://player.vimeo.com/video/'+vid_id[id]+'?autoplay=1" width="800" height="400" frameborder="0"></iframe>');
+  $('#video').delay(3000).html('<iframe src="http://player.vimeo.com/video/'+vid_id[id]+'?autoplay=1" width="800" height="400" frameborder="0"></iframe>');
   $('[id^=fd-]').delay(2400).fadeOut(800); 
 
 }
