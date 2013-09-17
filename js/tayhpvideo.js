@@ -90,7 +90,7 @@ function load_video(id)
 
   if ((window.compat < 1)||(typeof window.compat === 'undefined'))
   {
-    $.getScript("videos/processtimeline.js.php?video="+id+"&ts="+new Date().getTime())
+    $.getScript("/videos/processtimeline.js.php?video="+id+"&ts="+new Date().getTime())
       .done(function(script, textStatus) {
         init_popcorn();
       })
